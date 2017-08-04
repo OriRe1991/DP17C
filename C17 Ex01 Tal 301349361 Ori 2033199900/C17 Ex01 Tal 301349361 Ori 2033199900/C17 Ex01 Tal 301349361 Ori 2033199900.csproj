@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="AppLogic\Features\IAppFeature.cs" />
     <Compile Include="AppLogic\iLogicInterface.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="DataSystem\IDataUsable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
