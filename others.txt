@@ -1,0 +1,4 @@
+Desg patter credentials:
+
+USER:design.patterns
+PASSWORD:design.patternsss
