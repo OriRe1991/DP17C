@@ -58,13 +58,17 @@
     <Compile Include="AppForm.Designer.cs">
       <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppLogic\ApplicationLogic.cs" />
     <Compile Include="AppLogic\Features\IAppFeature.cs" />
-    <Compile Include="AppLogic\iLogicInterface.cs" />
+    <Compile Include="AppLogic\ILogicInterface.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="DataSystem\IDataUsable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SocialNet\IDataSociable.cs" />
+    <EmbeddedResource Include="AppForm.resx">
+      <DependentUpon>AppForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
