@@ -34,13 +34,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
             foreach (var photo in taggedPhotos)
             {
-                List<UserData> friendsInPhotos = null;
+                List<EntityData> friendsInPhotos = null;
                 if (photo.Tags != null && photo.Tags.Count > 0)
                 {
-                    friendsInPhotos = new List<UserData>();
+                    friendsInPhotos = new List<EntityData>();
                     foreach (var tag in photo.Tags)
                     {
-                        friendsInPhotos.Add(new UserData
+                        friendsInPhotos.Add(new EntityData
                         {
                             UserId = tag.User.Id,
                             FullName = tag.User.Name,

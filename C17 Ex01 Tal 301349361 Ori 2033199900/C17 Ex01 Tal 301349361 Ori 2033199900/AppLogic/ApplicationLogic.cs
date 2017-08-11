@@ -29,14 +29,14 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             m_UserSocialData.LogIn();
         }
 
-        public UserData GetUserData()
+        public EntityData GetUserData()
         {
             if (m_UserSocialData == null)
             {
                 throw new Exception("not Loged On");
             }
 
-            UserData retVal = new UserData();
+            EntityData retVal = new EntityData();
 
             retVal.FullName = m_UserSocialData.GetFullName();
             retVal.ProfilePictureUrl = m_UserSocialData.GetProfilePictureUrl();
@@ -55,7 +55,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             return AlbomDataManager.GetAlbumsData(i_NumberOfAlbums);
         }
 
-        public Dictionary<string, UserData> GetTaggedFriends()
+        public Dictionary<string, EntityData> GetTaggedFriends()
         {
             return AlbomDataManager.GetTaggedFriendsNameList();
         }

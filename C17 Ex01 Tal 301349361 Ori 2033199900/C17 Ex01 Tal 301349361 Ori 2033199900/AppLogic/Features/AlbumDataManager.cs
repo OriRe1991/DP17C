@@ -9,7 +9,30 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
     internal class AlbumDataManager
     {
         private IDataSociable m_SocialData = null;
-        private Dictionary<string, int> friendsTaggedCount = null;
+        private Dictionary<string, int> m_FriendsTaggedCount = null;
+        private Dictionary<string, int> FriendsTaggedCount {
+            get
+            {
+                if (m_FriendsTaggedCount == null)
+                {
+                    m_FriendsTaggedCount = new Dictionary<string, int>();
+
+                    foreach (var photo in TaggedFriends)
+                    {
+                        foreach (var friend in photo.FriendsInPhotos)
+                        {
+                            if (!m_FriendsTaggedCount.ContainsKey(friend.UserId))
+                            {
+                                m_FriendsTaggedCount[friend.UserId] = 0;
+                            }
+
+                            m_FriendsTaggedCount[friend.UserId]++;
+                        }
+                    }
+                }
+                return m_FriendsTaggedCount;
+            }
+        }
 
         private List<SocialPhotoData> m_TaggedFriends = null;
         private List<SocialPhotoData> TaggedFriends
@@ -49,29 +72,19 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             return retVal;
         }
 
-        public Dictionary<string, int> GetMostTaggedFriends()
+        public Dictionary<string, int> GetMostTaggedFriends(int i_NumberOfFriends)
         {
-            Dictionary<string, int> friendsTaggedCount = new Dictionary<string, int>();
-
-            foreach (var photo in TaggedFriends)
+            var mostTagged = FriendsTaggedCount.OrderBy(kvp => kvp.Value).Take(i_NumberOfFriends).ToList();
+            foreach (var friend in FriendsTaggedCount)
             {
-                foreach (var friend in photo.FriendsInPhotos)
-                {
-                    if (!friendsTaggedCount.ContainsKey(friend.UserId))
-                    {
-                        friendsTaggedCount[friend.UserId] = 0;
-                    }
 
-                    friendsTaggedCount[friend.UserId]++;
-                }
             }
-
-            return friendsTaggedCount;
+            return FriendsTaggedCount;
         }
 
-        public Dictionary<string, UserData> GetTaggedFriendsNameList()
+        public Dictionary<string, EntityData> GetTaggedFriendsNameList()
         {
-            Dictionary<string, UserData> retVal = new Dictionary<string, UserData>();
+            Dictionary<string, EntityData> retVal = new Dictionary<string, EntityData>();
 
             foreach (var photo in TaggedFriends)
             {

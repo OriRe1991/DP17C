@@ -5,7 +5,7 @@ using System.Text;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 {
-    public class UserData
+    public class EntityData
     {
         public string UserId { get; set; }
         public string FullName { get; set; }
