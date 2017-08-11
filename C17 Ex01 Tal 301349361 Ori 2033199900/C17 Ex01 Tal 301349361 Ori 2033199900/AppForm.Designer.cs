@@ -38,7 +38,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.ProfileNameLable = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCreateAlbum = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -91,9 +91,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.71225F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.28775F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 323F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(95, 314);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -107,21 +107,25 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.buttonCreateAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateAlbum.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCreateAlbum.Location = new System.Drawing.Point(178, 3);
+            this.buttonCreateAlbum.Location = new System.Drawing.Point(177, 3);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
             this.buttonCreateAlbum.Size = new System.Drawing.Size(164, 39);
             this.buttonCreateAlbum.TabIndex = 0;
             this.buttonCreateAlbum.Text = "CreateAlbum";
             this.buttonCreateAlbum.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // button1
             // 
-            this.button2.Location = new System.Drawing.Point(348, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 39);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.Location = new System.Drawing.Point(347, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 39);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Who\'s my BFF";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -166,6 +170,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.labelPictureBox1.Name = "labelPictureBox1";
             this.labelPictureBox1.Size = new System.Drawing.Size(0, 13);
             this.labelPictureBox1.TabIndex = 14;
+            this.labelPictureBox1.Click += new System.EventHandler(this.labelPictureBox1_Click);
             // 
             // labelPictureBox2
             // 
@@ -213,7 +218,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "AppForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.AppForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePic)).EndInit();
@@ -234,7 +238,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private System.Windows.Forms.Label ProfileNameLable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonCreateAlbum;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -243,6 +246,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private System.Windows.Forms.Label labelPictureBox2;
         private System.Windows.Forms.Label labelPictureBox4;
         private System.Windows.Forms.Label labelPictureBox3;
+        private System.Windows.Forms.Button button1;
     }
 }
 

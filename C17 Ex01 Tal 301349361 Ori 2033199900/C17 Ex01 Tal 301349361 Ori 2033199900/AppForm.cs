@@ -16,14 +16,20 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
     {
         private ILogicInterface m_LogicApp;
         private List<PictureBox> m_ViewedAlbumCovers;
+        private List<Label> m_ViewedAlbumCoversLabels;
         public AppForm()
         {
             m_ViewedAlbumCovers = new List<PictureBox>();
+            m_ViewedAlbumCoversLabels = new List<Label>();
             InitializeComponent();
             m_ViewedAlbumCovers.Add(pictureBox1);
             m_ViewedAlbumCovers.Add(pictureBox2);
             m_ViewedAlbumCovers.Add(pictureBox3);
             m_ViewedAlbumCovers.Add(pictureBox4);
+            m_ViewedAlbumCoversLabels.Add(labelPictureBox1);
+            m_ViewedAlbumCoversLabels.Add(labelPictureBox2);
+            m_ViewedAlbumCoversLabels.Add(labelPictureBox3);
+            m_ViewedAlbumCoversLabels.Add(labelPictureBox4);
 
             // TODO:
             //////////////////////////////////////////////////////////////
@@ -47,14 +53,14 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             foreach (var viewedAlbumData in viewedAlbumsData)
             {
                 m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl);
+                m_ViewedAlbumCoversLabels[albumIdx].Text = viewedAlbumData.AlbomName;
                 albumIdx++;
             }
         }
 
-        private void AppForm_Load(object sender, EventArgs e)
+        private void labelPictureBox1_Click(object sender, EventArgs e)
         {
-            
-        }
 
+        }
     }
 }
