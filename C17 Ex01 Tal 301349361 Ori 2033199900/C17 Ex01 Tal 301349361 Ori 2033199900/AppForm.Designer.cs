@@ -1,9 +1,6 @@
-﻿using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
-using System.Collections.Generic;
-
-namespace C17_Ex01_Tal_301349361_Ori_2033199900
+﻿namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
-    partial class AppForm
+    internal partial class AppForm
     {
         /// <summary>
         /// Required designer variable.
@@ -20,6 +17,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -170,7 +168,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.labelPictureBox1.Name = "labelPictureBox1";
             this.labelPictureBox1.Size = new System.Drawing.Size(0, 13);
             this.labelPictureBox1.TabIndex = 14;
-            this.labelPictureBox1.Click += new System.EventHandler(this.labelPictureBox1_Click);
             // 
             // labelPictureBox2
             // 
@@ -250,4 +247,3 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private System.Windows.Forms.Button button1;
     }
 }
-

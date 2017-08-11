@@ -1,5 +1,4 @@
-﻿using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,12 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
     public partial class FormLogin : Form
     {
         private ILogicInterface m_AppLogic;
+
         public FormLogin(ILogicInterface i_LogicApp)
         {
             m_AppLogic = i_LogicApp;

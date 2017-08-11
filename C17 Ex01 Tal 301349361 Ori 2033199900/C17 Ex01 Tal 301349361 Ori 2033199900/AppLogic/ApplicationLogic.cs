@@ -7,11 +7,12 @@ using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 {
-    class ApplicationLogic : ILogicInterface
+    public class ApplicationLogic : ILogicInterface
     {
         public bool RememberMe { get; set; }
 
         private IDataSociable m_UserSocialData;
+
         private IDataSociable UserSocialData
         {
             get
@@ -24,8 +25,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
                 return m_UserSocialData;
             }
         }
-        private AlbumDataManager m_AlbomDataManager;
-        public AlbumDataManager AlbomDataManager
+
+        private AlbumDataManager m_AlbomDataManager = null;
+
+        private AlbumDataManager AlbomDataManager
         {
             get
             {
@@ -65,11 +68,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             return AlbomDataManager.GetTaggedFriendsNameList();
         }
 
-        public void CreateAlbumWithFriend(params string[] i_UserIds)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool IsConnected()
         {
             return m_UserSocialData.IsLogedOn();
@@ -78,6 +76,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
         public void LogOutUser(Action i_PostLogOutAction)
         {
             m_UserSocialData.LogOut(i_PostLogOutAction);
+        }
+
+        public void CreateAlbumWithFriend(params string[] i_UserIds)
+        {
+            AlbomDataManager.CreateNewAlbum(i_UserIds);
         }
     }
 }

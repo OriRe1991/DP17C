@@ -1,19 +1,31 @@
-﻿using C17_Ex01_Tal_301349361_Ori_2033199900.FilelSystem;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using C17_Ex01_Tal_301349361_Ori_2033199900.FilelSystem;
+using FacebookWrapper.ObjectModel;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
 {
     public class UserData : IDataUsable
     {
         public string m_UserAccessToken { get; set; }
+
         public Location m_WindowStart { get; set; }
+
         private static string s_UserDataFilePath = Environment.CurrentDirectory + @"\UserData.txt";
+
+        public static UserData LoadUserDataFromJson()
+        {
+            using (FileStream fileStream = new FileStream(s_UserDataFilePath, FileMode.Open))
+            {
+                DataContractJsonSerializer serilizer = new DataContractJsonSerializer(typeof(UserData));
+                UserData retVal = new UserData();
+                return retVal = (UserData)serilizer.ReadObject(fileStream);
+            }
+        }
 
         public void saveUserDataToJson()
         {
@@ -23,7 +35,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
             {
                 fileMode = FileMode.Truncate;
             }
-
             else
             {
                 fileMode = FileMode.OpenOrCreate;
@@ -33,16 +44,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
             {
                 DataContractJsonSerializer serilizer = new DataContractJsonSerializer(typeof(UserData));
                 serilizer.WriteObject(fileStream, this);
-            }
-        }
-
-        public static UserData LoadUserDataFromJson()
-        {
-            using (FileStream fileStream = new FileStream(s_UserDataFilePath, FileMode.Open))
-            {
-                DataContractJsonSerializer serilizer = new DataContractJsonSerializer(typeof(UserData));
-                UserData retVal = new UserData();
-                return retVal = (UserData)serilizer.ReadObject(fileStream);
             }
         }
     }

@@ -1,8 +1,8 @@
-﻿using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
 {
@@ -10,31 +10,37 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
     {
         private IDataSociable m_SocialData = null;
         private Dictionary<string, int> m_FriendsTaggedCount = null;
-        private Dictionary<string, int> FriendsTaggedCount {
+
+        private Dictionary<string, int> FriendsTaggedCount
+        {
             get
             {
                 if (m_FriendsTaggedCount == null)
                 {
-                    m_FriendsTaggedCount = new Dictionary<string, int>();
-
-                    foreach (var photo in TaggedFriends)
-                    {
-                        foreach (var friend in photo.FriendsInPhotos)
-                        {
-                            if (!m_FriendsTaggedCount.ContainsKey(friend.UserId))
-                            {
-                                m_FriendsTaggedCount[friend.UserId] = 0;
-                            }
-
-                            m_FriendsTaggedCount[friend.UserId]++;
-                        }
-                    }
+                    inittaggedFriendsData();
                 }
+
                 return m_FriendsTaggedCount;
             }
         }
 
+        private Dictionary<string, EntityData> m_FriendsTaggedData = null;
+
+        private Dictionary<string, EntityData> FriendsTaggedData
+        {
+            get
+            {
+                if (m_FriendsTaggedData == null)
+                {
+                    inittaggedFriendsData();
+                }
+
+                return m_FriendsTaggedData;
+            }
+        }
+
         private List<SocialPhotoData> m_TaggedFriends = null;
+
         private List<SocialPhotoData> TaggedFriends
         {
             get
@@ -63,6 +69,30 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             m_SocialData = i_SocialData;
         }
 
+        private void inittaggedFriendsData()
+        {
+            m_FriendsTaggedCount = new Dictionary<string, int>();
+            m_FriendsTaggedData = new Dictionary<string, EntityData>();
+
+            foreach (var photo in TaggedFriends)
+            {
+                foreach (var friend in photo.FriendsInPhotos)
+                {
+                    if (!m_FriendsTaggedCount.ContainsKey(friend.UserId))
+                    {
+                        m_FriendsTaggedCount[friend.UserId] = 0;
+                    }
+
+                    if (!m_FriendsTaggedData.ContainsKey(friend.UserId))
+                    {
+                        m_FriendsTaggedData[friend.UserId] = friend;
+                    }
+
+                    m_FriendsTaggedCount[friend.UserId]++;
+                }
+            }
+        }
+
         public List<AlbumData> GetAlbumsData(int i_NumberOfAlbums)
         {
             List<AlbumData> retVal = null;
@@ -72,14 +102,16 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             return retVal;
         }
 
-        public Dictionary<string, int> GetMostTaggedFriends(int i_NumberOfFriends)
+        public Dictionary<int, EntityData> GetMostTaggedFriends(int i_NumberOfFriends)
         {
+            Dictionary<int, EntityData> retVal = new Dictionary<int, EntityData>();
             var mostTagged = FriendsTaggedCount.OrderBy(kvp => kvp.Value).Take(i_NumberOfFriends).ToList();
             foreach (var friend in FriendsTaggedCount)
             {
-
+                retVal[friend.Value] = FriendsTaggedData[friend.Key];
             }
-            return FriendsTaggedCount;
+
+            return retVal;
         }
 
         public Dictionary<string, EntityData> GetTaggedFriendsNameList()
@@ -98,17 +130,28 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
                         }
                     }
                 }
-
             }
 
             return retVal;
         }
 
-        public string CreateNewAlbum(string i_FriendUserId, string i_FrindName)
+        public string CreateNewAlbum(params string[] i_FrindName)
         {
-            string albumName = string.Format("{0} And {1}", m_SocialData.GetFirstName(), i_FrindName);
-            string albumDescription = string.Format("{0}, Photos.", albumName);
-            return m_SocialData.CreateAlbum(albumName, albumDescription);
+            if (i_FrindName != null && i_FrindName.Length > 0)
+            {
+                StringBuilder albumName = new StringBuilder(string.Format("{0} And ", m_SocialData.GetFirstName()));
+                foreach (var friend in i_FrindName)
+                {
+                    albumName.Append(friend);
+                }
+
+                string albumDescription = string.Format("{0}, Photos.", albumName);
+                return m_SocialData.CreateAlbum(albumName.ToString(), albumDescription);
+            }
+            else
+            {
+                throw new Exception("Try to Create Friends Album with no friends");
+            }
         }
     }
 }

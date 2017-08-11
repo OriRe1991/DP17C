@@ -1,9 +1,9 @@
-﻿using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FacebookWrapper;
+using FacebookWrapper.ObjectModel;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 {
@@ -19,12 +19,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public List<SocialPhotoData> GetPhotos()
         {
             List<SocialPhotoData> retVal = null;
-            // temporery incress the collection size to 150
+            //// temporery incress the collection size to 150
             FacebookService.s_CollectionLimit = 150;
 
             var taggedPhotos = m_LoggedInUser.PhotosTaggedIn.ToList();
 
-            // return the collection size to 25 
+            //// return the collection size to 25 
             FacebookService.s_CollectionLimit = 25;
 
             foreach (var photo in taggedPhotos)
@@ -41,8 +41,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                             FullName = tag.User.Name,
                             ProfilePictureUrl = tag.User.PictureLargeURL
                         });
-
                     }
+
                     retVal.Add(new SocialPhotoData
                     {
                         FriendsInPhotos = friendsInPhotos,
@@ -64,7 +64,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             LoginResult result = null;
             if (i_SocialToken != null)
             {
-                try {
+                try
+                {
                     result = FacebookService.Connect(i_SocialToken);
                 }
                 catch
@@ -75,9 +76,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
             if (result == null || string.IsNullOrEmpty(result.AccessToken))
             {
-                try {
-                    result = FacebookService.Login("1955252128038346",
-                            // TODO: remove unused credential
+                try
+                {
+                    result = FacebookService.Login(
+                            "1955252128038346",
+                            //// TODO: remove unused credential
                             //////////////////////////////////////////////////////////////////
                             "public_profile",
                             "user_education_history",
@@ -118,7 +121,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                     throw new Exception(string.Format("Unable to connect to Facebook at the moment, more info: {0}{1}", Environment.NewLine, e.Message));
                 }
             }
-
 
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
@@ -162,7 +164,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public void CreatePostNewAlbumWithFriendsName(string i_PostText, string i_PostPictureUrl, string[] i_TaggedUserIDs)
         {
             StringBuilder tagedUserIdBuilder = null;
-            if (i_TaggedUserIDs != null && i_TaggedUserIDs.Length > 0) {
+            if (i_TaggedUserIDs != null && i_TaggedUserIDs.Length > 0)
+            {
                 tagedUserIdBuilder = new StringBuilder();
                 foreach (string userId in i_TaggedUserIDs)
                 {
@@ -175,12 +178,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                 }
             }
 
-            m_LoggedInUser.PostStatus
-                (
-                    i_StatusText: i_PostText,
-                    i_PictureURL: i_PostPictureUrl,
-                    i_TaggedFriendIDs: (tagedUserIdBuilder != null) ? tagedUserIdBuilder.ToString() : null
-                );
+            string taggedFriends = (tagedUserIdBuilder != null) ? tagedUserIdBuilder.ToString() : null;
+            m_LoggedInUser.PostStatus(i_StatusText: i_PostText, i_PictureURL: i_PostPictureUrl, i_TaggedFriendIDs: taggedFriends);
         }
 
         public string GetFirstName()
@@ -213,5 +212,4 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             FacebookService.Logout(i_PostLogOutAction);
         }
     }
-
 }
