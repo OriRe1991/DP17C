@@ -9,11 +9,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
     {
         void LogIn();
         string GetFullName();
-        string getFirstName();
+        string GetFirstName();
+        string GetUserId();
         string GetProfilePictureUrl();
         string GetThemePhotoUrl();
         List<AlbumData> GetLastAlbums(int i_Number);
-        List<string> GetPhotos();
+        List<SocialPhotoData> GetPhotos();
         List<string> GetTaggedFriendsNameList();
         List<string> GetLastPosts();
         string CreateAlbum(string i_AlbumName, string i_AlbumDescription);

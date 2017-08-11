@@ -11,6 +11,17 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
     {
         private IDataSociable m_UserSocialData;
         private AlbumDataManager m_AlbomDataManager;
+        public AlbumDataManager AlbomDataManager
+        {
+            get
+            {
+                if (m_AlbomDataManager == null)
+                {
+                    m_AlbomDataManager = new AlbumDataManager(m_UserSocialData);
+                }
+                return m_AlbomDataManager;
+            }
+       }
 
         public void LogInToSocialNetwork()
         {
@@ -18,14 +29,14 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             m_UserSocialData.LogIn();
         }
 
-        public UserData GetUserData()
+        public EntityData GetUserData()
         {
             if (m_UserSocialData == null)
             {
                 throw new Exception("not Loged On");
             }
 
-            UserData retVal = new UserData();
+            EntityData retVal = new EntityData();
 
             retVal.FullName = m_UserSocialData.GetFullName();
             retVal.ProfilePictureUrl = m_UserSocialData.GetProfilePictureUrl();
@@ -41,13 +52,17 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
                 throw new Exception("not Loged On");
             }
 
-            if (m_AlbomDataManager == null)
-            {
-                m_AlbomDataManager = new AlbumDataManager(m_UserSocialData);
-            }
-
-            return m_AlbomDataManager.GetAlbumsData(i_NumberOfAlbums);
+            return AlbomDataManager.GetAlbumsData(i_NumberOfAlbums);
         }
 
+        public Dictionary<string, EntityData> GetTaggedFriends()
+        {
+            return AlbomDataManager.GetTaggedFriendsNameList();
+        }
+
+        public void CreateAlbumWithFriend(params string[] i_UserIds)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
