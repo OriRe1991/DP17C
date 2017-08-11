@@ -7,7 +7,7 @@ using System.Text;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 {
-    class FacebookSocialData : IDataSociable
+    public class FacebookSocialData : IDataSociable
     {
         private User m_LoggedInUser;
 
@@ -16,9 +16,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             throw new NotImplementedException();
         }
 
-        public string GetName()
+        public string GetFullName()
         {
-            throw new NotImplementedException();
+            return m_LoggedInUser.Name;
         }
 
         public List<string> GetPhotos()
@@ -33,10 +33,29 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public List<string> GetTaggedFriendsNameList()
         {
-            throw new NotImplementedException();
+            List<string> retVal = new List<string>();
+            if (m_LoggedInUser == null)
+            {
+                throw new Exception("not Loged On");
+            }
+
+            var photos = m_LoggedInUser.PhotosTaggedIn;
+            foreach (var photo in photos)
+            {
+                foreach (var tag in photo.Tags)
+                {
+                    if (tag.User.Id != m_LoggedInUser.Id)
+                    {
+                        retVal.Add(tag.User.Name);
+                    }
+                }
+
+            }
+
+            return retVal;
         }
 
-        public string LogIn()
+        public void LogIn()
         {
             LoginResult result = FacebookService.Login("1955252128038346",
                     // TODO: remove unused credential
@@ -83,9 +102,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             {
                 throw new Exception("Unable to connect to facebook");
             }
+        }
 
-            return m_LoggedInUser.Name;
-
+        public string GetThemePhotoUrl()
+        {
+            return m_LoggedInUser.Cover.SourceURL;
         }
     }
 

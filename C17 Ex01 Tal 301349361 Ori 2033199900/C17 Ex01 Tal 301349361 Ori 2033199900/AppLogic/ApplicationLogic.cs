@@ -10,17 +10,21 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
     {
         private IDataSociable m_UserSocialData;
 
-        public string LogInToSocialNetwork()
-        {
-            string retVal = string.Empty;
-            retVal = LogInAction();
-            return retVal;
-        }
-
-        private string LogInAction()
+        public void LogInToSocialNetwork()
         {
             m_UserSocialData = SocialDataFactory.GetSocialNetwork();
-            return m_UserSocialData.LogIn();
+            m_UserSocialData.LogIn();
+        }
+
+        public UserData GetUserData()
+        {
+            UserData retVal = new UserData();
+
+            retVal.FullName = m_UserSocialData.GetFullName();
+            retVal.ProfilePictureUrl = m_UserSocialData.GetProfilePictureUrl();
+            retVal.ThemePictureUrl = m_UserSocialData.GetThemePhotoUrl();
+
+            return retVal;
         }
 
 
@@ -32,19 +36,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             {
                 throw new Exception("not Loged On");
             }
-
-            //var photos = m_LoggedInUser.PhotosTaggedIn;
-            //foreach (var photo in photos)
-            //{
-            //    foreach (var tag in photo.Tags)
-            //    {
-            //        if (tag.User.Id != m_LoggedInUser.Id)
-            //        {
-            //            retVal.Add(tag.User.Name);
-            //        }
-            //    }
-                
-            //}
 
             return retVal;
         }

@@ -61,6 +61,7 @@
     <Compile Include="AppLogic\ApplicationLogic.cs" />
     <Compile Include="AppLogic\Features\IAppFeature.cs" />
     <Compile Include="AppLogic\ILogicInterface.cs" />
+    <Compile Include="AppLogic\UserData.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="DataSystem\IDataUsable.cs" />
     <Compile Include="FormLogin.cs">
