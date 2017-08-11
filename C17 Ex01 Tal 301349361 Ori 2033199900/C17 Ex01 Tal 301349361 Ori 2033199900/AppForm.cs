@@ -24,6 +24,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
             FormLogin loginForm = new FormLogin(m_LogicApp);
             loginForm.ShowDialog();
+
+            var userData = m_LogicApp.GetUserData();
+            pictureBoxProfilePic.LoadAsync(userData.ProfilePictureUrl);
+            pictureBoxCoverPhoto.LoadAsync(userData.ThemePictureUrl);
+            textBoxProfileName.Text = userData.FullName;
         }
 
  
