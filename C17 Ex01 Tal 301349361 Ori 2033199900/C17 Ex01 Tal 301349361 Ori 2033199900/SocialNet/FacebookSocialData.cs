@@ -28,7 +28,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public string GetProfilePictureUrl()
         {
-            return m_LoggedInUser.PictureNormalURL;
+            return m_LoggedInUser.PictureLargeURL;
         }
 
         public List<string> GetTaggedFriendsNameList()
