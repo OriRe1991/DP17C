@@ -23,10 +23,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             }
        }
 
-        public void LogInToSocialNetwork()
+        public void LogInToSocialNetwork(string i_SocialToken = null)
         {
             m_UserSocialData = SocialDataFactory.GetSocialNetwork();
-            m_UserSocialData.LogIn();
+            m_UserSocialData.LogIn(i_SocialToken);
         }
 
         public EntityData GetUserData()

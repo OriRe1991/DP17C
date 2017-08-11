@@ -11,11 +11,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
     {
         private User m_LoggedInUser;
 
-        public List<string> GetLastPosts()
-        {
-            throw new NotImplementedException();
-        }
-
         public string GetFullName()
         {
             return m_LoggedInUser.Name;
@@ -64,44 +59,66 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return m_LoggedInUser.PictureLargeURL;
         }
 
-        public void LogIn()
+        public void LogIn(string i_SocialToken = null)
         {
-            LoginResult result = FacebookService.Login("1955252128038346",
-                    // TODO: remove unused credential
-                    //////////////////////////////////////////////////////////////////
-                    "public_profile",
-                    "user_education_history",
-                    "user_birthday",
-                    "user_actions.video",
-                    "user_actions.news",
-                    "user_actions.music",
-                    "user_actions.fitness",
-                    "user_actions.books",
-                    "user_about_me",
-                    "user_friends",
-                    "publish_actions",
-                    "user_events",
-                    "user_games_activity",
-                    "user_hometown",
-                    "user_likes",
-                    "user_location",
-                    "user_managed_groups",
-                    "user_photos",
-                    "user_posts",
-                    "user_relationships",
-                    "user_relationship_details",
-                    "user_religion_politics",
-                    "user_tagged_places",
-                    "user_videos",
-                    "user_website",
-                    "user_work_history",
-                    "read_custom_friendlists",
-                    "read_page_mailboxes",
-                    "manage_pages",
-                    "publish_pages",
-                    "publish_actions"
-             //////////////////////////////////////////////////////////////////////
-             );
+            LoginResult result = null;
+            if (i_SocialToken != null)
+            {
+                try {
+                    result = FacebookService.Connect(i_SocialToken);
+                }
+                catch
+                {
+                    result = null;
+                }
+            }
+            
+            if (result == null || string.IsNullOrEmpty(result.AccessToken))
+            {
+                try {
+                    result = FacebookService.Login("1955252128038346",
+                            // TODO: remove unused credential
+                            //////////////////////////////////////////////////////////////////
+                            "public_profile",
+                            "user_education_history",
+                            "user_birthday",
+                            "user_actions.video",
+                            "user_actions.news",
+                            "user_actions.music",
+                            "user_actions.fitness",
+                            "user_actions.books",
+                            "user_about_me",
+                            "user_friends",
+                            "publish_actions",
+                            "user_events",
+                            "user_games_activity",
+                            "user_hometown",
+                            "user_likes",
+                            "user_location",
+                            "user_managed_groups",
+                            "user_photos",
+                            "user_posts",
+                            "user_relationships",
+                            "user_relationship_details",
+                            "user_religion_politics",
+                            "user_tagged_places",
+                            "user_videos",
+                            "user_website",
+                            "user_work_history",
+                            "read_custom_friendlists",
+                            "read_page_mailboxes",
+                            "manage_pages",
+                            "publish_pages",
+                            "publish_actions"
+                     //////////////////////////////////////////////////////////////////////
+                     );
+                }
+                catch(Exception e)
+                {
+                    throw new Exception(string.Format("Unable to connect to Facebook at the moment, more info: {0}{1}",Environment.NewLine, e.Message));
+                }
+            }
+
 
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
@@ -177,6 +194,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         }
 
         public List<string> GetTaggedFriendsNameList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> GetLastPosts()
         {
             throw new NotImplementedException();
         }
