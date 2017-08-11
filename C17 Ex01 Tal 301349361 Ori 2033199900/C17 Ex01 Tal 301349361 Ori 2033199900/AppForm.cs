@@ -26,24 +26,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             loginForm.ShowDialog();
         }
 
-        private void LogInBtn_Click(object sender, EventArgs e)
-        {
-            labelTest.Text = "Start opration...";
-            labelTest.Text = m_LogicApp.LogInToSocialNetwork();
-        }
-
-        private void GetDataBtn_Click(object sender, EventArgs e)
-        {
-            labelTest.Text += "\nGetting Photos";
-            var listData = m_LogicApp.Data();
-            ///////////////////////////////
-            // PhotosTaggedIn return 0
-            //////////////////////////////
-            foreach (var item in listData)
-            {
-                listBoxTest.Items.Add(item);
-            }
-        }
+ 
 
         private void AppForm_Load(object sender, EventArgs e)
         {
