@@ -112,7 +112,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public List<AlbumData> GetLastAlbums(int i_Number)
         {
             List<AlbumData> retVal = new List<AlbumData>();
-            var firstAlbums = m_LoggedInUser.Albums.Take(i_Number).ToList();
+            var albumsOrdered = m_LoggedInUser.Albums.OrderBy(ua => ua.CreatedTime).ToList();
+            var firstAlbums = albumsOrdered.Take(i_Number).ToList();
             foreach (var albom in firstAlbums)
             {
                 retVal.Add(new AlbumData
@@ -125,10 +126,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return retVal;
         }
 
-        public void CreateAlbum(string i_AlbumName, string i_AlbumDescription)
+        public string CreateAlbum(string i_AlbumName, string i_AlbumDescription)
         {
-            m_LoggedInUser.CreateAlbum(i_AlbumName, i_AlbumDescription);
-            
+            var newAlbum = m_LoggedInUser.CreateAlbum(i_AlbumName, i_AlbumDescription);
+            return newAlbum.Id;
         }
 
         public void CreatePostNewAlbumWithFriendsName(string i_PostText, string i_PostPictureUrl, string[] i_TaggedUserIDs)
