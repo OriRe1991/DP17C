@@ -16,6 +16,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
         private static string s_UserDataFilePath = Environment.CurrentDirectory + @"\UserData.txt";
         public bool RememberLogIn { get; set; }
 
+        public string GetUserDataFilePath()
+        {
+            return s_UserDataFilePath;
+        }
+
         public void saveUserDataToJson()
         {
             FileMode fileMode;
@@ -48,7 +53,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
                     return retVal = (UserData)serilizer.ReadObject(fileStream);
                 }
             }
-            catch(Exception e)
+            catch
             {
                 return null;
             }

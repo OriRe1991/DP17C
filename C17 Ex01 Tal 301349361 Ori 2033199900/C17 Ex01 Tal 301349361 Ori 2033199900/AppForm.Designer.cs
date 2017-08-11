@@ -1,6 +1,6 @@
 ﻿namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
-    internal partial class AppForm
+    public partial class AppForm
     {
         /// <summary>
         /// Required designer variable.

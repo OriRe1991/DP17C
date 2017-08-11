@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -46,7 +47,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void checkBoxSaveAccessToken_CheckedChanged(object sender, EventArgs e)
         {
             m_AppLogic.RememberMe = (sender as CheckBox).Checked;
-            m_ControlData.Isconnected = m_AppLogic.RememberMe;
+            m_ControlData.UserData.RememberLogIn = m_AppLogic.RememberMe;
+            if (File.Exists(m_ControlData.UserData.GetUserDataFilePath()))
+            {
+                File.Delete(m_ControlData.UserData.GetUserDataFilePath());
+            }
         }
 
         private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
