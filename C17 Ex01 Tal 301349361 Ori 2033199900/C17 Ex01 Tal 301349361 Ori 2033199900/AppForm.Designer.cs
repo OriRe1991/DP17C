@@ -67,7 +67,7 @@
             // 
             this.listBoxTest.FormattingEnabled = true;
             this.listBoxTest.ItemHeight = 29;
-            this.listBoxTest.Location = new System.Drawing.Point(631, 179);
+            this.listBoxTest.Location = new System.Drawing.Point(631, 479);
             this.listBoxTest.Name = "listBoxTest";
             this.listBoxTest.Size = new System.Drawing.Size(494, 468);
             this.listBoxTest.TabIndex = 3;
@@ -76,6 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1292, 720);
             this.Controls.Add(this.listBoxTest);
             this.Controls.Add(this.GetDataBtn);
