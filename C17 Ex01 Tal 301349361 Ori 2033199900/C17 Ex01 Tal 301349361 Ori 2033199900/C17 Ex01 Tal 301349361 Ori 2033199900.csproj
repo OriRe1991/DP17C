@@ -65,7 +65,9 @@
     <Compile Include="DataSystem\IDataUsable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SocialNet\FacebookSocialData.cs" />
     <Compile Include="SocialNet\IDataSociable.cs" />
+    <Compile Include="SocialNet\SocialDataFactory.cs" />
     <EmbeddedResource Include="AppForm.resx">
       <DependentUpon>AppForm.cs</DependentUpon>
     </EmbeddedResource>

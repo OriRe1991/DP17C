@@ -17,7 +17,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         public AppForm()
         {
             InitializeComponent();
-
+            // TODO:
             //////////////////////////////////////////////////////////////
             m_LogicApp = new ApplicationLogic();
             //////////////////////////////////////////////////////////////
@@ -26,7 +26,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void LogInBtn_Click(object sender, EventArgs e)
         {
             labelTest.Text = "Start opration...";
-            labelTest.Text = m_LogicApp.LogInToFacebook();
+            labelTest.Text = m_LogicApp.LogInToSocialNetwork();
             GetDataBtn.Enabled = true;
         }
 
