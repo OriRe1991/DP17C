@@ -109,7 +109,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return m_LoggedInUser.Cover.SourceURL;
         }
 
-        public List<AlbumData> GetLastAlboms(int i_Number)
+        public List<AlbumData> GetLastAlbums(int i_Number)
         {
             List<AlbumData> retVal = new List<AlbumData>();
             var firstAlboms = m_LoggedInUser.Albums.Take(i_Number).ToList();
