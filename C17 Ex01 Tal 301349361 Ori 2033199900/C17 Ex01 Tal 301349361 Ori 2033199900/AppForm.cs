@@ -16,10 +16,15 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
     public partial class AppForm : Form
     {
         private ILogicInterface m_LogicApp;
+
         private List<PictureBox> m_ViewedAlbumCovers;
+
         private List<Label> m_ViewedAlbumCoversLabels;
+
         private ControlData m_ControlData;
+
         private FormLogin m_FormLogin;
+
         public AppForm()
         {
             m_ViewedAlbumCovers = new List<PictureBox>();
@@ -47,13 +52,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                 this.Dispose();
             }
 
-            var userData = m_LogicApp.GetUserData();
-            pictureBoxProfilePic.LoadAsync(userData.ProfilePictureUrl);
-            pictureBoxCoverPhoto.LoadAsync(userData.ThemePictureUrl);
+            var entityData = m_LogicApp.GetEntityData();
+            pictureBoxProfilePic.LoadAsync(entityData.ProfilePictureUrl);
+            pictureBoxCoverPhoto.LoadAsync(entityData.ThemePictureUrl);
             updateViewedAlbumCovers();
-            ProfileNameLable.Text = userData.FullName;
+            ProfileNameLable.Text = entityData.FullName;
         }
-
 
         private void updateViewedAlbumCovers()
         {

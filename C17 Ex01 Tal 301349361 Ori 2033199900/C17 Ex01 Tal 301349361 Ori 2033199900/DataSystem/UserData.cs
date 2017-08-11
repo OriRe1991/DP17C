@@ -12,8 +12,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
     public class UserData : IDataUsable
     {
         public string UserAccessToken { get; set; }
+
         public Location WindowStart { get; set; }
+
         private static string s_UserDataFilePath = Environment.CurrentDirectory + @"\UserData.txt";
+
         public bool RememberLogIn { get; set; }
 
         public string GetUserDataFilePath()

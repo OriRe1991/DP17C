@@ -12,7 +12,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         bool IsConnected();
 
-        EntityData GetUserData();
+        EntityData GetEntityData();
 
         List<AlbumData> GetFirstAlbumsData(int i_NumberOfAlbums);
 

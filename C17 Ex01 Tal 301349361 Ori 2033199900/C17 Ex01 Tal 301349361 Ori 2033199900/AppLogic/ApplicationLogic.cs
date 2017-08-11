@@ -47,7 +47,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             UserSocialData.LogIn(i_SocialToken);
         }
 
-        public EntityData GetUserData()
+        public EntityData GetEntityData()
         {
             EntityData retVal = new EntityData();
 
