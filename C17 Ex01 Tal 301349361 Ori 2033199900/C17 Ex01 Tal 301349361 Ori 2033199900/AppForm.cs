@@ -17,6 +17,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private ILogicInterface m_LogicApp;
         private List<PictureBox> m_ViewedAlbumCovers;
         private List<Label> m_ViewedAlbumCoversLabels;
+        private UserData m_UserData;
+        private FormLogin m_FormLogin
         public AppForm()
         {
             m_ViewedAlbumCovers = new List<PictureBox>();
@@ -36,14 +38,22 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             m_LogicApp = new ApplicationLogic();
             //////////////////////////////////////////////////////////////
 
-            FormLogin loginForm = new FormLogin(m_LogicApp);
-            loginForm.ShowDialog();
+            login();
+            m_FormLogin.ShowDialog();
 
             var userData = m_LogicApp.GetUserData();
             pictureBoxProfilePic.LoadAsync(userData.ProfilePictureUrl);
             pictureBoxCoverPhoto.LoadAsync(userData.ThemePictureUrl);
             updateViewedAlbumCovers();
             ProfileNameLable.Text = userData.FullName;
+        }
+
+        private void login()
+        {
+            if(m_LogicApp.RememberMe)
+            {
+                UserData.
+            }
         }
 
         private void updateViewedAlbumCovers()

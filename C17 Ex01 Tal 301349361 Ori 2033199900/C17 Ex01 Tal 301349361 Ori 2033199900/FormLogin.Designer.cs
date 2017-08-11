@@ -51,6 +51,7 @@
             this.checkBoxSaveAccessToken.TabIndex = 1;
             this.checkBoxSaveAccessToken.Text = "Remember me";
             this.checkBoxSaveAccessToken.UseVisualStyleBackColor = true;
+            this.checkBoxSaveAccessToken.CheckedChanged += new System.EventHandler(this.checkBoxSaveAccessToken_CheckedChanged);
             // 
             // FormLogin
             // 

@@ -25,5 +25,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             m_AppLogic.LogInToSocialNetwork();
             this.Close();
         }
+
+        private void checkBoxSaveAccessToken_CheckedChanged(object sender, EventArgs e)
+        {
+            m_AppLogic.RememberMe = (sender as CheckBox).Checked;
+        }
     }
 }
