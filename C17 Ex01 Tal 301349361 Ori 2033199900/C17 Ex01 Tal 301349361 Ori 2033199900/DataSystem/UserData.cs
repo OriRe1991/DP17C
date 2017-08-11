@@ -11,9 +11,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
 {
     public class UserData : IDataUsable
     {
-        public string m_UserAccessToken { get; set; }
-        public Location m_WindowStart { get; set; }
+        public string UserAccessToken { get; set; }
+        public Location WindowStart { get; set; }
         private static string s_UserDataFilePath = Environment.CurrentDirectory + @"\UserData.txt";
+        public bool RememberLogIn { get; set; }
 
         public void saveUserDataToJson()
         {
@@ -38,11 +39,18 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
 
         public static UserData LoadUserDataFromJson()
         {
-            using (FileStream fileStream = new FileStream(s_UserDataFilePath, FileMode.Open))
+            try
             {
-                DataContractJsonSerializer serilizer = new DataContractJsonSerializer(typeof(UserData));
-                UserData retVal = new UserData();
-                return retVal = (UserData)serilizer.ReadObject(fileStream);
+                using (FileStream fileStream = new FileStream(s_UserDataFilePath, FileMode.Open))
+                {
+                    DataContractJsonSerializer serilizer = new DataContractJsonSerializer(typeof(UserData));
+                    UserData retVal = new UserData();
+                    return retVal = (UserData)serilizer.ReadObject(fileStream);
+                }
+            }
+            catch(Exception e)
+            {
+                return null;
             }
         }
     }

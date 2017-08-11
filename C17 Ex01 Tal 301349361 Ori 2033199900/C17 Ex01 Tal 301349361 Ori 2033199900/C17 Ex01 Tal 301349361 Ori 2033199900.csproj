@@ -58,6 +58,7 @@
     <Compile Include="AppForm.Designer.cs">
       <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSystem\ControlData.cs" />
     <Compile Include="DataSystem\UserData.cs" />
     <Compile Include="SocialNet\AlbumData.cs" />
     <Compile Include="AppLogic\ApplicationLogic.cs" />

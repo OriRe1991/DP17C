@@ -18,7 +18,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private ILogicInterface m_LogicApp;
         private List<PictureBox> m_ViewedAlbumCovers;
         private List<Label> m_ViewedAlbumCoversLabels;
-        private UserData m_UserData;
+        private ControlData m_ControlData;
         private FormLogin m_FormLogin;
         public AppForm()
         {
@@ -38,14 +38,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             //////////////////////////////////////////////////////////////
             m_LogicApp = new ApplicationLogic();
             //////////////////////////////////////////////////////////////
-            if (m_LogicApp.RememberMe)
+
+            m_FormLogin = new FormLogin(m_LogicApp);
+            m_FormLogin.ShowDialog();
+            m_ControlData = ControlData.GetInstance();
+            if(!m_ControlData.Isconnected)
             {
-                login();
-            }
-            else
-            {
-                m_FormLogin = new FormLogin(m_LogicApp);
-                m_FormLogin.ShowDialog();
+                this.Dispose();
             }
 
             var userData = m_LogicApp.GetUserData();
@@ -55,11 +54,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             ProfileNameLable.Text = userData.FullName;
         }
 
-        private void login()
-        {
-            m_UserData = UserData.LoadUserDataFromJson();
-            m_LogicApp.LogInToSocialNetwork(m_UserData.m_UserAccessToken);
-        }
 
         private void updateViewedAlbumCovers()
         {
@@ -80,7 +74,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void AppForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            m_UserData.saveUserDataToJson();
+            m_ControlData.UserData.saveUserDataToJson();
         }
     }
 }
