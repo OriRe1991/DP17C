@@ -7,54 +7,59 @@ using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 {
-    class ApplicationLogic : ILogicInterface
+    public class ApplicationLogic : ILogicInterface
     {
+        public bool RememberMe { get; set; }
+
         private IDataSociable m_UserSocialData;
-        private AlbumDataManager m_AlbomDataManager;
-        public AlbumDataManager AlbomDataManager
-        
+
+        private IDataSociable UserSocialData
+        {
+            get
+            {
+                if (m_UserSocialData == null)
+                {
+                    throw new Exception("not Loged On");
+                }
+
+                return m_UserSocialData;
+            }
+        }
+
+        private AlbumDataManager m_AlbomDataManager = null;
+
+        private AlbumDataManager AlbomDataManager
         {
             get
             {
                 if (m_AlbomDataManager == null)
                 {
-                    m_AlbomDataManager = new AlbumDataManager(m_UserSocialData);
+                    m_AlbomDataManager = new AlbumDataManager(UserSocialData);
                 }
+
                 return m_AlbomDataManager;
             }
        }
 
-        public bool RememberMe { get; set; }
-
         public void LogInToSocialNetwork(string i_SocialToken = null)
         {
             m_UserSocialData = SocialDataFactory.GetSocialNetwork();
-            m_UserSocialData.LogIn(i_SocialToken);
+            UserSocialData.LogIn(i_SocialToken);
         }
 
         public EntityData GetUserData()
         {
-            if (m_UserSocialData == null)
-            {
-                throw new Exception("not Loged On");
-            }
-
             EntityData retVal = new EntityData();
 
-            retVal.FullName = m_UserSocialData.GetFullName();
-            retVal.ProfilePictureUrl = m_UserSocialData.GetProfilePictureUrl();
-            retVal.ThemePictureUrl = m_UserSocialData.GetThemePhotoUrl();
+            retVal.FullName = UserSocialData.GetFullName();
+            retVal.ProfilePictureUrl = UserSocialData.GetProfilePictureUrl();
+            retVal.ThemePictureUrl = UserSocialData.GetThemePhotoUrl();
 
             return retVal;
         }
 
         public List<AlbumData> GetFirstAlbumsData(int i_NumberOfAlbums)
         {
-            if (m_UserSocialData == null)
-            {
-                throw new Exception("not Loged On");
-            }
-
             return AlbomDataManager.GetAlbumsData(i_NumberOfAlbums);
         }
 
@@ -63,14 +68,19 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             return AlbomDataManager.GetTaggedFriendsNameList();
         }
 
-        public void CreateAlbumWithFriend(params string[] i_UserIds)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool IsConnected()
         {
             return m_UserSocialData.IsLogedOn();
+        }
+
+        public void LogOutUser(Action i_PostLogOutAction)
+        {
+            m_UserSocialData.LogOut(i_PostLogOutAction);
+        }
+
+        public void CreateAlbumWithFriend(params string[] i_UserIds)
+        {
+            AlbomDataManager.CreateNewAlbum(i_UserIds);
         }
     }
 }
