@@ -54,7 +54,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             retVal.FullName = UserSocialData.GetFullName();
             retVal.ProfilePictureUrl = UserSocialData.GetProfilePictureUrl();
             retVal.ThemePictureUrl = UserSocialData.GetThemePhotoUrl();
-
+            retVal.AccessToken = UserSocialData.GetAccessToken();
             return retVal;
         }
 

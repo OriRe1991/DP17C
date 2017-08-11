@@ -19,6 +19,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         string GetUserId();
 
+        string GetAccessToken();
+
         string GetProfilePictureUrl();
 
         string GetThemePhotoUrl();

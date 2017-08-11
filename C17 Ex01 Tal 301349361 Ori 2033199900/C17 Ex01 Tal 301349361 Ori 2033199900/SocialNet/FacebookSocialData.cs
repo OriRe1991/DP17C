@@ -10,6 +10,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
     public class FacebookSocialData : IDataSociable
     {
         private User m_LoggedInUser;
+        private string m_AccessToken;
 
         public string GetFullName()
         {
@@ -125,11 +126,17 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
                 m_LoggedInUser = result.LoggedInUser;
+                m_AccessToken = result.AccessToken;
             }
             else
             {
                 throw new Exception("Unable to connect to facebook");
             }
+        }
+
+        public string GetAccessToken()
+        {
+            return m_AccessToken;
         }
 
         public string GetThemePhotoUrl()
