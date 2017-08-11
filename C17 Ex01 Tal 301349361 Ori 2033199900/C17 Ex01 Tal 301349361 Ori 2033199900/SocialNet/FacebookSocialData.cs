@@ -21,38 +21,47 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return m_LoggedInUser.Name;
         }
 
-        public List<string> GetPhotos()
+        public List<SocialPhotoData> GetPhotos()
         {
-            throw new NotImplementedException();
+            List<SocialPhotoData> retVal = null;
+            // temporery incress the collection size to 150
+            FacebookService.s_CollectionLimit = 150;
+
+            var taggedPhotos = m_LoggedInUser.PhotosTaggedIn.ToList();
+
+            // return the collection size to 25 
+            FacebookService.s_CollectionLimit = 25;
+
+            foreach (var photo in taggedPhotos)
+            {
+                List<UserData> friendsInPhotos = null;
+                if (photo.Tags != null && photo.Tags.Count > 0)
+                {
+                    friendsInPhotos = new List<UserData>();
+                    foreach (var tag in photo.Tags)
+                    {
+                        friendsInPhotos.Add(new UserData
+                        {
+                            UserId = tag.User.Id,
+                            FullName = tag.User.Name,
+                            ProfilePictureUrl = tag.User.PictureLargeURL
+                        });
+
+                    }
+                    retVal.Add(new SocialPhotoData
+                    {
+                        FriendsInPhotos = friendsInPhotos,
+                        PhotoUrl = photo.PictureNormalURL
+                    });
+                }
+            }
+
+            return retVal;
         }
 
         public string GetProfilePictureUrl()
         {
             return m_LoggedInUser.PictureLargeURL;
-        }
-
-        public List<string> GetTaggedFriendsNameList()
-        {
-            List<string> retVal = new List<string>();
-            if (m_LoggedInUser == null)
-            {
-                throw new Exception("not Loged On");
-            }
-
-            var photos = m_LoggedInUser.PhotosTaggedIn;
-            foreach (var photo in photos)
-            {
-                foreach (var tag in photo.Tags)
-                {
-                    if (tag.User.Id != m_LoggedInUser.Id)
-                    {
-                        retVal.Add(tag.User.Name);
-                    }
-                }
-
-            }
-
-            return retVal;
         }
 
         public void LogIn()
@@ -116,6 +125,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             var firstAlbums = albumsOrdered.Take(i_Number).ToList();
             foreach (var albom in firstAlbums)
             {
+                // TODO:
                 retVal.Add(new AlbumData
                 {
                     AlbomName = albom.Name,
@@ -156,9 +166,19 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                 );
         }
 
-        public string getFirstName()
+        public string GetFirstName()
         {
             return m_LoggedInUser.FirstName;
+        }
+
+        public string GetUserId()
+        {
+            return m_LoggedInUser.Id;
+        }
+
+        public List<string> GetTaggedFriendsNameList()
+        {
+            throw new NotImplementedException();
         }
     }
 

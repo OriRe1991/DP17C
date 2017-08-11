@@ -11,6 +11,17 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
     {
         private IDataSociable m_UserSocialData;
         private AlbumDataManager m_AlbomDataManager;
+        public AlbumDataManager AlbomDataManager
+        {
+            get
+            {
+                if (m_AlbomDataManager == null)
+                {
+                    m_AlbomDataManager = new AlbumDataManager(m_UserSocialData);
+                }
+                return m_AlbomDataManager;
+            }
+       }
 
         public void LogInToSocialNetwork()
         {
@@ -41,13 +52,17 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
                 throw new Exception("not Loged On");
             }
 
-            if (m_AlbomDataManager == null)
-            {
-                m_AlbomDataManager = new AlbumDataManager(m_UserSocialData);
-            }
-
-            return m_AlbomDataManager.GetAlbumsData(i_NumberOfAlbums);
+            return AlbomDataManager.GetAlbumsData(i_NumberOfAlbums);
         }
 
+        public Dictionary<string, UserData> GetTaggedFriends()
+        {
+            return AlbomDataManager.GetTaggedFriendsNameList();
+        }
+
+        public void CreateAlbumWithFriend(params string[] i_UserIds)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
