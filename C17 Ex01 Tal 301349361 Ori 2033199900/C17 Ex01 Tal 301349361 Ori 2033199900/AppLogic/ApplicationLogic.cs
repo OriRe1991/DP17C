@@ -10,21 +10,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
     {
         private IDataSociable m_UserSocialData;
 
-        public UserData LogInToSocialNetwork()
-        {
-            UserData retVal = null;
-            LogInAction();
-            retVal = InitUserData();
-            return retVal;
-        }
-
-        private void LogInAction()
+        public void LogInToSocialNetwork()
         {
             m_UserSocialData = SocialDataFactory.GetSocialNetwork();
             m_UserSocialData.LogIn();
         }
 
-        private UserData InitUserData()
+        public UserData GetUserData()
         {
             UserData retVal = new UserData();
 
