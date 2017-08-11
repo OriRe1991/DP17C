@@ -91,7 +91,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.71225F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.28775F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 325F));
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(95, 314);
@@ -109,7 +109,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.buttonCreateAlbum.Location = new System.Drawing.Point(177, 3);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
-            this.buttonCreateAlbum.Size = new System.Drawing.Size(164, 39);
+            this.buttonCreateAlbum.Size = new System.Drawing.Size(163, 39);
             this.buttonCreateAlbum.TabIndex = 0;
             this.buttonCreateAlbum.Text = "CreateAlbum";
             this.buttonCreateAlbum.UseVisualStyleBackColor = false;
@@ -120,7 +120,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(347, 3);
+            this.button1.Location = new System.Drawing.Point(346, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 39);
             this.button1.TabIndex = 1;
@@ -202,7 +202,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(614, 363);
+            this.ClientSize = new System.Drawing.Size(631, 380);
             this.Controls.Add(this.labelPictureBox3);
             this.Controls.Add(this.labelPictureBox4);
             this.Controls.Add(this.labelPictureBox2);
@@ -218,6 +218,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "AppForm";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePic)).EndInit();

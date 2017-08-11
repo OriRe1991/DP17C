@@ -30,5 +30,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             m_AppLogic.RememberMe = (sender as CheckBox).Checked;
         }
+
+        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
     }
 }

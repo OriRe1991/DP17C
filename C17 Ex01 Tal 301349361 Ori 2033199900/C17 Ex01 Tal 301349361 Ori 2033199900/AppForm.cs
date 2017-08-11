@@ -38,10 +38,15 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             //////////////////////////////////////////////////////////////
             m_LogicApp = new ApplicationLogic();
             //////////////////////////////////////////////////////////////
-
-            login();
-            m_FormLogin = new FormLogin(m_LogicApp);
-            m_FormLogin.ShowDialog();
+            if (m_LogicApp.RememberMe)
+            {
+                login();
+            }
+            else
+            {
+                m_FormLogin = new FormLogin(m_LogicApp);
+                m_FormLogin.ShowDialog();
+            }
 
             var userData = m_LogicApp.GetUserData();
             pictureBoxProfilePic.LoadAsync(userData.ProfilePictureUrl);
@@ -52,22 +57,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void login()
         {
-            if(m_LogicApp.RememberMe)
-            {
-                m_UserData = UserData.LoadUserDataFromJson();
-                m_LogicApp.LogInToSocialNetwork(m_UserData.m_UserAccessToken);
-            }
-
-            else
-            {
-                m_LogicApp.LogInToSocialNetwork();
-            }
-            
+            m_UserData = UserData.LoadUserDataFromJson();
+            m_LogicApp.LogInToSocialNetwork(m_UserData.m_UserAccessToken);
         }
 
         private void updateViewedAlbumCovers()
         {
-           List<AlbumData> viewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
+            List<AlbumData> viewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
             int albumIdx = 0;
             foreach (var viewedAlbumData in viewedAlbumsData)
             {
@@ -80,6 +76,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void labelPictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AppForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            m_UserData.saveUserDataToJson();
         }
     }
 }
