@@ -16,7 +16,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             throw new NotImplementedException();
         }
 
-        public string GetName()
+        public string GetFullName()
         {
             return m_LoggedInUser.Name;
         }
@@ -55,7 +55,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return retVal;
         }
 
-        public string LogIn()
+        public void LogIn()
         {
             LoginResult result = FacebookService.Login("1955252128038346",
                     // TODO: remove unused credential
@@ -102,12 +102,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             {
                 throw new Exception("Unable to connect to facebook");
             }
-
-            return GetName();
-
         }
 
-        public string ThemePhoto()
+        public string GetThemePhotoUrl()
         {
             return m_LoggedInUser.Cover.SourceURL;
         }

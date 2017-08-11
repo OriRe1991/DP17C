@@ -26,7 +26,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void LogInBtn_Click(object sender, EventArgs e)
         {
             labelTest.Text = "Start opration...";
-            labelTest.Text = m_LogicApp.LogInToSocialNetwork();
+            labelTest.Text = m_LogicApp.LogInToSocialNetwork().FullName;
             GetDataBtn.Enabled = true;
         }
 
