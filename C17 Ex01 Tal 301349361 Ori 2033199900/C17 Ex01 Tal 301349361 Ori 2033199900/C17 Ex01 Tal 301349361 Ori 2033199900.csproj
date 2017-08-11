@@ -59,7 +59,7 @@
     </Compile>
     <Compile Include="SocialNet\AlbumData.cs" />
     <Compile Include="AppLogic\ApplicationLogic.cs" />
-    <Compile Include="AppLogic\Features\AlbomDataManager.cs" />
+    <Compile Include="AppLogic\Features\AlbumDataManager.cs" />
     <Compile Include="AppLogic\ILogicInterface.cs" />
     <Compile Include="AppLogic\UserData.cs" />
     <Compile Include="Controller.cs" />

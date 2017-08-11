@@ -10,7 +10,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
     class ApplicationLogic : ILogicInterface
     {
         private IDataSociable m_UserSocialData;
-        private AlbomDataManager m_AlbomDataManager;
+        private AlbumDataManager m_AlbomDataManager;
 
         public void LogInToSocialNetwork()
         {
@@ -43,7 +43,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
             if (m_AlbomDataManager == null)
             {
-                m_AlbomDataManager = new AlbomDataManager(m_UserSocialData);
+                m_AlbomDataManager = new AlbumDataManager(m_UserSocialData);
             }
 
             return m_AlbomDataManager.GetAlbomData(i_NumberOfAlbum);
