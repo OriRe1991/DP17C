@@ -1,7 +1,5 @@
-﻿using System;
+﻿using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 {
@@ -9,11 +7,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
     {
         void LogInToSocialNetwork();
         UserData GetUserData();
-
-
-        //////////////////////////////////////
-        // remove this test method
-        //////////////////////////////////////
-        List<string> Data();
+        List<AlbumData> GetFirstAlbumData(int i_NumberOfAlbum);
     }
 }

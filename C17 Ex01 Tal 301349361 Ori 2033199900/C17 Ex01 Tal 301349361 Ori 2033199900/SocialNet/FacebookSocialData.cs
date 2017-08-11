@@ -108,6 +108,22 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         {
             return m_LoggedInUser.Cover.SourceURL;
         }
+
+        public List<AlbumData> GetLastAlboms(int i_Number)
+        {
+            List<AlbumData> retVal = new List<AlbumData>();
+            var firstAlboms = m_LoggedInUser.Albums.Take(i_Number).ToList();
+            foreach (var Aalbom in firstAlboms)
+            {
+                retVal.Add(new AlbumData
+                {
+                    AlbomName = Aalbom.Name,
+                    FirstPicUrl = Aalbom.Photos[0].ThumbURL
+                });
+            }
+
+            return retVal;
+        }
     }
 
 }
