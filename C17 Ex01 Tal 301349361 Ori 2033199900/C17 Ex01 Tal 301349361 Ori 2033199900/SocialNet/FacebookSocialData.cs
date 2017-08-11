@@ -112,17 +112,52 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public List<AlbumData> GetLastAlbums(int i_Number)
         {
             List<AlbumData> retVal = new List<AlbumData>();
-            var firstAlboms = m_LoggedInUser.Albums.Take(i_Number).ToList();
-            foreach (var Aalbom in firstAlboms)
+            var firstAlbums = m_LoggedInUser.Albums.Take(i_Number).ToList();
+            foreach (var albom in firstAlbums)
             {
                 retVal.Add(new AlbumData
                 {
-                    AlbomName = Aalbom.Name,
-                    FirstPicUrl = Aalbom.Photos[0].ThumbURL
+                    AlbomName = albom.Name,
+                    FirstPicUrl = albom.Photos[0].ThumbURL
                 });
             }
 
             return retVal;
+        }
+
+        public void CreateAlbum(string i_AlbumName, string i_AlbumDescription)
+        {
+            m_LoggedInUser.CreateAlbum(i_AlbumName, i_AlbumDescription);
+            
+        }
+
+        public void CreatePostNewAlbumWithFriendsName(string i_PostText, string i_PostPictureUrl, string[] i_TaggedUserIDs)
+        {
+            StringBuilder tagedUserIdBuilder = null;
+            if (i_TaggedUserIDs != null && i_TaggedUserIDs.Length > 0) {
+                tagedUserIdBuilder = new StringBuilder();
+                foreach (string userId in i_TaggedUserIDs)
+                {
+                    if (tagedUserIdBuilder.Length > 0)
+                    {
+                        tagedUserIdBuilder.Append(",");
+                    }
+
+                    tagedUserIdBuilder.Append(userId);
+                }
+            }
+
+            m_LoggedInUser.PostStatus
+                (
+                    i_StatusText: i_PostText,
+                    i_PictureURL: i_PostPictureUrl,
+                    i_TaggedFriendIDs: (tagedUserIdBuilder != null) ? tagedUserIdBuilder.ToString() : null
+                );
+        }
+
+        public string getFirstName()
+        {
+            return m_LoggedInUser.FirstName;
         }
     }
 

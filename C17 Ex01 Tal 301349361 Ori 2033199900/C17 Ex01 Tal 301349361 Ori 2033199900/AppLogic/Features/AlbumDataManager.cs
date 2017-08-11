@@ -21,7 +21,14 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             retVal = m_SocialData.GetLastAlbums(i_NumberOfAlbums);
 
             return retVal;
+        }
 
+        public void CreateNewAlbum(string i_FriendUserId, string i_FrindName)
+        {
+            string albumName = string.Format("{0} And {1}", m_SocialData.getFirstName(), i_FrindName);
+            string albumDescription = string.Format("{0}, Photos.", albumName);
+            m_SocialData.CreateAlbum(albumName, albumDescription);
+            //m_SocialData.CreatePostNewAlbumWithFriendsName()
         }
     }
 }
