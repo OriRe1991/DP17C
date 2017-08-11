@@ -12,6 +12,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
         private IDataSociable m_UserSocialData;
         private AlbumDataManager m_AlbomDataManager;
         public AlbumDataManager AlbomDataManager
+        
         {
             get
             {
@@ -22,6 +23,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
                 return m_AlbomDataManager;
             }
        }
+
+        public bool RememberMe { get; set; }
 
         public void LogInToSocialNetwork()
         {

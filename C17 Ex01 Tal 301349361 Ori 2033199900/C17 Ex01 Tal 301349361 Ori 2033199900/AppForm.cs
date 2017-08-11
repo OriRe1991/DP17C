@@ -1,4 +1,5 @@
 ﻿using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
+using C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem;
 using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private List<PictureBox> m_ViewedAlbumCovers;
         private List<Label> m_ViewedAlbumCoversLabels;
         private UserData m_UserData;
-        private FormLogin m_FormLogin
+        private FormLogin m_FormLogin;
         public AppForm()
         {
             m_ViewedAlbumCovers = new List<PictureBox>();
@@ -52,8 +53,15 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             if(m_LogicApp.RememberMe)
             {
-                UserData.
+                m_UserData = UserData.LoadUserDataFromJson();
+                m_LogicApp.LogInToSocialNetwork(m_UserData.m_UserAccessToken);
             }
+
+            else
+            {
+                m_LogicApp.LogInToSocialNetwork();
+            }
+            
         }
 
         private void updateViewedAlbumCovers()
