@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
+using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 {
     class ApplicationLogic : ILogicInterface
     {
         private IDataSociable m_UserSocialData;
+        private AlbomDataManager m_AlbomDataManager;
 
         public void LogInToSocialNetwork()
         {
@@ -18,6 +20,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         public UserData GetUserData()
         {
+            if (m_UserSocialData == null)
+            {
+                throw new Exception("not Loged On");
+            }
+
             UserData retVal = new UserData();
 
             retVal.FullName = m_UserSocialData.GetFullName();
@@ -27,17 +34,20 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             return retVal;
         }
 
-
-        // TODO: remove this function
-        public List<string> Data()
+        public List<AlbumData> GetFirstAlbumData(int i_NumberOfAlbum)
         {
-            List<string> retVal = new List<string>();
             if (m_UserSocialData == null)
             {
                 throw new Exception("not Loged On");
             }
 
-            return retVal;
+            if (m_AlbomDataManager == null)
+            {
+                m_AlbomDataManager = new AlbomDataManager(m_UserSocialData);
+            }
+
+            return m_AlbomDataManager.GetAlbomData(i_NumberOfAlbum);
         }
+
     }
 }

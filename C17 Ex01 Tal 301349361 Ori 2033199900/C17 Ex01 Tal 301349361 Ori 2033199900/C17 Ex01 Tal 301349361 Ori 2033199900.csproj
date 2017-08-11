@@ -47,7 +47,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -58,8 +57,9 @@
     <Compile Include="AppForm.Designer.cs">
       <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SocialNet\AlbumData.cs" />
     <Compile Include="AppLogic\ApplicationLogic.cs" />
-    <Compile Include="AppLogic\Features\IAppFeature.cs" />
+    <Compile Include="AppLogic\Features\AlbomDataManager.cs" />
     <Compile Include="AppLogic\ILogicInterface.cs" />
     <Compile Include="AppLogic\UserData.cs" />
     <Compile Include="Controller.cs" />
