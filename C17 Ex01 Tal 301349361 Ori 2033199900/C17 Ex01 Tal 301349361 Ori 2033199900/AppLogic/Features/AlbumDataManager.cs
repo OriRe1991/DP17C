@@ -14,11 +14,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             m_SocialData = i_SocialData;
         }
 
-        public List<AlbumData> GetAlbomData(int i_NumberOfAlbum)
+        public List<AlbumData> GetAlbumsData(int i_NumberOfAlbums)
         {
             List<AlbumData> retVal = null;
 
-            retVal = m_SocialData.GetLastAlboms(i_NumberOfAlbum);
+            retVal = m_SocialData.GetLastAlbums(i_NumberOfAlbums);
 
             return retVal;
 

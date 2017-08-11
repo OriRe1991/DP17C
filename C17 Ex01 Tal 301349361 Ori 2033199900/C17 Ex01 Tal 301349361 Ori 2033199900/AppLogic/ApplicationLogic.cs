@@ -34,7 +34,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             return retVal;
         }
 
-        public List<AlbumData> GetFirstAlbumData(int i_NumberOfAlbum)
+        public List<AlbumData> GetFirstAlbumsData(int i_NumberOfAlbums)
         {
             if (m_UserSocialData == null)
             {
@@ -46,7 +46,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
                 m_AlbomDataManager = new AlbumDataManager(m_UserSocialData);
             }
 
-            return m_AlbomDataManager.GetAlbomData(i_NumberOfAlbum);
+            return m_AlbomDataManager.GetAlbumsData(i_NumberOfAlbums);
         }
 
     }
