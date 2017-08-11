@@ -28,72 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LogInBtn = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
             this.labelTest = new System.Windows.Forms.Label();
-            this.GetDataBtn = new System.Windows.Forms.Button();
             this.listBoxTest = new System.Windows.Forms.ListBox();
+            this.pictureBoxCoverPhoto = new System.Windows.Forms.PictureBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.pictureBoxProfilePic = new System.Windows.Forms.PictureBox();
+            this.textBoxProfileName = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePic)).BeginInit();
             this.SuspendLayout();
-            // 
-            // LogInBtn
-            // 
-            this.LogInBtn.Location = new System.Drawing.Point(256, 159);
-            this.LogInBtn.Name = "LogInBtn";
-            this.LogInBtn.Size = new System.Drawing.Size(156, 56);
-            this.LogInBtn.TabIndex = 0;
-            this.LogInBtn.Text = "LogIn";
-            this.LogInBtn.UseVisualStyleBackColor = true;
-            this.LogInBtn.Click += new System.EventHandler(this.LogInBtn_Click);
             // 
             // labelTest
             // 
             this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(256, 286);
+            this.labelTest.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTest.Location = new System.Drawing.Point(10, 130);
+            this.labelTest.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(0, 29);
+            this.labelTest.Size = new System.Drawing.Size(0, 25);
             this.labelTest.TabIndex = 1;
-            // 
-            // GetDataBtn
-            // 
-            this.GetDataBtn.Enabled = false;
-            this.GetDataBtn.Location = new System.Drawing.Point(631, 56);
-            this.GetDataBtn.Name = "GetDataBtn";
-            this.GetDataBtn.Size = new System.Drawing.Size(255, 102);
-            this.GetDataBtn.TabIndex = 2;
-            this.GetDataBtn.Text = "Get Test Data";
-            this.GetDataBtn.UseVisualStyleBackColor = true;
-            this.GetDataBtn.Click += new System.EventHandler(this.GetDataBtn_Click);
             // 
             // listBoxTest
             // 
             this.listBoxTest.FormattingEnabled = true;
-            this.listBoxTest.ItemHeight = 29;
-            this.listBoxTest.Location = new System.Drawing.Point(631, 179);
+            this.listBoxTest.Location = new System.Drawing.Point(466, 201);
+            this.listBoxTest.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.listBoxTest.Name = "listBoxTest";
-            this.listBoxTest.Size = new System.Drawing.Size(494, 468);
+            this.listBoxTest.Size = new System.Drawing.Size(214, 212);
             this.listBoxTest.TabIndex = 3;
+            // 
+            // pictureBoxCoverPhoto
+            // 
+            this.pictureBoxCoverPhoto.Location = new System.Drawing.Point(95, 1);
+            this.pictureBoxCoverPhoto.Name = "pictureBoxCoverPhoto";
+            this.pictureBoxCoverPhoto.Size = new System.Drawing.Size(819, 313);
+            this.pictureBoxCoverPhoto.TabIndex = 5;
+            this.pictureBoxCoverPhoto.TabStop = false;
+            // 
+            // pictureBoxProfilePic
+            // 
+            this.pictureBoxProfilePic.Location = new System.Drawing.Point(113, 181);
+            this.pictureBoxProfilePic.Name = "pictureBoxProfilePic";
+            this.pictureBoxProfilePic.Size = new System.Drawing.Size(160, 160);
+            this.pictureBoxProfilePic.TabIndex = 6;
+            this.pictureBoxProfilePic.TabStop = false;
+            // 
+            // textBoxProfileName
+            // 
+            this.textBoxProfileName.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxProfileName.Location = new System.Drawing.Point(279, 260);
+            this.textBoxProfileName.Name = "textBoxProfileName";
+            this.textBoxProfileName.Size = new System.Drawing.Size(100, 44);
+            this.textBoxProfileName.TabIndex = 7;
             // 
             // AppForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1292, 720);
+            this.AutoScroll = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(673, 367);
+            this.Controls.Add(this.textBoxProfileName);
+            this.Controls.Add(this.pictureBoxProfilePic);
+            this.Controls.Add(this.pictureBoxCoverPhoto);
             this.Controls.Add(this.listBoxTest);
-            this.Controls.Add(this.GetDataBtn);
             this.Controls.Add(this.labelTest);
-            this.Controls.Add(this.LogInBtn);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "AppForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.AppForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button LogInBtn;
         private System.Windows.Forms.Label labelTest;
-        private System.Windows.Forms.Button GetDataBtn;
         private System.Windows.Forms.ListBox listBoxTest;
+        private System.Windows.Forms.PictureBox pictureBoxCoverPhoto;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.PictureBox pictureBoxProfilePic;
+        private System.Windows.Forms.TextBox textBoxProfileName;
     }
 }
 

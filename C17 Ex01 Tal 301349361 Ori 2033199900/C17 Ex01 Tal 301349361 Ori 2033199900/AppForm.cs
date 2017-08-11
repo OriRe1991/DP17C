@@ -21,13 +21,15 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             //////////////////////////////////////////////////////////////
             m_LogicApp = new ApplicationLogic();
             //////////////////////////////////////////////////////////////
+
+            FormLogin loginForm = new FormLogin(m_LogicApp);
+            loginForm.ShowDialog();
         }
 
         private void LogInBtn_Click(object sender, EventArgs e)
         {
             labelTest.Text = "Start opration...";
             labelTest.Text = m_LogicApp.LogInToSocialNetwork();
-            GetDataBtn.Enabled = true;
         }
 
         private void GetDataBtn_Click(object sender, EventArgs e)
@@ -41,6 +43,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             {
                 listBoxTest.Items.Add(item);
             }
+        }
+
+        private void AppForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
