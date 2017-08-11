@@ -8,6 +8,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
     public interface IDataSociable
     {
         void LogIn(string i_SocialToken = null);
+        bool IsLogedOn();
         string GetFullName();
         string GetFirstName();
         string GetUserId();

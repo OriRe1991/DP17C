@@ -6,6 +6,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
     public interface ILogicInterface
     {
         void LogInToSocialNetwork(string i_SocialToken = null);
+        bool IsConnected();
         EntityData GetUserData();
         List<AlbumData> GetFirstAlbumsData(int i_NumberOfAlbums);
         Dictionary<string, EntityData> GetTaggedFriends();

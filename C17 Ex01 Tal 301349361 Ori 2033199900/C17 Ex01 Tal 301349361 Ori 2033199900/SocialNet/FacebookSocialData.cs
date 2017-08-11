@@ -129,7 +129,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                 throw new Exception("Unable to connect to facebook");
             }
         }
-
+        
         public string GetThemePhotoUrl()
         {
             return m_LoggedInUser.Cover.SourceURL;
@@ -201,6 +201,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public List<string> GetLastPosts()
         {
             throw new NotImplementedException();
+        }
+
+        public bool IsLogedOn()
+        {
+            return m_LoggedInUser != null;
         }
     }
 
