@@ -72,7 +72,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                     result = null;
                 }
             }
-            
+
             if (result == null || string.IsNullOrEmpty(result.AccessToken))
             {
                 try {
@@ -113,9 +113,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                      //////////////////////////////////////////////////////////////////////
                      );
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
-                    throw new Exception(string.Format("Unable to connect to Facebook at the moment, more info: {0}{1}",Environment.NewLine, e.Message));
+                    throw new Exception(string.Format("Unable to connect to Facebook at the moment, more info: {0}{1}", Environment.NewLine, e.Message));
                 }
             }
 
@@ -129,7 +129,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                 throw new Exception("Unable to connect to facebook");
             }
         }
-        
+
         public string GetThemePhotoUrl()
         {
             return m_LoggedInUser.Cover.SourceURL;
@@ -206,6 +206,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public bool IsLogedOn()
         {
             return m_LoggedInUser != null;
+        }
+
+        public void LogOut(Action i_PostLogOutAction)
+        {
+            FacebookService.Logout(i_PostLogOutAction);
         }
     }
 
