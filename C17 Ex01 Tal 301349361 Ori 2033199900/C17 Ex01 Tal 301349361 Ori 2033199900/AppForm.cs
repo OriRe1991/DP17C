@@ -40,6 +40,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             //////////////////////////////////////////////////////////////
 
             login();
+            m_FormLogin = new FormLogin(m_LogicApp);
             m_FormLogin.ShowDialog();
 
             var userData = m_LogicApp.GetUserData();
