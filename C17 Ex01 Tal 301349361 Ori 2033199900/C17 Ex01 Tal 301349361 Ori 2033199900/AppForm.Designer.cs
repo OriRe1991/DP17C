@@ -1,4 +1,7 @@
-﻿namespace C17_Ex01_Tal_301349361_Ori_2033199900
+﻿using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
+using System.Collections.Generic;
+
+namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
     partial class AppForm
     {
@@ -40,6 +43,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.labelPictureBox1 = new System.Windows.Forms.Label();
+            this.labelPictureBox2 = new System.Windows.Forms.Label();
+            this.labelPictureBox4 = new System.Windows.Forms.Label();
+            this.labelPictureBox3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePic)).BeginInit();
@@ -84,7 +91,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.71225F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.28775F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 322F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 323F));
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button2, 2, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(95, 314);
@@ -102,14 +109,14 @@
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.buttonCreateAlbum.Location = new System.Drawing.Point(178, 3);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
-            this.buttonCreateAlbum.Size = new System.Drawing.Size(165, 39);
+            this.buttonCreateAlbum.Size = new System.Drawing.Size(164, 39);
             this.buttonCreateAlbum.TabIndex = 0;
             this.buttonCreateAlbum.Text = "CreateAlbum";
             this.buttonCreateAlbum.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(349, 3);
+            this.button2.Location = new System.Drawing.Point(348, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(144, 39);
             this.button2.TabIndex = 1;
@@ -152,6 +159,38 @@
             this.pictureBox4.TabIndex = 13;
             this.pictureBox4.TabStop = false;
             // 
+            // labelPictureBox1
+            // 
+            this.labelPictureBox1.AutoSize = true;
+            this.labelPictureBox1.Location = new System.Drawing.Point(105, 521);
+            this.labelPictureBox1.Name = "labelPictureBox1";
+            this.labelPictureBox1.Size = new System.Drawing.Size(0, 13);
+            this.labelPictureBox1.TabIndex = 14;
+            // 
+            // labelPictureBox2
+            // 
+            this.labelPictureBox2.AutoSize = true;
+            this.labelPictureBox2.Location = new System.Drawing.Point(325, 521);
+            this.labelPictureBox2.Name = "labelPictureBox2";
+            this.labelPictureBox2.Size = new System.Drawing.Size(0, 13);
+            this.labelPictureBox2.TabIndex = 15;
+            // 
+            // labelPictureBox4
+            // 
+            this.labelPictureBox4.AutoSize = true;
+            this.labelPictureBox4.Location = new System.Drawing.Point(105, 695);
+            this.labelPictureBox4.Name = "labelPictureBox4";
+            this.labelPictureBox4.Size = new System.Drawing.Size(0, 13);
+            this.labelPictureBox4.TabIndex = 16;
+            // 
+            // labelPictureBox3
+            // 
+            this.labelPictureBox3.AutoSize = true;
+            this.labelPictureBox3.Location = new System.Drawing.Point(325, 695);
+            this.labelPictureBox3.Name = "labelPictureBox3";
+            this.labelPictureBox3.Size = new System.Drawing.Size(0, 13);
+            this.labelPictureBox3.TabIndex = 17;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +198,10 @@
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(614, 363);
+            this.Controls.Add(this.labelPictureBox3);
+            this.Controls.Add(this.labelPictureBox4);
+            this.Controls.Add(this.labelPictureBox2);
+            this.Controls.Add(this.labelPictureBox1);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -196,6 +239,10 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label labelPictureBox1;
+        private System.Windows.Forms.Label labelPictureBox2;
+        private System.Windows.Forms.Label labelPictureBox4;
+        private System.Windows.Forms.Label labelPictureBox3;
     }
 }
 
