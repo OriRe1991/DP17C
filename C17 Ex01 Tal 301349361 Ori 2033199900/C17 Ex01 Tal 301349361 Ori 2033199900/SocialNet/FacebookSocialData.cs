@@ -64,7 +64,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public void LogIn(string i_SocialToken = null)
         {
-            FacebookService.s_CollectionLimit = 100;
+            FacebookService.s_CollectionLimit = 25;
             LoginResult result = null;
             if (i_SocialToken != null)
             {
@@ -84,8 +84,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                 {
                     result = FacebookService.Login(
                             "1955252128038346",
-                            //// TODO: remove unused credential
-                            //////////////////////////////////////////////////////////////////
                             "public_profile",
                             "user_education_history",
                             "user_birthday",
@@ -116,9 +114,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                             "read_page_mailboxes",
                             "manage_pages",
                             "publish_pages",
-                            "publish_actions"
-                     //////////////////////////////////////////////////////////////////////
-                     );
+                            "publish_actions");
                 }
                 catch (Exception e)
                 {
