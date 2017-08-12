@@ -22,13 +22,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public List<SocialPhotoData> GetPhotos()
         {
             List<SocialPhotoData> retVal = new List<SocialPhotoData>();
-            //// temporery incress the collection size to 150
-            FacebookService.s_CollectionLimit = 150;
+            //// temporery incress the collection size to 200
+            FacebookService.s_CollectionLimit = 200;
 
             var taggedPhotos = m_LoggedInUser.PhotosTaggedIn.ToList();
 
-            //// return the collection size to 25 
-            FacebookService.s_CollectionLimit = 25;
+            //// return the collection size to 50 
+            FacebookService.s_CollectionLimit = 50;
 
             foreach (var photo in taggedPhotos)
             {
@@ -64,6 +64,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public void LogIn(string i_SocialToken = null)
         {
+            FacebookService.s_CollectionLimit = 100;
             LoginResult result = null;
             if (i_SocialToken != null)
             {
@@ -149,15 +150,21 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public List<AlbumData> GetLastAlbums(int i_Number)
         {
             List<AlbumData> retVal = new List<AlbumData>();
-            var albumsOrdered = m_LoggedInUser.Albums.OrderBy(ua => ua.CreatedTime).ToList();
+            var albumsOrdered = m_LoggedInUser.Albums.Where(ua => ua.Photos.Count > 0).OrderByDescending(ua => ua.CreatedTime).ToList();
             var firstAlbums = albumsOrdered.Take(i_Number).ToList();
             foreach (var albom in firstAlbums)
             {
                 // TODO:
+                var picThumb = albom.Photos.FirstOrDefault();
+                string picUrl = string.Empty;
+                if (picThumb != null){
+                    picUrl = picThumb.ThumbURL;
+                }
+
                 retVal.Add(new AlbumData
                 {
                     AlbomName = albom.Name,
-                    FirstPicUrl = albom.Photos[0].ThumbURL
+                    FirstPicUrl = picUrl
                 });
             }
 
