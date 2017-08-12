@@ -18,9 +18,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
     {
         private ILogicInterface m_LogicApp;
 
-        private List<PictureBox> m_ViewedAlbumCovers;
-
-        private List<Label> m_ViewedAlbumCoversLabels;
+        List<PictureBox> m_ViewedAlbumCovers;
+        List<Label> m_ViewdAlbumsLabels;
 
         private ControlData m_ControlData;
 
@@ -43,22 +42,17 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         public AppForm()
         {
-            m_ViewedAlbumCovers = new List<PictureBox>();
-            m_ViewedAlbumCoversLabels = new List<Label>();
+            List<PictureBox> albums = (this.groupBoxAlbumCovers.Controls.OfType<PictureBox>()).ToList();
+            List<Label> albumsLabels = (this.groupBoxAlbumCovers.Controls.OfType<Label>()).ToList();
             InitializeComponent();
-            m_ViewedAlbumCovers.Add(pictureBoxAlbumCover1);
-            m_ViewedAlbumCovers.Add(pictureBoxAlbumCover2);
-            m_ViewedAlbumCovers.Add(pictureBoxCoverAlbum3);
-            m_ViewedAlbumCovers.Add(pictureBoxAlbumCover4);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum1);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum2);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum3);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum4);
             m_ControlData = ControlData.GetInstance();
             m_LogicApp = m_ControlData.AppLogic;
-            m_FormLogin = new FormLogin();
-            m_FormLogin.ShowDialog();
-            m_ControlData = ControlData.GetInstance();
+            if(!m_ControlData.UserData.Connected)
+            {
+                m_FormLogin = new FormLogin();
+                m_FormLogin.ShowDialog();
+            }
+
             if (!m_ControlData.Isconnected)
             {
                 this.Dispose();
@@ -109,10 +103,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             List<AlbumData> viewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
             int albumIdx = 0;
+            
             foreach (var viewedAlbumData in viewedAlbumsData)
             {
                 m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl);
-                m_ViewedAlbumCoversLabels[albumIdx].Text = viewedAlbumData.AlbomName;
+                m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName;
                 albumIdx++;
             }
         }
@@ -141,6 +136,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
+            m_ControlData.UserData.Connected = false;
             m_ControlData.AppLogic.LogOutUser(On_Logout);
         }
 

@@ -43,6 +43,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                 m_ControlData.AppLogic.LogInToSocialNetwork();
                 m_ControlData.UserData.UserAccessToken = m_ControlData.AppLogic.GetEntityData().AccessToken;
             }
+
+            m_ControlData.UserData.Connected = true;
         }
 
         private void checkBoxSaveAccessToken_CheckedChanged(object sender, EventArgs e)
