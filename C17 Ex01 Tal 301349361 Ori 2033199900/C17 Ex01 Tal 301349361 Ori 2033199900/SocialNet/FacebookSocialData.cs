@@ -11,6 +11,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
     public class FacebookSocialData : IDataSociable
     {
         private static int s_ConnectionlimitationDefault = 25;
+
         private User m_LoggedInUser;
 
         private string m_AccessToken;
@@ -298,16 +299,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             }
 
             return retVal;
-        }
-
-        public List<string> GetTaggedFriendsNameList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<string> GetLastPosts()
-        {
-            throw new NotImplementedException();
         }
     }
 }

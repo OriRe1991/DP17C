@@ -67,6 +67,12 @@
     <Compile Include="FormCreateAlbum.Designer.cs">
       <DependentUpon>FormCreateAlbum.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMyBestFriend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMyBestFriend.Designer.cs">
+      <DependentUpon>FormMyBestFriend.cs</DependentUpon>
+    </Compile>
     <Compile Include="PostBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMyBestFriend.resx">
+      <DependentUpon>FormMyBestFriend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PostBox.resx">
       <DependentUpon>PostBox.cs</DependentUpon>
