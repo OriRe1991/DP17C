@@ -17,7 +17,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         string GetFirstName();
 
-        string GetUserId();
+        string GetMyUserId();
 
         string GetAccessToken();
 
@@ -35,7 +35,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         string CreateAlbum(string i_AlbumName, string i_AlbumDescription);
 
-        void CreatePostNewAlbumWithFriendsName(string i_PostText, string i_PostPictureUrl, string[] i_TaggedUserIDs);
+        bool CreatePostNewAlbumWithFriendsName(string i_PostText, string i_PostPictureUrl, string[] i_TaggedUserIDs);
 
         bool CreateNewPostStatus(string i_PostData);
     }

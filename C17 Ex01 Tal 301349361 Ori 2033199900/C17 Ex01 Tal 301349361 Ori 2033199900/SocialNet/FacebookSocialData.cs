@@ -169,7 +169,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return newAlbum.Id;
         }
 
-        public void CreatePostNewAlbumWithFriendsName(string i_PostText, string i_PostPictureUrl, string[] i_TaggedUserIDs)
+        public bool CreatePostNewAlbumWithFriendsName(string i_PostText, string i_PostPictureUrl, string[] i_TaggedUserIDs)
         {
             StringBuilder tagedUserIdBuilder = null;
             if (i_TaggedUserIDs != null && i_TaggedUserIDs.Length > 0)
@@ -187,7 +187,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             }
 
             string taggedFriends = (tagedUserIdBuilder != null) ? tagedUserIdBuilder.ToString() : null;
-            m_LoggedInUser.PostStatus(i_StatusText: i_PostText, i_PictureURL: i_PostPictureUrl, i_TaggedFriendIDs: taggedFriends);
+            var status = m_LoggedInUser.PostStatus(i_StatusText: i_PostText, i_PictureURL: i_PostPictureUrl, i_TaggedFriendIDs: taggedFriends);
+
+            return status.CreatedTime.Value.Month > 0;
         }
 
         public string GetFirstName()
@@ -195,9 +197,31 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return m_LoggedInUser.FirstName;
         }
 
-        public string GetUserId()
+        public string GetMyUserId()
         {
             return m_LoggedInUser.Id;
+        }
+
+        public bool IsLogedOn()
+        {
+            bool retVal = m_LoggedInUser != null;
+            retVal = !string.IsNullOrEmpty(m_AccessToken) && retVal;
+            return retVal;
+        }
+
+        public void LogOut(Action i_PostLogOutAction)
+        {
+            FacebookService.Logout(i_PostLogOutAction);
+        }
+
+        /// <summary>
+        /// simple status sender wrapper without any taged or photos.
+        /// </summary>
+        /// <param name="i_PostData"></param>
+        /// <returns>true if published post successfully</returns>
+        public bool CreateNewPostStatus(string i_PostData)
+        {
+            return CreatePostNewAlbumWithFriendsName(i_PostData, null, null);
         }
 
         public List<string> GetTaggedFriendsNameList()
@@ -208,22 +232,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public List<string> GetLastPosts()
         {
             throw new NotImplementedException();
-        }
-
-        public bool IsLogedOn()
-        {
-            return m_LoggedInUser != null;
-        }
-
-        public void LogOut(Action i_PostLogOutAction)
-        {
-            FacebookService.Logout(i_PostLogOutAction);
-        }
-
-        public bool CreateNewPostStatus(string i_PostData)
-        {
-            var status = m_LoggedInUser.PostStatus(i_PostData);
-            return status.CreatedTime.Value.Month > 0;
         }
     }
 }

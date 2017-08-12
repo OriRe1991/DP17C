@@ -26,6 +26,83 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             }
         }
 
+        private Dictionary<string, int> m_FriendsTaggedCount = null;
+
+        private Dictionary<string, int> FriendsTaggedCount
+        {
+            get
+            {
+                if (m_FriendsTaggedCount == null)
+                {
+                    inittaggedFriendsData();
+                }
+
+                return m_FriendsTaggedCount;
+            }
+        }
+
+        private Dictionary<string, EntityData> m_FriendsData = null;
+
+        private Dictionary<string, EntityData> FriendsData
+        {
+            get
+            {
+                if (m_FriendsData == null)
+                {
+                    inittaggedFriendsData();
+                }
+
+                return m_FriendsData;
+            }
+        }
+
+        private List<SocialPhotoData> m_TaggedFriends = null;
+
+        private List<SocialPhotoData> TaggedFriends
+        {
+            get
+            {
+                if (UserSocialData == null)
+                {
+                    throw new Exception("Try to retrive data without SocialData Connection");
+                }
+
+                if (m_TaggedFriends == null)
+                {
+                    m_TaggedFriends = UserSocialData.GetPhotos();
+                }
+
+                return m_TaggedFriends;
+            }
+        }
+
+        private void inittaggedFriendsData()
+        {
+            m_FriendsTaggedCount = new Dictionary<string, int>();
+            m_FriendsData = new Dictionary<string, EntityData>();
+
+            foreach (var photo in TaggedFriends)
+            {
+                foreach (var friend in photo.FriendsInPhotos)
+                {
+                    if (friend.UserId != m_UserSocialData.GetMyUserId())
+                    {
+                        if (!m_FriendsTaggedCount.ContainsKey(friend.UserId))
+                        {
+                            m_FriendsTaggedCount[friend.UserId] = 0;
+                        }
+
+                        if (!m_FriendsData.ContainsKey(friend.UserId))
+                        {
+                            m_FriendsData[friend.UserId] = friend;
+                        }
+
+                        m_FriendsTaggedCount[friend.UserId]++;
+                    }
+                }
+            }
+        }
+
         private AlbumDataManager m_AlbomDataManager = null;
 
         private AlbumDataManager AlbomDataManager
@@ -65,7 +142,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         public Dictionary<string, EntityData> GetTaggedFriends()
         {
-            return AlbomDataManager.GetTaggedFriendsNameList();
+            return AlbomDataManager.GetTaggedFriendsNameList(TaggedFriends);
         }
 
         public bool IsConnected()
@@ -80,7 +157,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         public void CreateAlbumWithFriend(params string[] i_UserIds)
         {
-            AlbomDataManager.CreateNewAlbum(i_UserIds);
+            AlbomDataManager.CreateNewAlbum(FriendsData, i_UserIds);
         }
 
         public bool CreateNewPost(string i_PostData)
