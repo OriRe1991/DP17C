@@ -67,6 +67,12 @@
     <Compile Include="FormCreateAlbum.Designer.cs">
       <DependentUpon>FormCreateAlbum.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PostBox.Designer.cs">
+      <DependentUpon>PostBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="SocialNet\AlbumData.cs" />
     <Compile Include="AppLogic\ApplicationLogic.cs" />
     <Compile Include="AppLogic\Features\AlbumDataManager.cs" />
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostBox.resx">
+      <DependentUpon>PostBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

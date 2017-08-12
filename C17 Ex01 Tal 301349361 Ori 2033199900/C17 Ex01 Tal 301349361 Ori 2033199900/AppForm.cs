@@ -87,20 +87,19 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             List<SocialPost> postList = m_ControlData.AppLogic.GetLastPostFromWall(3);
             int idx = 0;
-            if(postList != null)
+            if (postList != null)
             {
                 foreach (var post in postList)
                 {
-                    if (post.Message.Length > 0)
-                    {
-                        Label newPost = new Label();
-                        newPost.Name = string.Format("LabelPost{0}", idx);
-                        newPost.Text = post.Message;
-                        newPost.Font = new Font(Font.FontFamily, 18);
-                        newPost.ForeColor = Color.Black;
-                        this.Controls.Add(newPost);
-                        flowLayoutPanelWall.Controls.Add(newPost);
-                    }
+
+                    PostBox newPost = new PostBox();
+                    newPost.Name = string.Format("PostBox{0}", idx);
+                    newPost.PostDate = post.CreatedTime.Value.ToLongDateString();
+                    newPost.PostText = post.Message;
+                    newPost.PostPictureUrl = post.PictureURL;
+                    newPost.PostLikes(post.LikedBy.Count());
+                    this.Controls.Add(newPost);
+                    flowLayoutPanelWall.Controls.Add(newPost);
                     idx++;
                 }
             }
@@ -120,7 +119,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void AppForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(m_ControlData.UserData.RememberLogIn)
+            if (m_ControlData.UserData.RememberLogIn)
             {
                 m_ControlData.UserData.saveUserDataToJson();
             }

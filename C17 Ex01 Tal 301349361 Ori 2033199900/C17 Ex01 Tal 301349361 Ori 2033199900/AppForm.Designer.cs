@@ -100,7 +100,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.34367F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.tableLayoutPanel2.Controls.Add(this.buttonLogout, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonWhosMyBFF, 2, 0);
@@ -117,7 +117,7 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonLogout.Location = new System.Drawing.Point(533, 3);
+            this.buttonLogout.Location = new System.Drawing.Point(532, 3);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(139, 39);
             this.buttonLogout.TabIndex = 2;
@@ -131,7 +131,7 @@
             this.buttonCreateAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateAlbum.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCreateAlbum.Location = new System.Drawing.Point(225, 3);
+            this.buttonCreateAlbum.Location = new System.Drawing.Point(224, 3);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
             this.buttonCreateAlbum.Size = new System.Drawing.Size(150, 39);
             this.buttonCreateAlbum.TabIndex = 0;
@@ -145,7 +145,7 @@
             this.buttonWhosMyBFF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWhosMyBFF.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhosMyBFF.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonWhosMyBFF.Location = new System.Drawing.Point(381, 3);
+            this.buttonWhosMyBFF.Location = new System.Drawing.Point(380, 3);
             this.buttonWhosMyBFF.Name = "buttonWhosMyBFF";
             this.buttonWhosMyBFF.Size = new System.Drawing.Size(146, 39);
             this.buttonWhosMyBFF.TabIndex = 3;
@@ -251,7 +251,7 @@
             this.flowLayoutPanelWall.ForeColor = System.Drawing.Color.Black;
             this.flowLayoutPanelWall.Location = new System.Drawing.Point(509, 543);
             this.flowLayoutPanelWall.Name = "flowLayoutPanelWall";
-            this.flowLayoutPanelWall.Size = new System.Drawing.Size(364, 317);
+            this.flowLayoutPanelWall.Size = new System.Drawing.Size(364, 423);
             this.flowLayoutPanelWall.TabIndex = 19;
             // 
             // richTextBoxNewPost
