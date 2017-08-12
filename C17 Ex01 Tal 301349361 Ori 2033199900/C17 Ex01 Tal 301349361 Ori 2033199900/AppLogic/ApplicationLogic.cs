@@ -26,21 +26,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             }
         }
 
-        //private Dictionary<string, int> m_FriendsTaggedCount = null;
-
-        //private Dictionary<string, int> FriendsTaggedCount
-        //{
-        //    get
-        //    {
-        //        if (m_FriendsTaggedCount == null)
-        //        {
-        //            inittaggedFriendsData();
-        //        }
-
-        //        return m_FriendsTaggedCount;
-        //    }
-        //}
-
         private Dictionary<string, EntityData> m_FriendsData = null;
 
         private Dictionary<string, EntityData> FriendsData
@@ -93,7 +78,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         private void inittaggedFriendsData()
         {
-            //m_FriendsTaggedCount = new Dictionary<string, int>();
             m_FriendsData = new Dictionary<string, EntityData>();
             m_FriendsPhotos = new Dictionary<string, List<SocialPhotoData>>();
 
@@ -103,11 +87,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
                 {
                     if (!string.IsNullOrEmpty(friend.UserId) && friend.UserId != m_UserSocialData.GetMyUserId())
                     {
-                        //if (!m_FriendsTaggedCount.ContainsKey(friend.UserId))
-                        //{
-                        //    m_FriendsTaggedCount[friend.UserId] = 0;
-                        //}
-
                         if (!m_FriendsData.ContainsKey(friend.UserId))
                         {
                             m_FriendsData[friend.UserId] = friend;
@@ -118,7 +97,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
                             m_FriendsPhotos[friend.UserId] = new List<SocialPhotoData>();
                         }
 
-                        //m_FriendsTaggedCount[friend.UserId]++;
                         m_FriendsPhotos[friend.UserId].Add(photo);
                     }
                 }

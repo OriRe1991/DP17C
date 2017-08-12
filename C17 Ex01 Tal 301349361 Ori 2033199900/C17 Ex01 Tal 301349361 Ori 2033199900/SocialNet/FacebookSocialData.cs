@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Net;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-using System.Net;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 {
@@ -157,7 +157,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                 // TODO:
                 var picThumb = albom.Photos.FirstOrDefault();
                 string picUrl = string.Empty;
-                if (picThumb != null){
+                if (picThumb != null)
+                {
                     picUrl = picThumb.ThumbURL;
                 }
 
@@ -184,6 +185,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
                 newAlbum.UploadPhoto(tempPicLocation);
             }
+
             return newAlbum.Id;
         }
 
