@@ -261,22 +261,38 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
                 foreach (var post in wallPosts)
                 {
-                    List<EntityData> reactedEntity = new List<EntityData>();
+                    List<EntityData> reactedEntitys = new List<EntityData>();
+                    List<EntityData> commentsEntitys = new List<EntityData>();
                     foreach (var reacton in post.LikedBy)
                     {
-                        reactedEntity.Add(new EntityData
+                        reactedEntitys.Add(new EntityData
                         {
                             FullName = reacton.Name,
-                            UserId = reacton.Id
+                            UserId = reacton.Id,
+                            ProfilePictureUrl = reacton.PictureLargeURL
                         });
                     }
+
+                    foreach (var comment in post.Comments)
+                    {
+                        commentsEntitys.Add(new EntityData
+                        {
+                            FullName = comment.From.Name,
+                            UserId = comment.From.Id,
+                            ProfilePictureUrl = comment.From.PictureLargeURL
+                        });
+                    }
+
+                    //// wrapping the object with poco data
                     retVal.Add(new SocialPost
                     {
+                        GeneratedFriendUserId = post.From.Id,
                         Message = post.Message,
-                        NameFrom = post.Name,
+                        NameFrom = post.From.Name,
                         PictureUrl = post.PictureURL,
                         CreatedTime = post.CreatedTime.GetValueOrDefault(DateTime.MinValue),
-                        EntityReactedToPost = reactedEntity
+                        EntityReactedToPost = reactedEntitys,
+                        Comments = commentsEntitys
                     });
                 }
             }

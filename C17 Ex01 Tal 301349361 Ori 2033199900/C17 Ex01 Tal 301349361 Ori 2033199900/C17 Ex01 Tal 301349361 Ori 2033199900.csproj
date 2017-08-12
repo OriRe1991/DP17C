@@ -58,7 +58,7 @@
     <Compile Include="AppForm.Designer.cs">
       <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppLogic\Features\MyBestFriend.cs" />
+    <Compile Include="AppLogic\Features\MyBestFriendManager.cs" />
     <Compile Include="DataSystem\ControlData.cs" />
     <Compile Include="DataSystem\UserData.cs" />
     <Compile Include="FormCreateAlbum.cs">
