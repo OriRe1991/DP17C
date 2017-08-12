@@ -16,10 +16,15 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
     public partial class AppForm : Form
     {
+        private const int k_NumberOfPostFromWall = 3;
+
+        private string m_richTextBoxNewPostDefaultTest = string.Empty;
+
         private ILogicInterface m_LogicApp;
 
-        List<PictureBox> m_ViewedAlbumCovers;
-        List<Label> m_ViewdAlbumsLabels;
+        private List<PictureBox> m_ViewedAlbumCovers;
+
+        private List<Label> m_ViewdAlbumsLabels;
 
         private ControlData m_ControlData;
 
@@ -43,22 +48,22 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         public AppForm()
         {
             InitializeComponent();
-            m_ViewedAlbumCovers = (this.groupBoxAlbumCovers.Controls.OfType<PictureBox>()).ToList();
-            m_ViewdAlbumsLabels = (this.groupBoxAlbumCovers.Controls.OfType<Label>()).ToList();
+            m_ViewedAlbumCovers = groupBoxAlbumCovers.Controls.OfType<PictureBox>().ToList();
+            m_ViewdAlbumsLabels = groupBoxAlbumCovers.Controls.OfType<Label>().ToList();
             m_ControlData = ControlData.GetInstance();
             m_LogicApp = m_ControlData.AppLogic;
+            m_richTextBoxNewPostDefaultTest = richTextBoxNewPost.Text;
 
             m_FormLogin = new FormLogin();
             m_FormLogin.ShowDialog();
 
-
             if (!m_ControlData.Isconnected)
             {
-                this.Dispose();
+                Dispose();
             }
 
             var entityData = m_LogicApp.GetEntityData();
-            this.Show();
+            Show();
             pictureBoxProfilePic.LoadAsync(entityData.ProfilePictureUrl);
             pictureBoxCoverPhoto.LoadAsync(entityData.ThemePictureUrl);
             updatePageView();
@@ -79,13 +84,21 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void updateWall()
         {
             flowLayoutPanelWall.Controls.Clear();
-            List<SocialPost> postList = m_ControlData.AppLogic.GetLastPostFromWall(3);
+            List<SocialPost> postList = null;
+            try
+            {
+                postList = m_ControlData.AppLogic.GetLastPostFromWall(k_NumberOfPostFromWall);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             int idx = 0;
             if (postList != null)
             {
                 foreach (var post in postList)
                 {
-
                     PostBox newPost = new PostBox();
                     newPost.Name = string.Format("PostBox{0}", idx);
                     newPost.PostDate = post.CreatedTime.ToLongDateString();
@@ -101,14 +114,25 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void updateRecentAlbumView()
         {
-            List<AlbumData> viewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
-            int albumIdx = 0;
-
-            foreach (var viewedAlbumData in viewedAlbumsData)
+            List<AlbumData> viewedAlbumsData = null;
+            try
             {
-                m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl);
-                m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName;
-                albumIdx++;
+                viewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (viewedAlbumsData != null && viewedAlbumsData.Count > 0)
+            {
+                int albumIdx = 0;
+                foreach (var viewedAlbumData in viewedAlbumsData)
+                {
+                    m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl);
+                    m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName;
+                    albumIdx++;
+                }
             }
         }
 
@@ -148,8 +172,16 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            m_ControlData.AppLogic.CreateNewPost(this.richTextBoxNewPost.Text);
-            richTextBoxNewPost.Clear();
+            try
+            {
+                m_ControlData.AppLogic.CreateNewPost(this.richTextBoxNewPost.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            restToDefaultTextrichTextBox();
             updatePageView();
         }
 
@@ -157,6 +189,27 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             FormMyBestFriend myBeasFriendWindow = new FormMyBestFriend();
             myBeasFriendWindow.ShowDialog();
+        }
+
+        private void richTextBoxNewPost_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (richTextBoxNewPost.Text == m_richTextBoxNewPostDefaultTest)
+            {
+                richTextBoxNewPost.Clear();
+            }
+        }
+
+        private void richTextBoxNewPost_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(richTextBoxNewPost.Text) || string.IsNullOrWhiteSpace(richTextBoxNewPost.Text))
+            {
+                restToDefaultTextrichTextBox();
+            }
+        }
+
+        private void restToDefaultTextrichTextBox()
+        {
+            richTextBoxNewPost.Text = m_richTextBoxNewPostDefaultTest;
         }
     }
 }

@@ -64,7 +64,7 @@
             // pictureBoxCoverPhoto
             // 
             this.pictureBoxCoverPhoto.Location = new System.Drawing.Point(126, 7);
-            this.pictureBoxCoverPhoto.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.pictureBoxCoverPhoto.Margin = new System.Windows.Forms.Padding(7);
             this.pictureBoxCoverPhoto.Name = "pictureBoxCoverPhoto";
             this.pictureBoxCoverPhoto.Size = new System.Drawing.Size(1911, 698);
             this.pictureBoxCoverPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -74,7 +74,7 @@
             // pictureBoxProfilePic
             // 
             this.pictureBoxProfilePic.Location = new System.Drawing.Point(156, 455);
-            this.pictureBoxProfilePic.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.pictureBoxProfilePic.Margin = new System.Windows.Forms.Padding(7);
             this.pictureBoxProfilePic.Name = "pictureBoxProfilePic";
             this.pictureBoxProfilePic.Size = new System.Drawing.Size(429, 323);
             this.pictureBoxProfilePic.TabIndex = 6;
@@ -105,12 +105,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.34367F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 355F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 338F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 341F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 343F));
             this.tableLayoutPanel2.Controls.Add(this.buttonLogout, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonWhosMyBFF, 2, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(126, 718);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(7);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -123,8 +123,8 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonLogout.Location = new System.Drawing.Point(1238, 7);
-            this.buttonLogout.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.buttonLogout.Location = new System.Drawing.Point(1236, 7);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(7);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(324, 86);
             this.buttonLogout.TabIndex = 2;
@@ -138,10 +138,10 @@
             this.buttonCreateAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateAlbum.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCreateAlbum.Location = new System.Drawing.Point(521, 7);
-            this.buttonCreateAlbum.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.buttonCreateAlbum.Location = new System.Drawing.Point(520, 7);
+            this.buttonCreateAlbum.Margin = new System.Windows.Forms.Padding(7);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
-            this.buttonCreateAlbum.Size = new System.Drawing.Size(348, 86);
+            this.buttonCreateAlbum.Size = new System.Drawing.Size(347, 86);
             this.buttonCreateAlbum.TabIndex = 0;
             this.buttonCreateAlbum.Text = "CreateAlbum";
             this.buttonCreateAlbum.UseVisualStyleBackColor = false;
@@ -153,8 +153,8 @@
             this.buttonWhosMyBFF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWhosMyBFF.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhosMyBFF.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonWhosMyBFF.Location = new System.Drawing.Point(883, 7);
-            this.buttonWhosMyBFF.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.buttonWhosMyBFF.Location = new System.Drawing.Point(881, 7);
+            this.buttonWhosMyBFF.Margin = new System.Windows.Forms.Padding(7);
             this.buttonWhosMyBFF.Name = "buttonWhosMyBFF";
             this.buttonWhosMyBFF.Size = new System.Drawing.Size(341, 86);
             this.buttonWhosMyBFF.TabIndex = 3;
@@ -165,7 +165,7 @@
             // pictureBoxAlbumCover1
             // 
             this.pictureBoxAlbumCover1.Location = new System.Drawing.Point(14, 42);
-            this.pictureBoxAlbumCover1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.pictureBoxAlbumCover1.Margin = new System.Windows.Forms.Padding(7);
             this.pictureBoxAlbumCover1.Name = "pictureBoxAlbumCover1";
             this.pictureBoxAlbumCover1.Size = new System.Drawing.Size(492, 366);
             this.pictureBoxAlbumCover1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -175,7 +175,7 @@
             // pictureBoxAlbumCover2
             // 
             this.pictureBoxAlbumCover2.Location = new System.Drawing.Point(520, 42);
-            this.pictureBoxAlbumCover2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.pictureBoxAlbumCover2.Margin = new System.Windows.Forms.Padding(7);
             this.pictureBoxAlbumCover2.Name = "pictureBoxAlbumCover2";
             this.pictureBoxAlbumCover2.Size = new System.Drawing.Size(492, 366);
             this.pictureBoxAlbumCover2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -185,7 +185,7 @@
             // pictureBoxAlbumCover4
             // 
             this.pictureBoxAlbumCover4.Location = new System.Drawing.Point(14, 419);
-            this.pictureBoxAlbumCover4.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.pictureBoxAlbumCover4.Margin = new System.Windows.Forms.Padding(7);
             this.pictureBoxAlbumCover4.Name = "pictureBoxAlbumCover4";
             this.pictureBoxAlbumCover4.Size = new System.Drawing.Size(492, 366);
             this.pictureBoxAlbumCover4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -248,9 +248,9 @@
             this.groupBoxAlbumCovers.Controls.Add(this.pictureBoxAlbumCover4);
             this.groupBoxAlbumCovers.Controls.Add(this.pictureBoxCoverAlbum3);
             this.groupBoxAlbumCovers.Location = new System.Drawing.Point(126, 852);
-            this.groupBoxAlbumCovers.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.groupBoxAlbumCovers.Margin = new System.Windows.Forms.Padding(7);
             this.groupBoxAlbumCovers.Name = "groupBoxAlbumCovers";
-            this.groupBoxAlbumCovers.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.groupBoxAlbumCovers.Padding = new System.Windows.Forms.Padding(7);
             this.groupBoxAlbumCovers.Size = new System.Drawing.Size(1024, 805);
             this.groupBoxAlbumCovers.TabIndex = 18;
             this.groupBoxAlbumCovers.TabStop = false;
@@ -259,7 +259,7 @@
             // pictureBoxCoverAlbum3
             // 
             this.pictureBoxCoverAlbum3.Location = new System.Drawing.Point(518, 419);
-            this.pictureBoxCoverAlbum3.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.pictureBoxCoverAlbum3.Margin = new System.Windows.Forms.Padding(7);
             this.pictureBoxCoverAlbum3.Name = "pictureBoxCoverAlbum3";
             this.pictureBoxCoverAlbum3.Size = new System.Drawing.Size(492, 366);
             this.pictureBoxCoverAlbum3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -272,7 +272,7 @@
             this.flowLayoutPanelWall.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelWall.ForeColor = System.Drawing.Color.Black;
             this.flowLayoutPanelWall.Location = new System.Drawing.Point(1188, 1211);
-            this.flowLayoutPanelWall.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.flowLayoutPanelWall.Margin = new System.Windows.Forms.Padding(7);
             this.flowLayoutPanelWall.Name = "flowLayoutPanelWall";
             this.flowLayoutPanelWall.Size = new System.Drawing.Size(849, 944);
             this.flowLayoutPanelWall.TabIndex = 19;
@@ -280,18 +280,20 @@
             // richTextBoxNewPost
             // 
             this.richTextBoxNewPost.Location = new System.Drawing.Point(1188, 895);
-            this.richTextBoxNewPost.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.richTextBoxNewPost.Margin = new System.Windows.Forms.Padding(7);
             this.richTextBoxNewPost.Name = "richTextBoxNewPost";
             this.richTextBoxNewPost.Size = new System.Drawing.Size(844, 209);
             this.richTextBoxNewPost.TabIndex = 20;
             this.richTextBoxNewPost.Text = "What\'s on my mind?";
+            this.richTextBoxNewPost.Leave += new System.EventHandler(this.richTextBoxNewPost_Leave);
+            this.richTextBoxNewPost.MouseDown += new System.Windows.Forms.MouseEventHandler(this.richTextBoxNewPost_MouseDown);
             // 
             // buttonPost
             // 
             this.buttonPost.BackColor = System.Drawing.Color.SteelBlue;
             this.buttonPost.ForeColor = System.Drawing.SystemColors.Window;
             this.buttonPost.Location = new System.Drawing.Point(1874, 1122);
-            this.buttonPost.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.buttonPost.Margin = new System.Windows.Forms.Padding(7);
             this.buttonPost.Name = "buttonPost";
             this.buttonPost.Size = new System.Drawing.Size(163, 49);
             this.buttonPost.TabIndex = 21;
@@ -305,7 +307,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(2175, 953);
+            this.ClientSize = new System.Drawing.Size(2213, 1273);
             this.Controls.Add(this.buttonPost);
             this.Controls.Add(this.richTextBoxNewPost);
             this.Controls.Add(this.flowLayoutPanelWall);
@@ -314,7 +316,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.groupBoxAlbumCovers);
             this.Controls.Add(this.pictureBoxCoverPhoto);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AppForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppForm_FormClosing);

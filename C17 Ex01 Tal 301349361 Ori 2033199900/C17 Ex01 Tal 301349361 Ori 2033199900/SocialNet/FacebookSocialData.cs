@@ -147,24 +147,36 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public List<AlbumData> GetLastAlbums(int i_Number)
         {
+            List<Album> firstAlbums = null;
             List<AlbumData> retVal = new List<AlbumData>();
-            var albumsOrdered = m_LoggedInUser.Albums.Where(ua => ua.Photos.Count > 0).OrderByDescending(ua => ua.CreatedTime).ToList();
-            var firstAlbums = albumsOrdered.Take(i_Number).ToList();
-            foreach (var albom in firstAlbums)
+            try
             {
-                // TODO:
-                var picThumb = albom.Photos.FirstOrDefault();
-                string picUrl = string.Empty;
-                if (picThumb != null)
-                {
-                    picUrl = picThumb.ThumbURL;
-                }
+                var albumsOrdered = m_LoggedInUser.Albums.Where(ua => ua.Photos.Count > 0).OrderByDescending(ua => ua.CreatedTime).ToList();
+                firstAlbums = albumsOrdered.Take(i_Number).ToList();
+            }
+            catch
+            {
+                throw new Exception("Oops, looks like we cannot retrive you'r album data");
+            }
 
-                retVal.Add(new AlbumData
+            if (firstAlbums != null && firstAlbums.Count > 0)
+            {
+                foreach (var albom in firstAlbums)
                 {
-                    AlbomName = albom.Name,
-                    FirstPicUrl = picUrl
-                });
+                    // TODO:
+                    var picThumb = albom.Photos.FirstOrDefault();
+                    string picUrl = string.Empty;
+                    if (picThumb != null)
+                    {
+                        picUrl = picThumb.ThumbURL;
+                    }
+
+                    retVal.Add(new AlbumData
+                    {
+                        AlbomName = albom.Name,
+                        FirstPicUrl = picUrl
+                    });
+                }
             }
 
             return retVal;
@@ -206,9 +218,15 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             }
 
             string taggedFriends = (tagedUserIdBuilder != null) ? tagedUserIdBuilder.ToString() : null;
-            var status = m_LoggedInUser.PostStatus(i_StatusText: i_PostText, i_PictureURL: i_PostPictureUrl, i_TaggedFriendIDs: taggedFriends);
-
-            return status.CreatedTime.Value.Month > 0;
+            try
+            {
+                var status = m_LoggedInUser.PostStatus(i_StatusText: i_PostText, i_PictureURL: i_PostPictureUrl, i_TaggedFriendIDs: taggedFriends);
+                return status.CreatedTime.Value.Month > 0;
+            }
+            catch
+            {
+                throw new Exception("Oops... Unable to Post at this time");
+            }
         }
 
         public string GetFirstName()

@@ -38,18 +38,24 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             LoginButton.Text = "LoginIn...";
             UserData TempUserData = UserData.LoadUserDataFromJson();
+            try {
+                if (TempUserData != null && TempUserData.RememberLogIn)
+                {
+                    m_ControlData.UserData = UserData.LoadUserDataFromJson();
+                    m_ControlData.AppLogic.LogInToSocialNetwork(m_ControlData.UserData.UserAccessToken);
+                }
+                else
+                {
+                    m_ControlData.AppLogic.LogInToSocialNetwork();
+                    m_ControlData.UserData.UserAccessToken = m_ControlData.AppLogic.GetEntityData().AccessToken;
+                }
 
-            if (TempUserData != null && TempUserData.RememberLogIn)
-            {
-                m_ControlData.UserData = UserData.LoadUserDataFromJson();
-                m_ControlData.AppLogic.LogInToSocialNetwork(m_ControlData.UserData.UserAccessToken);
+                m_ControlData.Isconnected = true;
             }
-            else
+            catch(Exception ex)
             {
-                m_ControlData.AppLogic.LogInToSocialNetwork();
-                m_ControlData.UserData.UserAccessToken = m_ControlData.AppLogic.GetEntityData().AccessToken;
+                MessageBox.Show(ex.Message);
             }
-            m_ControlData.Isconnected = true;
         }
 
         private void checkBoxSaveAccessToken_CheckedChanged(object sender, EventArgs e)

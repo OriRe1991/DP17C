@@ -1,6 +1,6 @@
 ﻿namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
-    partial class PostBox
+    public partial class PostBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
