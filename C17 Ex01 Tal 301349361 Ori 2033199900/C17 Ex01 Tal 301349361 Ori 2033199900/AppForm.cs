@@ -42,12 +42,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         public AppForm()
         {
-            List<PictureBox> albums = (this.groupBoxAlbumCovers.Controls.OfType<PictureBox>()).ToList();
-            List<Label> albumsLabels = (this.groupBoxAlbumCovers.Controls.OfType<Label>()).ToList();
             InitializeComponent();
+            m_ViewedAlbumCovers = (this.groupBoxAlbumCovers.Controls.OfType<PictureBox>()).ToList();
+            m_ViewdAlbumsLabels = (this.groupBoxAlbumCovers.Controls.OfType<Label>()).ToList();
             m_ControlData = ControlData.GetInstance();
             m_LogicApp = m_ControlData.AppLogic;
-            if(!m_ControlData.UserData.Connected)
+            if(!m_ControlData.UserData.RememberLogIn || !m_ControlData.UserData.Connected)
             {
                 m_FormLogin = new FormLogin();
                 m_FormLogin.ShowDialog();
@@ -114,8 +114,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void AppForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (m_ControlData.UserData.RememberLogIn)
+            if (m_ControlData.UserData.RememberLogIn || m_ControlData.Isconnected)
             {
+                m_ControlData.UserData.Connected = true;
                 m_ControlData.UserData.saveUserDataToJson();
             }
         }
