@@ -72,11 +72,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             var entityData = m_LogicApp.GetEntityData();
             pictureBoxProfilePic.LoadAsync(entityData.ProfilePictureUrl);
             pictureBoxCoverPhoto.LoadAsync(entityData.ThemePictureUrl);
-            updateViewedAlbumCovers();
+            updatePageView();
             ProfileNameLable.Text = entityData.FullName;
         }
 
-        private void updateViewedAlbumCovers()
+        private void updatePageView()
         {
             List<AlbumData> viewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
             int albumIdx = 0;
@@ -105,7 +105,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             m_FormCreateAlbum = CreateAlbumForm;
             CreateAlbumForm.ShowDialog();
-            updateViewedAlbumCovers();
+            updatePageView();
         }
 
         private void AppForm_Load(object sender, EventArgs e)
@@ -126,6 +126,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.Dispose();
         }
 
-       
+        private void buttonPost_Click(object sender, EventArgs e)
+        {
+            m_ControlData.AppLogic.CreateNewPost(this.groupBoxWall.Text);
+            updatePageView();
+        }
     }
 }
