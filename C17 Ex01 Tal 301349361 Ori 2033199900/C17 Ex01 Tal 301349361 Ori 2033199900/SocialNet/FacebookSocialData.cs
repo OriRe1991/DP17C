@@ -180,7 +180,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                     client.DownloadFile(new Uri(photo), tempPicLocation);
                 }
 
-                newAlbum.UploadPhoto(tempPicLocation);
+                string photoTitle = string.Format("Look at {0}, Such Fun!", i_AlbumDescription);
+                newAlbum.UploadPhoto(tempPicLocation, photoTitle);
             }
 
             return newAlbum.Id;
