@@ -1,8 +1,8 @@
-﻿using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
 {
@@ -11,6 +11,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
         public UserData UserData { get; set; }
 
         public bool Isconnected { get; set; }
+
         public ApplicationLogic AppLogic
         {
             get
