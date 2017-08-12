@@ -19,7 +19,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public List<SocialPhotoData> GetPhotos()
         {
-            List<SocialPhotoData> retVal = null;
+            List<SocialPhotoData> retVal = new List<SocialPhotoData>();
             //// temporery incress the collection size to 150
             FacebookService.s_CollectionLimit = 150;
 

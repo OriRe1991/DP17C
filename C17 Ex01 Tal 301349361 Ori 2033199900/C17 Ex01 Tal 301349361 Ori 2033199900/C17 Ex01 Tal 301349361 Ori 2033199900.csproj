@@ -60,6 +60,12 @@
     </Compile>
     <Compile Include="DataSystem\ControlData.cs" />
     <Compile Include="DataSystem\UserData.cs" />
+    <Compile Include="FormCreateAlbum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateAlbum.Designer.cs">
+      <DependentUpon>FormCreateAlbum.cs</DependentUpon>
+    </Compile>
     <Compile Include="SocialNet\AlbumData.cs" />
     <Compile Include="AppLogic\ApplicationLogic.cs" />
     <Compile Include="AppLogic\Features\AlbumDataManager.cs" />
@@ -81,6 +87,9 @@
     <Compile Include="SocialNet\SocialDataFactory.cs" />
     <EmbeddedResource Include="AppForm.resx">
       <DependentUpon>AppForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateAlbum.resx">
+      <DependentUpon>FormCreateAlbum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

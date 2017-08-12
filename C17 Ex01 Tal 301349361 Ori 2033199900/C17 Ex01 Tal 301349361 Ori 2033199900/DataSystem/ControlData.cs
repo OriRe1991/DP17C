@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,21 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
         public UserData UserData { get; set; }
 
         public bool Isconnected { get; set; }
+        public ApplicationLogic AppLogic
+        {
+            get
+            {
+                if(m_AppLogic == null)
+                {
+                    m_AppLogic = new ApplicationLogic();
+                }
+
+                return m_AppLogic;
+            }
+        }
 
         private static ControlData m_Instance;
+        private ApplicationLogic m_AppLogic;
 
         public static ControlData GetInstance()
         {

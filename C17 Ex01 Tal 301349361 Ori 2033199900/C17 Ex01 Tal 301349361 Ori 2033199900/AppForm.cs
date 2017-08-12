@@ -25,6 +25,21 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private FormLogin m_FormLogin;
 
+        private FormCreateAlbum m_FormCreateAlbum;
+
+        public FormCreateAlbum CreateAlbumForm
+        {
+            get
+            {
+                if (m_FormCreateAlbum == null)
+                {
+                    m_FormCreateAlbum = new FormCreateAlbum();
+                }
+
+                return m_FormCreateAlbum;
+            }
+        }
+
         public AppForm()
         {
             m_ViewedAlbumCovers = new List<PictureBox>();
@@ -41,10 +56,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
             // TODO:
             //////////////////////////////////////////////////////////////
-            m_LogicApp = new ApplicationLogic();
+            //LogicApp = new ApplicationLogic();
+            m_ControlData = ControlData.GetInstance();
+            m_LogicApp = m_ControlData.AppLogic;
             //////////////////////////////////////////////////////////////
 
-            m_FormLogin = new FormLogin(m_LogicApp);
+            m_FormLogin = new FormLogin();
             m_FormLogin.ShowDialog();
             m_ControlData = ControlData.GetInstance();
             if(!m_ControlData.Isconnected)
@@ -82,6 +99,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             {
                 m_ControlData.UserData.saveUserDataToJson();
             }
+        }
+
+        private void buttonCreateAlbum_Click(object sender, EventArgs e)
+        {
+            m_FormCreateAlbum = CreateAlbumForm;
+            CreateAlbumForm.ShowDialog();
+            updateViewedAlbumCovers();
         }
     }
 }
