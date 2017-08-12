@@ -73,7 +73,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void updatePageView()
         {
             updateRecentAlbumView();
+            updateWall();
+        }
 
+        private void updateWall()
+        {
+            
         }
 
         private void updateRecentAlbumView()
@@ -122,7 +127,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            m_ControlData.AppLogic.CreateNewPost(this.groupBoxWall.Text);
+            m_ControlData.AppLogic.CreateNewPost(this.richTextBoxPost.Text);
             updatePageView();
         }
     }
