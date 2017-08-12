@@ -27,7 +27,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         List<AlbumData> GetLastAlbums(int i_Number);
 
-        List<SocialPhotoData> GetPhotos();
+        List<SocialPhotoData> GetPhotos(int i_NumberOfPhotos);
 
         List<string> GetTaggedFriendsNameList();
 

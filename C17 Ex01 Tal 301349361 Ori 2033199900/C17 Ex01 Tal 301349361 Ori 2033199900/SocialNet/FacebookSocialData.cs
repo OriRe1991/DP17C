@@ -10,6 +10,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 {
     public class FacebookSocialData : IDataSociable
     {
+        private static int s_ConnectionlimitationDefault = 25;
         private User m_LoggedInUser;
 
         private string m_AccessToken;
@@ -19,16 +20,16 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return m_LoggedInUser.Name;
         }
 
-        public List<SocialPhotoData> GetPhotos()
+        public List<SocialPhotoData> GetPhotos(int i_NumberOfPhotos)
         {
             List<SocialPhotoData> retVal = new List<SocialPhotoData>();
-            //// temporery incress the collection size to 200
-            FacebookService.s_CollectionLimit = 200;
+            //// temporery incress the collection size
+            FacebookService.s_CollectionLimit = i_NumberOfPhotos;
 
             var taggedPhotos = m_LoggedInUser.PhotosTaggedIn.ToList();
 
-            //// return the collection size to 50 
-            FacebookService.s_CollectionLimit = 50;
+            //// return the collection size to the defauld one
+            FacebookService.s_CollectionLimit = s_ConnectionlimitationDefault;
 
             foreach (var photo in taggedPhotos)
             {
@@ -64,7 +65,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public void LogIn(string i_SocialToken = null)
         {
-            FacebookService.s_CollectionLimit = 100;
+            s_ConnectionlimitationDefault = FacebookService.s_CollectionLimit;
             LoginResult result = null;
             if (i_SocialToken != null)
             {
@@ -84,8 +85,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                 {
                     result = FacebookService.Login(
                             "1955252128038346",
-                            //// TODO: remove unused credential
-                            //////////////////////////////////////////////////////////////////
                             "public_profile",
                             "user_education_history",
                             "user_birthday",
@@ -116,9 +115,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                             "read_page_mailboxes",
                             "manage_pages",
                             "publish_pages",
-                            "publish_actions"
-                     //////////////////////////////////////////////////////////////////////
-                     );
+                            "publish_actions");
                 }
                 catch (Exception e)
                 {
@@ -246,18 +243,31 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public List<SocialPost> GetLastPost(int i_NumberOfPosts)
         {
-            List<SocialPost> retVal = new List<SocialPost>();
-            var wallPosts = m_LoggedInUser.WallPosts.OrderByDescending(wp => wp.CreatedTime).ToList();
-            wallPosts = wallPosts.Take(i_NumberOfPosts).ToList();
-            foreach (var post in wallPosts)
+            List<SocialPost> retVal = null;
+            if (m_LoggedInUser.WallPosts == null)
             {
-                retVal.Add(new SocialPost
+                throw new Exception("Unable to get Posts from user");
+            }
+
+            if (m_LoggedInUser.WallPosts.Count > 0)
+            {
+                retVal = new List<SocialPost>();
+                var wallPosts = m_LoggedInUser.WallPosts.OrderByDescending(wp => wp.CreatedTime).ToList();
+                if (wallPosts.Count > i_NumberOfPosts)
                 {
-                    Message = post.Message,
-                    NameFrom = post.Name,
-                    PictureUrl = post.PictureURL,
-                    NumberOfReaction = post.LikedBy.Count
-                });
+                    wallPosts = wallPosts.Take(i_NumberOfPosts).ToList();
+                }
+
+                foreach (var post in wallPosts)
+                {
+                    retVal.Add(new SocialPost
+                    {
+                        Message = post.Message,
+                        NameFrom = post.Name,
+                        PictureUrl = post.PictureURL,
+                        NumberOfReaction = post.LikedBy.Count
+                    });
+                }
             }
 
             return retVal;
