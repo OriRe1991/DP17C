@@ -64,18 +64,20 @@
             // 
             // pictureBoxCoverPhoto
             // 
-            this.pictureBoxCoverPhoto.Location = new System.Drawing.Point(66, 12);
+            this.pictureBoxCoverPhoto.Location = new System.Drawing.Point(154, 27);
+            this.pictureBoxCoverPhoto.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.pictureBoxCoverPhoto.Name = "pictureBoxCoverPhoto";
-            this.pictureBoxCoverPhoto.Size = new System.Drawing.Size(819, 313);
+            this.pictureBoxCoverPhoto.Size = new System.Drawing.Size(1911, 698);
             this.pictureBoxCoverPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCoverPhoto.TabIndex = 5;
             this.pictureBoxCoverPhoto.TabStop = false;
             // 
             // pictureBoxProfilePic
             // 
-            this.pictureBoxProfilePic.Location = new System.Drawing.Point(79, 214);
+            this.pictureBoxProfilePic.Location = new System.Drawing.Point(184, 477);
+            this.pictureBoxProfilePic.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.pictureBoxProfilePic.Name = "pictureBoxProfilePic";
-            this.pictureBoxProfilePic.Size = new System.Drawing.Size(184, 145);
+            this.pictureBoxProfilePic.Size = new System.Drawing.Size(429, 323);
             this.pictureBoxProfilePic.TabIndex = 6;
             this.pictureBoxProfilePic.TabStop = false;
             // 
@@ -86,9 +88,10 @@
             this.ProfileNameLable.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileNameLable.ForeColor = System.Drawing.Color.White;
             this.ProfileNameLable.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ProfileNameLable.Location = new System.Drawing.Point(202, 266);
+            this.ProfileNameLable.Location = new System.Drawing.Point(471, 593);
+            this.ProfileNameLable.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.ProfileNameLable.Name = "ProfileNameLable";
-            this.ProfileNameLable.Size = new System.Drawing.Size(196, 37);
+            this.ProfileNameLable.Size = new System.Drawing.Size(429, 83);
             this.ProfileNameLable.TabIndex = 7;
             this.ProfileNameLable.Text = "Loading Profile";
             this.ProfileNameLable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -99,17 +102,18 @@
             this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.65633F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.34367F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 355F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 338F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 327F));
             this.tableLayoutPanel2.Controls.Add(this.buttonLogout, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonWhosMyBFF, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(66, 333);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(154, 743);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(819, 45);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1911, 100);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // buttonLogout
@@ -118,9 +122,10 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonLogout.Location = new System.Drawing.Point(537, 3);
+            this.buttonLogout.Location = new System.Drawing.Point(1252, 7);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(139, 39);
+            this.buttonLogout.Size = new System.Drawing.Size(324, 86);
             this.buttonLogout.TabIndex = 2;
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.UseVisualStyleBackColor = false;
@@ -132,9 +137,10 @@
             this.buttonCreateAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateAlbum.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCreateAlbum.Location = new System.Drawing.Point(227, 3);
+            this.buttonCreateAlbum.Location = new System.Drawing.Point(529, 7);
+            this.buttonCreateAlbum.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
-            this.buttonCreateAlbum.Size = new System.Drawing.Size(152, 39);
+            this.buttonCreateAlbum.Size = new System.Drawing.Size(354, 86);
             this.buttonCreateAlbum.TabIndex = 0;
             this.buttonCreateAlbum.Text = "CreateAlbum";
             this.buttonCreateAlbum.UseVisualStyleBackColor = false;
@@ -146,36 +152,40 @@
             this.buttonWhosMyBFF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWhosMyBFF.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhosMyBFF.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonWhosMyBFF.Location = new System.Drawing.Point(385, 3);
+            this.buttonWhosMyBFF.Location = new System.Drawing.Point(897, 7);
+            this.buttonWhosMyBFF.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.buttonWhosMyBFF.Name = "buttonWhosMyBFF";
-            this.buttonWhosMyBFF.Size = new System.Drawing.Size(146, 39);
+            this.buttonWhosMyBFF.Size = new System.Drawing.Size(341, 86);
             this.buttonWhosMyBFF.TabIndex = 3;
             this.buttonWhosMyBFF.Text = "Who\'s My BFF";
             this.buttonWhosMyBFF.UseVisualStyleBackColor = false;
             // 
             // pictureBoxAlbumCover1
             // 
-            this.pictureBoxAlbumCover1.Location = new System.Drawing.Point(6, 19);
+            this.pictureBoxAlbumCover1.Location = new System.Drawing.Point(14, 42);
+            this.pictureBoxAlbumCover1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.pictureBoxAlbumCover1.Name = "pictureBoxAlbumCover1";
-            this.pictureBoxAlbumCover1.Size = new System.Drawing.Size(211, 164);
+            this.pictureBoxAlbumCover1.Size = new System.Drawing.Size(492, 366);
             this.pictureBoxAlbumCover1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAlbumCover1.TabIndex = 10;
             this.pictureBoxAlbumCover1.TabStop = false;
             // 
             // pictureBoxAlbumCover2
             // 
-            this.pictureBoxAlbumCover2.Location = new System.Drawing.Point(222, 19);
+            this.pictureBoxAlbumCover2.Location = new System.Drawing.Point(518, 42);
+            this.pictureBoxAlbumCover2.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.pictureBoxAlbumCover2.Name = "pictureBoxAlbumCover2";
-            this.pictureBoxAlbumCover2.Size = new System.Drawing.Size(211, 164);
+            this.pictureBoxAlbumCover2.Size = new System.Drawing.Size(492, 366);
             this.pictureBoxAlbumCover2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAlbumCover2.TabIndex = 11;
             this.pictureBoxAlbumCover2.TabStop = false;
             // 
             // pictureBoxAlbumCover4
             // 
-            this.pictureBoxAlbumCover4.Location = new System.Drawing.Point(6, 188);
+            this.pictureBoxAlbumCover4.Location = new System.Drawing.Point(14, 419);
+            this.pictureBoxAlbumCover4.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.pictureBoxAlbumCover4.Name = "pictureBoxAlbumCover4";
-            this.pictureBoxAlbumCover4.Size = new System.Drawing.Size(211, 164);
+            this.pictureBoxAlbumCover4.Size = new System.Drawing.Size(492, 366);
             this.pictureBoxAlbumCover4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAlbumCover4.TabIndex = 13;
             this.pictureBoxAlbumCover4.TabStop = false;
@@ -183,30 +193,33 @@
             // labelPictureBoxCoverAlbum1
             // 
             this.labelPictureBoxCoverAlbum1.AutoSize = true;
-            this.labelPictureBoxCoverAlbum1.Location = new System.Drawing.Point(10, 151);
-            this.labelPictureBoxCoverAlbum1.MaximumSize = new System.Drawing.Size(211, 164);
+            this.labelPictureBoxCoverAlbum1.Location = new System.Drawing.Point(23, 337);
+            this.labelPictureBoxCoverAlbum1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.labelPictureBoxCoverAlbum1.MaximumSize = new System.Drawing.Size(492, 366);
             this.labelPictureBoxCoverAlbum1.Name = "labelPictureBoxCoverAlbum1";
-            this.labelPictureBoxCoverAlbum1.Size = new System.Drawing.Size(143, 13);
+            this.labelPictureBoxCoverAlbum1.Size = new System.Drawing.Size(327, 29);
             this.labelPictureBoxCoverAlbum1.TabIndex = 14;
             this.labelPictureBoxCoverAlbum1.Text = "labelPictureBoxCoverAlbum1";
             // 
             // labelPictureBoxCoverAlbum2
             // 
             this.labelPictureBoxCoverAlbum2.AutoSize = true;
-            this.labelPictureBoxCoverAlbum2.Location = new System.Drawing.Point(230, 151);
-            this.labelPictureBoxCoverAlbum2.MaximumSize = new System.Drawing.Size(211, 164);
+            this.labelPictureBoxCoverAlbum2.Location = new System.Drawing.Point(537, 337);
+            this.labelPictureBoxCoverAlbum2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.labelPictureBoxCoverAlbum2.MaximumSize = new System.Drawing.Size(492, 366);
             this.labelPictureBoxCoverAlbum2.Name = "labelPictureBoxCoverAlbum2";
-            this.labelPictureBoxCoverAlbum2.Size = new System.Drawing.Size(143, 13);
+            this.labelPictureBoxCoverAlbum2.Size = new System.Drawing.Size(327, 29);
             this.labelPictureBoxCoverAlbum2.TabIndex = 15;
             this.labelPictureBoxCoverAlbum2.Text = "labelPictureBoxCoverAlbum2";
             // 
             // labelPictureBoxCoverAlbum4
             // 
             this.labelPictureBoxCoverAlbum4.AutoSize = true;
-            this.labelPictureBoxCoverAlbum4.Location = new System.Drawing.Point(10, 318);
-            this.labelPictureBoxCoverAlbum4.MaximumSize = new System.Drawing.Size(211, 164);
+            this.labelPictureBoxCoverAlbum4.Location = new System.Drawing.Point(23, 709);
+            this.labelPictureBoxCoverAlbum4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.labelPictureBoxCoverAlbum4.MaximumSize = new System.Drawing.Size(492, 366);
             this.labelPictureBoxCoverAlbum4.Name = "labelPictureBoxCoverAlbum4";
-            this.labelPictureBoxCoverAlbum4.Size = new System.Drawing.Size(143, 13);
+            this.labelPictureBoxCoverAlbum4.Size = new System.Drawing.Size(327, 29);
             this.labelPictureBoxCoverAlbum4.TabIndex = 16;
             this.labelPictureBoxCoverAlbum4.Text = "labelPictureBoxCoverAlbum4";
             // 
@@ -214,10 +227,11 @@
             // 
             this.labelPictureBoxCoverAlbum3.AutoSize = true;
             this.labelPictureBoxCoverAlbum3.BackColor = System.Drawing.Color.Transparent;
-            this.labelPictureBoxCoverAlbum3.Location = new System.Drawing.Point(230, 318);
-            this.labelPictureBoxCoverAlbum3.MaximumSize = new System.Drawing.Size(211, 164);
+            this.labelPictureBoxCoverAlbum3.Location = new System.Drawing.Point(537, 709);
+            this.labelPictureBoxCoverAlbum3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.labelPictureBoxCoverAlbum3.MaximumSize = new System.Drawing.Size(492, 366);
             this.labelPictureBoxCoverAlbum3.Name = "labelPictureBoxCoverAlbum3";
-            this.labelPictureBoxCoverAlbum3.Size = new System.Drawing.Size(143, 13);
+            this.labelPictureBoxCoverAlbum3.Size = new System.Drawing.Size(327, 29);
             this.labelPictureBoxCoverAlbum3.TabIndex = 17;
             this.labelPictureBoxCoverAlbum3.Text = "labelPictureBoxCoverAlbum3";
             // 
@@ -231,18 +245,21 @@
             this.groupBoxAlbumCovers.Controls.Add(this.pictureBoxAlbumCover2);
             this.groupBoxAlbumCovers.Controls.Add(this.pictureBoxAlbumCover4);
             this.groupBoxAlbumCovers.Controls.Add(this.pictureBoxCoverAlbum3);
-            this.groupBoxAlbumCovers.Location = new System.Drawing.Point(66, 382);
+            this.groupBoxAlbumCovers.Location = new System.Drawing.Point(154, 852);
+            this.groupBoxAlbumCovers.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.groupBoxAlbumCovers.Name = "groupBoxAlbumCovers";
-            this.groupBoxAlbumCovers.Size = new System.Drawing.Size(439, 361);
+            this.groupBoxAlbumCovers.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.groupBoxAlbumCovers.Size = new System.Drawing.Size(1024, 805);
             this.groupBoxAlbumCovers.TabIndex = 18;
             this.groupBoxAlbumCovers.TabStop = false;
             this.groupBoxAlbumCovers.Text = "RecentAlbums";
             // 
             // pictureBoxCoverAlbum3
             // 
-            this.pictureBoxCoverAlbum3.Location = new System.Drawing.Point(222, 188);
+            this.pictureBoxCoverAlbum3.Location = new System.Drawing.Point(518, 419);
+            this.pictureBoxCoverAlbum3.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.pictureBoxCoverAlbum3.Name = "pictureBoxCoverAlbum3";
-            this.pictureBoxCoverAlbum3.Size = new System.Drawing.Size(211, 164);
+            this.pictureBoxCoverAlbum3.Size = new System.Drawing.Size(492, 366);
             this.pictureBoxCoverAlbum3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCoverAlbum3.TabIndex = 18;
             this.pictureBoxCoverAlbum3.TabStop = false;
@@ -251,9 +268,11 @@
             // 
             this.groupBoxWall.Controls.Add(this.buttonPost);
             this.groupBoxWall.Controls.Add(this.richTextBoxPost);
-            this.groupBoxWall.Location = new System.Drawing.Point(524, 384);
+            this.groupBoxWall.Location = new System.Drawing.Point(1223, 857);
+            this.groupBoxWall.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.groupBoxWall.Name = "groupBoxWall";
-            this.groupBoxWall.Size = new System.Drawing.Size(359, 433);
+            this.groupBoxWall.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.groupBoxWall.Size = new System.Drawing.Size(838, 966);
             this.groupBoxWall.TabIndex = 19;
             this.groupBoxWall.TabStop = false;
             this.groupBoxWall.Text = "Wall";
@@ -262,9 +281,10 @@
             // 
             this.buttonPost.BackColor = System.Drawing.Color.SteelBlue;
             this.buttonPost.ForeColor = System.Drawing.Color.White;
-            this.buttonPost.Location = new System.Drawing.Point(267, 106);
+            this.buttonPost.Location = new System.Drawing.Point(623, 236);
+            this.buttonPost.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.buttonPost.Name = "buttonPost";
-            this.buttonPost.Size = new System.Drawing.Size(86, 25);
+            this.buttonPost.Size = new System.Drawing.Size(201, 56);
             this.buttonPost.TabIndex = 1;
             this.buttonPost.Text = "Post";
             this.buttonPost.UseVisualStyleBackColor = false;
@@ -272,26 +292,27 @@
             // 
             // richTextBoxPost
             // 
-            this.richTextBoxPost.Location = new System.Drawing.Point(6, 18);
+            this.richTextBoxPost.Location = new System.Drawing.Point(14, 40);
+            this.richTextBoxPost.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.richTextBoxPost.Name = "richTextBoxPost";
-            this.richTextBoxPost.Size = new System.Drawing.Size(347, 82);
+            this.richTextBoxPost.Size = new System.Drawing.Size(804, 178);
             this.richTextBoxPost.TabIndex = 0;
             this.richTextBoxPost.Text = "What\'s on your mind?";
             // 
             // AppForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(936, 479);
+            this.ClientSize = new System.Drawing.Size(2184, 1688);
             this.Controls.Add(this.groupBoxWall);
             this.Controls.Add(this.pictureBoxProfilePic);
             this.Controls.Add(this.ProfileNameLable);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.groupBoxAlbumCovers);
             this.Controls.Add(this.pictureBoxCoverPhoto);
-            this.Margin = new System.Windows.Forms.Padding(1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AppForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppForm_FormClosing);

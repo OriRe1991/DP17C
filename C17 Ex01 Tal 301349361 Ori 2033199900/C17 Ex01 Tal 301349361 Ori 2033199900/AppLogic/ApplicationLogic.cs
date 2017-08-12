@@ -9,6 +9,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 {
     public class ApplicationLogic : ILogicInterface
     {
+        private static int s_NumberOfPhotosToRetrive = 50;
         public bool RememberMe { get; set; }
 
         private IDataSociable m_UserSocialData;
@@ -69,7 +70,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
                 if (m_TaggedFriends == null)
                 {
-                    m_TaggedFriends = UserSocialData.GetPhotos();
+                    m_TaggedFriends = UserSocialData.GetPhotos(s_NumberOfPhotosToRetrive);
                 }
 
                 return m_TaggedFriends;
