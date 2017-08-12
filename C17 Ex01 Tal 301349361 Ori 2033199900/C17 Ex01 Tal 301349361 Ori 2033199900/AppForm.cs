@@ -52,15 +52,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum1);
             m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum2);
             m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum3);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum4);
-
-            // TODO:
-            //////////////////////////////////////////////////////////////
-            //LogicApp = new ApplicationLogic();
+            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum4);          
             m_ControlData = ControlData.GetInstance();
             m_LogicApp = m_ControlData.AppLogic;
-            //////////////////////////////////////////////////////////////
-
             m_FormLogin = new FormLogin();
             m_FormLogin.ShowDialog();
             m_ControlData = ControlData.GetInstance();
@@ -78,6 +72,17 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void updatePageView()
         {
+            updateRecentAlbumView();
+            updateWall();
+        }
+
+        private void updateWall()
+        {
+            
+        }
+
+        private void updateRecentAlbumView()
+        {
             List<AlbumData> viewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
             int albumIdx = 0;
             foreach (var viewedAlbumData in viewedAlbumsData)
@@ -86,11 +91,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                 m_ViewedAlbumCoversLabels[albumIdx].Text = viewedAlbumData.AlbomName;
                 albumIdx++;
             }
-        }
-
-        private void labelPictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void AppForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -127,7 +127,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            m_ControlData.AppLogic.CreateNewPost(this.groupBoxWall.Text);
+            m_ControlData.AppLogic.CreateNewPost(this.richTextBoxPost.Text);
             updatePageView();
         }
     }
