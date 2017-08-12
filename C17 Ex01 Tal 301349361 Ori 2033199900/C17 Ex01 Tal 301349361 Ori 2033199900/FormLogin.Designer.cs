@@ -63,7 +63,7 @@
             this.Controls.Add(this.LoginButton);
             this.Name = "FormLogin";
             this.Text = "FormLogin";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLogin_FormClosed);
+            this.Shown += new System.EventHandler(this.FormLogin_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
