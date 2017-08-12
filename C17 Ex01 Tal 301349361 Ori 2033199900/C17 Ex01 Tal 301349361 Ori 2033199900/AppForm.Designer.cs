@@ -73,7 +73,7 @@
             // 
             // pictureBoxProfilePic
             // 
-            this.pictureBoxProfilePic.Location = new System.Drawing.Point(79, 169);
+            this.pictureBoxProfilePic.Location = new System.Drawing.Point(79, 214);
             this.pictureBoxProfilePic.Name = "pictureBoxProfilePic";
             this.pictureBoxProfilePic.Size = new System.Drawing.Size(184, 145);
             this.pictureBoxProfilePic.TabIndex = 6;
@@ -95,17 +95,17 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Window;
             this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.71225F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.28775F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.65633F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.34367F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 218F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.tableLayoutPanel2.Controls.Add(this.buttonLogout, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonWhosMyBFF, 2, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(66, 331);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(66, 333);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -118,7 +118,7 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonLogout.Location = new System.Drawing.Point(458, 3);
+            this.buttonLogout.Location = new System.Drawing.Point(537, 3);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(139, 39);
             this.buttonLogout.TabIndex = 2;
@@ -132,9 +132,9 @@
             this.buttonCreateAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateAlbum.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCreateAlbum.Location = new System.Drawing.Point(158, 3);
+            this.buttonCreateAlbum.Location = new System.Drawing.Point(227, 3);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
-            this.buttonCreateAlbum.Size = new System.Drawing.Size(144, 39);
+            this.buttonCreateAlbum.Size = new System.Drawing.Size(152, 39);
             this.buttonCreateAlbum.TabIndex = 0;
             this.buttonCreateAlbum.Text = "CreateAlbum";
             this.buttonCreateAlbum.UseVisualStyleBackColor = false;
@@ -146,9 +146,9 @@
             this.buttonWhosMyBFF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWhosMyBFF.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhosMyBFF.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonWhosMyBFF.Location = new System.Drawing.Point(308, 3);
+            this.buttonWhosMyBFF.Location = new System.Drawing.Point(385, 3);
             this.buttonWhosMyBFF.Name = "buttonWhosMyBFF";
-            this.buttonWhosMyBFF.Size = new System.Drawing.Size(144, 39);
+            this.buttonWhosMyBFF.Size = new System.Drawing.Size(146, 39);
             this.buttonWhosMyBFF.TabIndex = 3;
             this.buttonWhosMyBFF.Text = "Who\'s My BFF";
             this.buttonWhosMyBFF.UseVisualStyleBackColor = false;
@@ -184,6 +184,7 @@
             // 
             this.labelPictureBoxCoverAlbum1.AutoSize = true;
             this.labelPictureBoxCoverAlbum1.Location = new System.Drawing.Point(10, 151);
+            this.labelPictureBoxCoverAlbum1.MaximumSize = new System.Drawing.Size(211, 164);
             this.labelPictureBoxCoverAlbum1.Name = "labelPictureBoxCoverAlbum1";
             this.labelPictureBoxCoverAlbum1.Size = new System.Drawing.Size(143, 13);
             this.labelPictureBoxCoverAlbum1.TabIndex = 14;
@@ -193,6 +194,7 @@
             // 
             this.labelPictureBoxCoverAlbum2.AutoSize = true;
             this.labelPictureBoxCoverAlbum2.Location = new System.Drawing.Point(230, 151);
+            this.labelPictureBoxCoverAlbum2.MaximumSize = new System.Drawing.Size(211, 164);
             this.labelPictureBoxCoverAlbum2.Name = "labelPictureBoxCoverAlbum2";
             this.labelPictureBoxCoverAlbum2.Size = new System.Drawing.Size(143, 13);
             this.labelPictureBoxCoverAlbum2.TabIndex = 15;
@@ -202,6 +204,7 @@
             // 
             this.labelPictureBoxCoverAlbum4.AutoSize = true;
             this.labelPictureBoxCoverAlbum4.Location = new System.Drawing.Point(10, 318);
+            this.labelPictureBoxCoverAlbum4.MaximumSize = new System.Drawing.Size(211, 164);
             this.labelPictureBoxCoverAlbum4.Name = "labelPictureBoxCoverAlbum4";
             this.labelPictureBoxCoverAlbum4.Size = new System.Drawing.Size(143, 13);
             this.labelPictureBoxCoverAlbum4.TabIndex = 16;
@@ -212,6 +215,7 @@
             this.labelPictureBoxCoverAlbum3.AutoSize = true;
             this.labelPictureBoxCoverAlbum3.BackColor = System.Drawing.Color.Transparent;
             this.labelPictureBoxCoverAlbum3.Location = new System.Drawing.Point(230, 318);
+            this.labelPictureBoxCoverAlbum3.MaximumSize = new System.Drawing.Size(211, 164);
             this.labelPictureBoxCoverAlbum3.Name = "labelPictureBoxCoverAlbum3";
             this.labelPictureBoxCoverAlbum3.Size = new System.Drawing.Size(143, 13);
             this.labelPictureBoxCoverAlbum3.TabIndex = 17;
@@ -280,7 +284,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(953, 479);
+            this.ClientSize = new System.Drawing.Size(936, 479);
             this.Controls.Add(this.groupBoxWall);
             this.Controls.Add(this.pictureBoxProfilePic);
             this.Controls.Add(this.ProfileNameLable);
