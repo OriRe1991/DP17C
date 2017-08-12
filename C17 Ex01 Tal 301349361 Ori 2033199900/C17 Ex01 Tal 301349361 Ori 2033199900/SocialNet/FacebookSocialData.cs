@@ -244,6 +244,25 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return CreatePostNewAlbumWithFriendsName(i_PostData, null, null);
         }
 
+        public List<SocialPost> GetLastPost(int i_NumberOfPosts)
+        {
+            List<SocialPost> retVal = new List<SocialPost>();
+            var wallPosts = m_LoggedInUser.WallPosts.OrderByDescending(wp => wp.CreatedTime).ToList();
+            wallPosts = wallPosts.Take(i_NumberOfPosts).ToList();
+            foreach (var post in wallPosts)
+            {
+                retVal.Add(new SocialPost
+                {
+                    Message = post.Message,
+                    NameFrom = post.Name,
+                    PictureUrl = post.PictureURL,
+                    NumberOfReaction = post.LikedBy.Count
+                });
+            }
+
+            return retVal;
+        }
+
         public List<string> GetTaggedFriendsNameList()
         {
             throw new NotImplementedException();

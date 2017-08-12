@@ -38,5 +38,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         bool CreatePostNewAlbumWithFriendsName(string i_PostText, string i_PostPictureUrl, string[] i_TaggedUserIDs);
 
         bool CreateNewPostStatus(string i_PostData);
+
+        List<SocialPost> GetLastPost(int i_NumberOfPosts);
     }
 }

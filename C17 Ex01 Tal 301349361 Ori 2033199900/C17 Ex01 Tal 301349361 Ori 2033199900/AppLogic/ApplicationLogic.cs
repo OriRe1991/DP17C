@@ -164,5 +164,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
         {
             return UserSocialData.CreateNewPostStatus(i_PostData);
         }
+
+        public List<SocialPost> GetLastPostFromWall(int i_NumberOfPosts)
+        {
+            return m_UserSocialData.GetLastPost(i_NumberOfPosts);
+        }
     }
 }
