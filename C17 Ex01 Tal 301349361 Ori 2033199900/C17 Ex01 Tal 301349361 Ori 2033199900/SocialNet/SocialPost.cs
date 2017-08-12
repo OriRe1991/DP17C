@@ -13,6 +13,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public string NameFrom { get; set; }
 
-        public int NumberOfReaction { get; set; }
+        public List<EntityData> EntityReactedToPost { get; set; }
+
+        public DateTime CreatedTime { get; set; }
     }
 }
