@@ -78,6 +78,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
                     }
                 }
 
+                PhotosUrl = PhotosUrl.Distinct().ToList();
                 string albumDescription = string.Format("{0} Photos", albumName);
                 return m_SocialData.CreateAlbum(albumName.ToString(), albumDescription, PhotosUrl);
             }
