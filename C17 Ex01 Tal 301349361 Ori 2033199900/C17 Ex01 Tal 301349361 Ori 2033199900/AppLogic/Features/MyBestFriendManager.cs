@@ -43,12 +43,15 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
 
         private void UpdateFriendCounter(string i_FirendsId, int i_AddValue)
         {
-            if (!FriendShipMap.ContainsKey(i_FirendsId))
+            if (i_FirendsId != m_SocialData.GetMyUserId())
             {
-                FriendShipMap[i_FirendsId] = 0;
-            }
+                if (!FriendShipMap.ContainsKey(i_FirendsId))
+                {
+                    FriendShipMap[i_FirendsId] = 0;
+                }
 
-            FriendShipMap[i_FirendsId] += i_AddValue;
+                FriendShipMap[i_FirendsId] += i_AddValue;
+            }
         }
 
         //// Likes in post on wall, tagged photos x 2, comments x 1.5, like photos

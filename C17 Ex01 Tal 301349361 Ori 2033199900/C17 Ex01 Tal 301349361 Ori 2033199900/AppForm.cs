@@ -152,5 +152,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             richTextBoxNewPost.Clear();
             updatePageView();
         }
+
+        private void buttonWhosMyBFF_Click(object sender, EventArgs e)
+        {
+            FormMyBestFriend myBeasFriendWindow = new FormMyBestFriend();
+            myBeasFriendWindow.ShowDialog();
+        }
     }
 }

@@ -246,6 +246,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public List<SocialPost> GetLastPost(int i_NumberOfPosts)
         {
             List<SocialPost> retVal = null;
+            m_LoggedInUser.ReFetch();
             if (m_LoggedInUser.WallPosts == null)
             {
                 throw new Exception("Unable to get Posts from user");
