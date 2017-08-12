@@ -33,8 +33,16 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                 selectedFriends.Add((item as EntityData).UserId);
             }
 
-            m_ControlData.AppLogic.CreateAlbumWithFriend(selectedFriends.ToArray());
-            this.Dispose();
+            try
+            {
+                m_ControlData.AppLogic.CreateAlbumWithFriend(selectedFriends.ToArray());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Dispose();
         }
     }
 }

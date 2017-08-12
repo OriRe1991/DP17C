@@ -51,7 +51,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
             m_FormLogin = new FormLogin();
             m_FormLogin.ShowDialog();
-            if (!m_ControlData.Isconnected)
+            if (!m_ControlData.IsConnected)
             {
                 Dispose();
             }
@@ -132,10 +132,17 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void AppForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (m_ControlData.UserData.RememberLogIn || m_ControlData.Isconnected)
+            if (m_ControlData.UserData.RememberLogIn && m_ControlData.IsConnected)
             {
                 m_ControlData.UserData.Connected = true;
-                m_ControlData.UserData.saveUserDataToJson();
+                try
+                {
+                    m_ControlData.UserData.SaveUserDataToJson();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -156,11 +163,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             m_ControlData.UserData.Connected = false;
+            m_ControlData.UserData.UserAccessToken = null;
             m_ControlData.AppLogic.LogOutUser(On_Logout);
         }
 
         public void On_Logout()
         {
+            m_ControlData.UserData.DeleteUserDataFile();
             this.Dispose();
         }
 
