@@ -254,19 +254,29 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             {
                 retVal = new List<SocialPost>();
                 var wallPosts = m_LoggedInUser.WallPosts.OrderByDescending(wp => wp.CreatedTime).ToList();
-                if (wallPosts.Count > i_NumberOfPosts)
+                if (i_NumberOfPosts > 0 && wallPosts.Count > i_NumberOfPosts)
                 {
                     wallPosts = wallPosts.Take(i_NumberOfPosts).ToList();
                 }
 
                 foreach (var post in wallPosts)
                 {
+                    List<EntityData> reactedEntity = new List<EntityData>();
+                    foreach (var reacton in post.LikedBy)
+                    {
+                        reactedEntity.Add(new EntityData
+                        {
+                            FullName = reacton.Name,
+                            UserId = reacton.Id
+                        });
+                    }
                     retVal.Add(new SocialPost
                     {
                         Message = post.Message,
                         NameFrom = post.Name,
                         PictureUrl = post.PictureURL,
-                        NumberOfReaction = post.LikedBy.Count
+                        CreatedTime = post.CreatedTime.GetValueOrDefault(DateTime.MinValue),
+                        EntityReactedToPost = reactedEntity
                     });
                 }
             }
