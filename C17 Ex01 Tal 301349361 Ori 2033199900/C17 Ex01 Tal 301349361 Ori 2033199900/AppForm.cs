@@ -107,5 +107,23 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             CreateAlbumForm.ShowDialog();
             updateViewedAlbumCovers();
         }
+
+        private void AppForm_Load(object sender, EventArgs e)
+        {
+            ProfileNameLable.Parent = pictureBoxCoverPhoto;
+            ProfileNameLable.BackColor = Color.Transparent;
+            ProfileNameLable.TextAlign = ContentAlignment.TopLeft;
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+
+            m_ControlData.AppLogic.LogOutUser(On_Logout);
+        }
+
+        public void On_Logout()
+        {
+            this.Dispose();
+        }
     }
 }

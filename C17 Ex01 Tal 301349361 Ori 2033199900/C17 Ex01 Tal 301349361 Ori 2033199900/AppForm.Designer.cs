@@ -45,6 +45,7 @@
             this.labelPictureBox2 = new System.Windows.Forms.Label();
             this.labelPictureBox4 = new System.Windows.Forms.Label();
             this.labelPictureBox3 = new System.Windows.Forms.Label();
+            this.buttonLogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePic)).BeginInit();
@@ -77,21 +78,27 @@
             this.ProfileNameLable.AutoSize = true;
             this.ProfileNameLable.BackColor = System.Drawing.Color.Transparent;
             this.ProfileNameLable.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProfileNameLable.Location = new System.Drawing.Point(279, 262);
+            this.ProfileNameLable.ForeColor = System.Drawing.Color.White;
+            this.ProfileNameLable.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.ProfileNameLable.Location = new System.Drawing.Point(191, 265);
             this.ProfileNameLable.Name = "ProfileNameLable";
-            this.ProfileNameLable.Size = new System.Drawing.Size(0, 37);
+            this.ProfileNameLable.Size = new System.Drawing.Size(196, 37);
             this.ProfileNameLable.TabIndex = 7;
+            this.ProfileNameLable.Text = "Loading Profile";
+            this.ProfileNameLable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.71225F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.28775F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 326F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 207F));
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.buttonLogout, 3, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(95, 314);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -105,9 +112,9 @@
             this.buttonCreateAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateAlbum.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCreateAlbum.Location = new System.Drawing.Point(176, 3);
+            this.buttonCreateAlbum.Location = new System.Drawing.Point(163, 3);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
-            this.buttonCreateAlbum.Size = new System.Drawing.Size(163, 39);
+            this.buttonCreateAlbum.Size = new System.Drawing.Size(150, 39);
             this.buttonCreateAlbum.TabIndex = 0;
             this.buttonCreateAlbum.Text = "CreateAlbum";
             this.buttonCreateAlbum.UseVisualStyleBackColor = false;
@@ -119,7 +126,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(345, 3);
+            this.button1.Location = new System.Drawing.Point(319, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 39);
             this.button1.TabIndex = 1;
@@ -194,13 +201,27 @@
             this.labelPictureBox3.Size = new System.Drawing.Size(0, 13);
             this.labelPictureBox3.TabIndex = 17;
             // 
+            // buttonLogout
+            // 
+            this.buttonLogout.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogout.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogout.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonLogout.Location = new System.Drawing.Point(469, 3);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(139, 39);
+            this.buttonLogout.TabIndex = 2;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(631, 380);
+            this.ClientSize = new System.Drawing.Size(665, 414);
             this.Controls.Add(this.labelPictureBox3);
             this.Controls.Add(this.labelPictureBox4);
             this.Controls.Add(this.labelPictureBox2);
@@ -217,6 +238,7 @@
             this.Name = "AppForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppForm_FormClosing);
+            this.Load += new System.EventHandler(this.AppForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePic)).EndInit();
@@ -246,5 +268,6 @@
         private System.Windows.Forms.Label labelPictureBox4;
         private System.Windows.Forms.Label labelPictureBox3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }

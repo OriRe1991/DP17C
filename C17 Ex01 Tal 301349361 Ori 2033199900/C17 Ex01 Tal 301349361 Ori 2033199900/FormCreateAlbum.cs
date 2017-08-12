@@ -35,7 +35,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             List<string> selectedFriends = new List<string>();
             foreach (var item in CheckedListBoxTaggedFriends.SelectedItems)
             {
-                selectedFriends.Add((item as EntityData).ToString());
+                selectedFriends.Add((item as EntityData).UserId);
             }
 
             m_ControlData.AppLogic.CreateAlbumWithFriend(selectedFriends.ToArray());
