@@ -45,14 +45,14 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             m_ViewedAlbumCovers = new List<PictureBox>();
             m_ViewedAlbumCoversLabels = new List<Label>();
             InitializeComponent();
-            m_ViewedAlbumCovers.Add(pictureBox1);
-            m_ViewedAlbumCovers.Add(pictureBox2);
-            m_ViewedAlbumCovers.Add(pictureBox3);
-            m_ViewedAlbumCovers.Add(pictureBox4);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBox1);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBox2);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBox3);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBox4);
+            m_ViewedAlbumCovers.Add(pictureBoxAlbumCover1);
+            m_ViewedAlbumCovers.Add(pictureBoxAlbumCover2);
+            m_ViewedAlbumCovers.Add(pictureBoxCoverAlbum3);
+            m_ViewedAlbumCovers.Add(pictureBoxAlbumCover4);
+            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum1);
+            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum2);
+            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum3);
+            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum4);
 
             // TODO:
             //////////////////////////////////////////////////////////////
@@ -125,5 +125,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             this.Dispose();
         }
+
+       
     }
 }
