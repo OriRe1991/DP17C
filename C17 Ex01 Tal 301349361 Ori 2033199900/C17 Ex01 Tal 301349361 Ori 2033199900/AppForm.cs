@@ -47,11 +47,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             m_ViewdAlbumsLabels = (this.groupBoxAlbumCovers.Controls.OfType<Label>()).ToList();
             m_ControlData = ControlData.GetInstance();
             m_LogicApp = m_ControlData.AppLogic;
-            if(!m_ControlData.UserData.RememberLogIn || !m_ControlData.UserData.Connected)
-            {
-                m_FormLogin = new FormLogin();
-                m_FormLogin.ShowDialog();
-            }
+
+            m_FormLogin = new FormLogin();
+            m_FormLogin.ShowDialog();
+
 
             if (!m_ControlData.Isconnected)
             {
@@ -103,7 +102,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             List<AlbumData> viewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
             int albumIdx = 0;
-            
+
             foreach (var viewedAlbumData in viewedAlbumsData)
             {
                 m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl);

@@ -85,11 +85,12 @@
             this.ProfileNameLable.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileNameLable.ForeColor = System.Drawing.Color.White;
             this.ProfileNameLable.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ProfileNameLable.Location = new System.Drawing.Point(167, 263);
+            this.ProfileNameLable.Location = new System.Drawing.Point(257, 269);
             this.ProfileNameLable.Name = "ProfileNameLable";
-            this.ProfileNameLable.Size = new System.Drawing.Size(196, 37);
+            this.ProfileNameLable.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ProfileNameLable.Size = new System.Drawing.Size(134, 37);
             this.ProfileNameLable.TabIndex = 7;
-            this.ProfileNameLable.Text = "Loading Profile";
+            this.ProfileNameLable.Text = "Loading...";
             this.ProfileNameLable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel2
@@ -100,7 +101,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.34367F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel2.Controls.Add(this.buttonLogout, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonWhosMyBFF, 2, 0);
@@ -117,7 +118,7 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonLogout.Location = new System.Drawing.Point(532, 3);
+            this.buttonLogout.Location = new System.Drawing.Point(531, 3);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(139, 39);
             this.buttonLogout.TabIndex = 2;
@@ -133,7 +134,7 @@
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.buttonCreateAlbum.Location = new System.Drawing.Point(224, 3);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
-            this.buttonCreateAlbum.Size = new System.Drawing.Size(150, 39);
+            this.buttonCreateAlbum.Size = new System.Drawing.Size(149, 39);
             this.buttonCreateAlbum.TabIndex = 0;
             this.buttonCreateAlbum.Text = "CreateAlbum";
             this.buttonCreateAlbum.UseVisualStyleBackColor = false;
@@ -145,7 +146,7 @@
             this.buttonWhosMyBFF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWhosMyBFF.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhosMyBFF.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonWhosMyBFF.Location = new System.Drawing.Point(380, 3);
+            this.buttonWhosMyBFF.Location = new System.Drawing.Point(379, 3);
             this.buttonWhosMyBFF.Name = "buttonWhosMyBFF";
             this.buttonWhosMyBFF.Size = new System.Drawing.Size(146, 39);
             this.buttonWhosMyBFF.TabIndex = 3;

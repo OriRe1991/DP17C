@@ -24,7 +24,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            loginAction();
+        }
+
+        private void loginAction()
+        {
             logIn();
+            m_ControlData.Isconnected = m_ControlData.AppLogic.IsConnected();
             this.Close();
         }
 
@@ -56,9 +62,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             }
         }
 
-        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        private void FormLogin_Shown(object sender, EventArgs e)
         {
-            m_ControlData.Isconnected = m_ControlData.AppLogic.IsConnected();
+            if (m_ControlData.UserData.Connected || m_ControlData.UserData.RememberLogIn)
+            {
+                loginAction();
+            }
         }
     }
 }
