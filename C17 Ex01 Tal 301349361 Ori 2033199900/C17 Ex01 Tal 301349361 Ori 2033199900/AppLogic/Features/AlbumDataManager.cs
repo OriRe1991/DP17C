@@ -29,13 +29,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             return retVal;
         }
 
-        public Dictionary<int, EntityData> GetMostTaggedFriends(int i_NumberOfFriends, Dictionary<string, int> i_FriendsTaggedCount, Dictionary<string, EntityData> i_FriendsTaggedData)
+        public Dictionary<int, EntityData> GetMostTaggedFriends(int i_NumberOfFriends, Dictionary<string, List<SocialPhotoData>> i_FriendsTaggedPhotos, Dictionary<string, EntityData> i_FriendsTaggedData)
         {
             Dictionary<int, EntityData> retVal = new Dictionary<int, EntityData>();
-            var mostTagged = i_FriendsTaggedCount.OrderBy(kvp => kvp.Value).Take(i_NumberOfFriends).ToList();
-            foreach (var friend in i_FriendsTaggedCount)
+            var mostTagged = i_FriendsTaggedPhotos.OrderBy(kvp => kvp.Value.Count).Take(i_NumberOfFriends).ToList();
+            foreach (var friend in i_FriendsTaggedPhotos)
             {
-                retVal[friend.Value] = i_FriendsTaggedData[friend.Key];
+                retVal[friend.Value.Count] = i_FriendsTaggedData[friend.Key];
             }
 
             return retVal;
@@ -62,18 +62,24 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             return retVal;
         }
 
-        public string CreateNewAlbum(Dictionary<string, EntityData> i_FriendsTaggedData, params string[] i_FrindName)
+        public string CreateNewAlbum(Dictionary<string, EntityData> i_FriendsTaggedData, Dictionary<string, List<SocialPhotoData>> i_FriendsTaggedPhotos, params string[] i_FrindsIds)
         {
-            if (i_FrindName != null && i_FrindName.Length > 0)
+            if (i_FrindsIds != null && i_FrindsIds.Length > 0)
             {
                 StringBuilder albumName = new StringBuilder(string.Format("{0} And ", m_SocialData.GetFirstName()));
-                foreach (var friend in i_FrindName)
+                List<string> PhotosUrl = new List<string>();
+                foreach (var friend in i_FrindsIds)
                 {
-                    albumName.Append(friend);
+                    albumName.Append(i_FriendsTaggedData[friend].FullName);
+                    foreach (var photo in i_FriendsTaggedPhotos[friend])
+                    {
+                        PhotosUrl.Add(photo.PhotoUrl);
+                    }
                 }
 
+                
                 string albumDescription = string.Format("{0}, Photos.", albumName);
-                return m_SocialData.CreateAlbum(albumName.ToString(), albumDescription);
+                return m_SocialData.CreateAlbum(albumName.ToString(), albumDescription, PhotosUrl);
             }
             else
             {

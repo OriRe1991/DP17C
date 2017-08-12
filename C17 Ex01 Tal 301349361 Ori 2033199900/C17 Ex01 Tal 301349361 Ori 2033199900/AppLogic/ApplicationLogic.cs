@@ -26,20 +26,20 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             }
         }
 
-        private Dictionary<string, int> m_FriendsTaggedCount = null;
+        //private Dictionary<string, int> m_FriendsTaggedCount = null;
 
-        private Dictionary<string, int> FriendsTaggedCount
-        {
-            get
-            {
-                if (m_FriendsTaggedCount == null)
-                {
-                    inittaggedFriendsData();
-                }
+        //private Dictionary<string, int> FriendsTaggedCount
+        //{
+        //    get
+        //    {
+        //        if (m_FriendsTaggedCount == null)
+        //        {
+        //            inittaggedFriendsData();
+        //        }
 
-                return m_FriendsTaggedCount;
-            }
-        }
+        //        return m_FriendsTaggedCount;
+        //    }
+        //}
 
         private Dictionary<string, EntityData> m_FriendsData = null;
 
@@ -53,6 +53,21 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
                 }
 
                 return m_FriendsData;
+            }
+        }
+
+        private Dictionary<string, List<SocialPhotoData>> m_FriendsPhotos = null;
+
+        private Dictionary<string, List<SocialPhotoData>> FriendsPhotos
+        {
+            get
+            {
+                if (m_FriendsPhotos == null)
+                {
+                    inittaggedFriendsData();
+                }
+
+                return m_FriendsPhotos;
             }
         }
 
@@ -78,26 +93,33 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         private void inittaggedFriendsData()
         {
-            m_FriendsTaggedCount = new Dictionary<string, int>();
+            //m_FriendsTaggedCount = new Dictionary<string, int>();
             m_FriendsData = new Dictionary<string, EntityData>();
+            m_FriendsPhotos = new Dictionary<string, List<SocialPhotoData>>();
 
             foreach (var photo in TaggedFriends)
             {
                 foreach (var friend in photo.FriendsInPhotos)
                 {
-                    if (friend.UserId != m_UserSocialData.GetMyUserId())
+                    if (!string.IsNullOrEmpty(friend.UserId) && friend.UserId != m_UserSocialData.GetMyUserId())
                     {
-                        if (!m_FriendsTaggedCount.ContainsKey(friend.UserId))
-                        {
-                            m_FriendsTaggedCount[friend.UserId] = 0;
-                        }
+                        //if (!m_FriendsTaggedCount.ContainsKey(friend.UserId))
+                        //{
+                        //    m_FriendsTaggedCount[friend.UserId] = 0;
+                        //}
 
                         if (!m_FriendsData.ContainsKey(friend.UserId))
                         {
                             m_FriendsData[friend.UserId] = friend;
                         }
 
-                        m_FriendsTaggedCount[friend.UserId]++;
+                        if (!m_FriendsPhotos.ContainsKey(friend.UserId))
+                        {
+                            m_FriendsPhotos[friend.UserId] = new List<SocialPhotoData>();
+                        }
+
+                        //m_FriendsTaggedCount[friend.UserId]++;
+                        m_FriendsPhotos[friend.UserId].Add(photo);
                     }
                 }
             }
@@ -157,7 +179,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         public void CreateAlbumWithFriend(params string[] i_UserIds)
         {
-            AlbomDataManager.CreateNewAlbum(FriendsData, i_UserIds);
+            AlbomDataManager.CreateNewAlbum(FriendsData, FriendsPhotos, i_UserIds);
         }
 
         public bool CreateNewPost(string i_PostData)

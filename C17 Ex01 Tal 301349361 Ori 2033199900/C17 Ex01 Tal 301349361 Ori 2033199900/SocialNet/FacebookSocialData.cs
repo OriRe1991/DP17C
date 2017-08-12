@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
+using System.Net;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 {
@@ -163,9 +164,19 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return retVal;
         }
 
-        public string CreateAlbum(string i_AlbumName, string i_AlbumDescription)
+        public string CreateAlbum(string i_AlbumName, string i_AlbumDescription, List<string> i_PhotosUrl)
         {
             var newAlbum = m_LoggedInUser.CreateAlbum(i_AlbumName, i_AlbumDescription);
+            string tempPicLocation = Environment.CurrentDirectory + @"\temp.jpg";
+            foreach (var photo in i_PhotosUrl)
+            {
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFile(new Uri(photo), tempPicLocation);
+                }
+
+                newAlbum.UploadPhoto(tempPicLocation);
+            }
             return newAlbum.Id;
         }
 
