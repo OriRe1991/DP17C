@@ -16,5 +16,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public string ThemePictureUrl { get; set; }
 
         public string AccessToken { get; set; }
+
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

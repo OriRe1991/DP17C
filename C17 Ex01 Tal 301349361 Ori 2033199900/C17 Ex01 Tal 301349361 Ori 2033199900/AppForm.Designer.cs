@@ -89,7 +89,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.71225F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.28775F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 325F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 326F));
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(95, 314);
@@ -105,12 +105,13 @@
             this.buttonCreateAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateAlbum.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCreateAlbum.Location = new System.Drawing.Point(177, 3);
+            this.buttonCreateAlbum.Location = new System.Drawing.Point(176, 3);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
             this.buttonCreateAlbum.Size = new System.Drawing.Size(163, 39);
             this.buttonCreateAlbum.TabIndex = 0;
             this.buttonCreateAlbum.Text = "CreateAlbum";
             this.buttonCreateAlbum.UseVisualStyleBackColor = false;
+            this.buttonCreateAlbum.Click += new System.EventHandler(this.buttonCreateAlbum_Click);
             // 
             // button1
             // 
@@ -118,7 +119,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(346, 3);
+            this.button1.Location = new System.Drawing.Point(345, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 39);
             this.button1.TabIndex = 1;

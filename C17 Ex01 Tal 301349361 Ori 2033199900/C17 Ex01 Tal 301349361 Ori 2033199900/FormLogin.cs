@@ -15,11 +15,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
     public partial class FormLogin : Form
     {
         private ControlData m_ControlData;
-        private ILogicInterface m_AppLogic;
 
-        public FormLogin(ILogicInterface i_LogicApp)
+        public FormLogin()
         {
-            m_AppLogic = i_LogicApp;
             InitializeComponent();
             m_ControlData = ControlData.GetInstance();
         }
@@ -34,22 +32,23 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             LoginButton.Text = "LoginIn...";
             UserData TempUserData = UserData.LoadUserDataFromJson();
+
             if (TempUserData != null && TempUserData.RememberLogIn)
             {
-                m_ControlData.UserData = TempUserData;
-                m_AppLogic.LogInToSocialNetwork(m_ControlData.UserData.UserAccessToken);
+                m_ControlData.UserData = UserData.LoadUserDataFromJson();
+                m_ControlData.AppLogic.LogInToSocialNetwork(m_ControlData.UserData.UserAccessToken);
             }
             else
             {
-                m_AppLogic.LogInToSocialNetwork();
-                m_ControlData.UserData.UserAccessToken = m_AppLogic.GetEntityData().AccessToken;
+                m_ControlData.AppLogic.LogInToSocialNetwork();
+                m_ControlData.UserData.UserAccessToken = m_ControlData.AppLogic.GetEntityData().AccessToken;
             }
         }
 
         private void checkBoxSaveAccessToken_CheckedChanged(object sender, EventArgs e)
         {
-            m_AppLogic.RememberMe = (sender as CheckBox).Checked;
-            m_ControlData.UserData.RememberLogIn = m_AppLogic.RememberMe;
+            m_ControlData.AppLogic.RememberMe = (sender as CheckBox).Checked;
+            m_ControlData.UserData.RememberLogIn = m_ControlData.AppLogic.RememberMe;
             if (File.Exists(m_ControlData.UserData.GetUserDataFilePath()))
             {
                 File.Delete(m_ControlData.UserData.GetUserDataFilePath());
@@ -58,7 +57,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            m_ControlData.Isconnected = m_AppLogic.IsConnected();
+            m_ControlData.Isconnected = m_ControlData.AppLogic.IsConnected();
         }
     }
 }
