@@ -9,7 +9,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 {
     public class ApplicationLogic : ILogicInterface
     {
-        private static int s_NumberOfPhotosToRetrive = 50;
+        private const int k_NumberOfPhotosToRetrive = 50;
+
         public bool RememberMe { get; set; }
 
         private IDataSociable m_UserSocialData;
@@ -70,7 +71,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
                 if (m_TaggedFriends == null)
                 {
-                    m_TaggedFriends = UserSocialData.GetPhotos(s_NumberOfPhotosToRetrive);
+                    m_TaggedFriends = UserSocialData.GetPhotos(k_NumberOfPhotosToRetrive);
                 }
 
                 return m_TaggedFriends;
@@ -118,6 +119,21 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
                 return m_AlbomDataManager;
             }
        }
+
+        private MyBestFriendManager m_MyBestFriendDataManager = null;
+
+        private MyBestFriendManager MyBestFriendDataManager
+        {
+            get
+            {
+                if (m_MyBestFriendDataManager == null)
+                {
+                    m_MyBestFriendDataManager = new MyBestFriendManager(UserSocialData);
+                }
+
+                return m_MyBestFriendDataManager;
+            }
+        }
 
         public void LogInToSocialNetwork(string i_SocialToken = null)
         {
@@ -169,6 +185,15 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
         public List<SocialPost> GetLastPostFromWall(int i_NumberOfPosts)
         {
             return m_UserSocialData.GetLastPost(i_NumberOfPosts);
+        }
+
+        public EntityData GetMyBestFriend()
+        {
+            string myBestFriendId = string.Empty;
+
+            myBestFriendId = MyBestFriendDataManager.GetMyBestFriendId(FriendsPhotos);
+
+            return FriendsData[myBestFriendId];
         }
     }
 }

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 {
+    /// <summary>
+    /// social network interface in to disconnect the dependencies to one network (i.e. Facebook)
+    /// </summary>
     public interface IDataSociable
     {
         void LogIn(string i_SocialToken = null);

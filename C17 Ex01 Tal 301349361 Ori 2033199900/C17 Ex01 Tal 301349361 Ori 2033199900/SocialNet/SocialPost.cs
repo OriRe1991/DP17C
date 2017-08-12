@@ -7,11 +7,15 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 {
     public class SocialPost
     {
+        public string GeneratedFriendUserId { get; set; }
+
         public string Message { get; set; }
 
         public string PictureUrl { get; set; }
 
         public string NameFrom { get; set; }
+
+        public List<EntityData> Comments { get; set; }
 
         public List<EntityData> EntityReactedToPost { get; set; }
 
