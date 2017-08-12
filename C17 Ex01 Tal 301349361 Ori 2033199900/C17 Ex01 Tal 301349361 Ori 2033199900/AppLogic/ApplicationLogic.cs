@@ -82,5 +82,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
         {
             AlbomDataManager.CreateNewAlbum(i_UserIds);
         }
+
+        public bool CreateNewPost(string i_PostData)
+        {
+            return UserSocialData.CreateNewPostStatus(i_PostData);
+        }
     }
 }

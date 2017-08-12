@@ -10,6 +10,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
     public class FacebookSocialData : IDataSociable
     {
         private User m_LoggedInUser;
+
         private string m_AccessToken;
 
         public string GetFullName()
@@ -217,6 +218,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
         public void LogOut(Action i_PostLogOutAction)
         {
             FacebookService.Logout(i_PostLogOutAction);
+        }
+
+        public bool CreateNewPostStatus(string i_PostData)
+        {
+            var status = m_LoggedInUser.PostStatus(i_PostData);
+            return status.CreatedTime.Value.Month > 0;
         }
     }
 }
