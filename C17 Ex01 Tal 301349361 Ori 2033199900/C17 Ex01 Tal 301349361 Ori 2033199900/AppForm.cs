@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
 using C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem;
 using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
+using FacebookWrapper.ObjectModel;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
@@ -84,7 +85,23 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void updateWall()
         {
-            
+            List<SocialPost> postList = m_ControlData.AppLogic.GetLastPostFromWall(3);
+            int idx = 0;
+            if(postList != null)
+            {
+                foreach (var post in postList)
+                {
+                    if (post.Message.Length > 0)
+                    {
+                        Label newPost = new Label();
+                        this.Controls.Add(newPost);
+                        newPost.Name = string.Format("LabelPost{0}", idx);
+                        newPost.Text = post.Message;
+                        groupBoxWall.Controls.Add(newPost);
+                    }
+                    idx++;
+                }
+            }
         }
 
         private void updateRecentAlbumView()

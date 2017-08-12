@@ -266,6 +266,7 @@
             // 
             // groupBoxWall
             // 
+            this.groupBoxWall.BackColor = System.Drawing.SystemColors.Window;
             this.groupBoxWall.Controls.Add(this.buttonPost);
             this.groupBoxWall.Controls.Add(this.richTextBoxPost);
             this.groupBoxWall.Location = new System.Drawing.Point(1223, 857);
