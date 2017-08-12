@@ -174,7 +174,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         public void CreateAlbumWithFriend(params string[] i_UserIds)
         {
-            AlbomDataManager.CreateNewAlbum(FriendsData, FriendsPhotos, i_UserIds);
+            AlbomDataManager.CreateNewAlbum(FriendsData, FriendsPhotos, i_UserIds); 
         }
 
         public bool CreateNewPost(string i_PostData)
