@@ -88,10 +88,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                     if (post.Message.Length > 0)
                     {
                         Label newPost = new Label();
-                        this.Controls.Add(newPost);
                         newPost.Name = string.Format("LabelPost{0}", idx);
                         newPost.Text = post.Message;
-                        groupBoxWall.Controls.Add(newPost);
+                        newPost.Font = new Font(Font.FontFamily, 18);
+                        newPost.ForeColor = Color.Black;
+                        this.Controls.Add(newPost);
+                        flowLayoutPanelWall.Controls.Add(newPost);
                     }
                     idx++;
                 }
@@ -144,7 +146,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            m_ControlData.AppLogic.CreateNewPost(this.richTextBoxPost.Text);
+            m_ControlData.AppLogic.CreateNewPost(this.richTextBoxNewPost.Text);
+            richTextBoxNewPost.Clear();
             updatePageView();
         }
     }
