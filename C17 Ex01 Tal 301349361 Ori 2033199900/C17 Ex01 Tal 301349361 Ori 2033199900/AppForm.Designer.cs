@@ -248,6 +248,8 @@
             // 
             // flowLayoutPanelWall
             // 
+            this.flowLayoutPanelWall.AutoSize = true;
+            this.flowLayoutPanelWall.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelWall.ForeColor = System.Drawing.Color.Black;
             this.flowLayoutPanelWall.Location = new System.Drawing.Point(509, 543);
             this.flowLayoutPanelWall.Name = "flowLayoutPanelWall";

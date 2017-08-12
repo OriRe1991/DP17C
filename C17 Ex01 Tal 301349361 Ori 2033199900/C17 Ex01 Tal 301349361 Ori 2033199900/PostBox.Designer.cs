@@ -40,6 +40,7 @@
             // flowLayoutPanelMain
             // 
             this.flowLayoutPanelMain.AutoSize = true;
+            this.flowLayoutPanelMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanelMain.Controls.Add(this.labelPostDate);
             this.flowLayoutPanelMain.Controls.Add(this.labelPostText);
             this.flowLayoutPanelMain.Controls.Add(this.pictureBoxPostPicture);
@@ -47,7 +48,7 @@
             this.flowLayoutPanelMain.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelMain.Location = new System.Drawing.Point(3, 5);
             this.flowLayoutPanelMain.Name = "flowLayoutPanelMain";
-            this.flowLayoutPanelMain.Size = new System.Drawing.Size(362, 70);
+            this.flowLayoutPanelMain.Size = new System.Drawing.Size(362, 62);
             this.flowLayoutPanelMain.TabIndex = 5;
             // 
             // labelPostDate
@@ -95,6 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.flowLayoutPanelMain);
             this.Name = "PostBox";

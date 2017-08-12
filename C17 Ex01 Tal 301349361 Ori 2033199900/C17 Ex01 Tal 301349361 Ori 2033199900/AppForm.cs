@@ -94,10 +94,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
                     PostBox newPost = new PostBox();
                     newPost.Name = string.Format("PostBox{0}", idx);
-                    newPost.PostDate = post.CreatedTime.Value.ToLongDateString();
+                    newPost.PostDate = post.CreatedTime.ToLongDateString();
                     newPost.PostText = post.Message;
-                    newPost.PostPictureUrl = post.PictureURL;
-                    newPost.PostLikes(post.LikedBy.Count());
+                    newPost.PostPictureUrl = post.PictureUrl;
+                    newPost.PostLikes(post.EntityReactedToPost.Count);
                     this.Controls.Add(newPost);
                     flowLayoutPanelWall.Controls.Add(newPost);
                     idx++;
