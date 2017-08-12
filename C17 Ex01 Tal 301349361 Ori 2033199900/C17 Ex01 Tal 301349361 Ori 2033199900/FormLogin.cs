@@ -1,4 +1,6 @@
-﻿using System;
+﻿using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
+using C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +9,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
-using C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
@@ -33,14 +33,16 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void logIn()
         {
             LoginButton.Text = "LoginIn...";
-            if ((m_ControlData.UserData = UserData.LoadUserDataFromJson()) != null)
+            UserData TempUserData = UserData.LoadUserDataFromJson();
+            if (TempUserData != null && TempUserData.RememberLogIn)
             {
+                m_ControlData.UserData = TempUserData;
                 m_AppLogic.LogInToSocialNetwork(m_ControlData.UserData.UserAccessToken);
             }
             else
             {
                 m_AppLogic.LogInToSocialNetwork();
-                m_ControlData.UserData = new UserData();
+                m_ControlData.UserData.UserAccessToken = m_AppLogic.GetEntityData().AccessToken;
             }
         }
 
