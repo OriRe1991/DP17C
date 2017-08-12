@@ -66,10 +66,11 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
         {
             if (i_FrindsIds != null && i_FrindsIds.Length > 0)
             {
-                StringBuilder albumName = new StringBuilder(string.Format("{0} And ", m_SocialData.GetFirstName()));
+                StringBuilder albumName = new StringBuilder(string.Format("Me", m_SocialData.GetFirstName()));
                 List<string> PhotosUrl = new List<string>();
                 foreach (var friend in i_FrindsIds)
                 {
+                    albumName.Append(" And ");
                     albumName.Append(i_FriendsTaggedData[friend].FullName);
                     foreach (var photo in i_FriendsTaggedPhotos[friend])
                     {
@@ -77,7 +78,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
                     }
                 }
 
-                string albumDescription = string.Format("{0}, Photos.", albumName);
+                PhotosUrl = PhotosUrl.Distinct().ToList();
+                string albumDescription = string.Format("{0} Photos", albumName);
                 return m_SocialData.CreateAlbum(albumName.ToString(), albumDescription, PhotosUrl);
             }
             else

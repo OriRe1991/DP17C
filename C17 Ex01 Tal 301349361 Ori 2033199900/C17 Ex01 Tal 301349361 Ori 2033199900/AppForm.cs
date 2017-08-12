@@ -53,22 +53,28 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum1);
             m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum2);
             m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum3);
-            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum4);          
+            m_ViewedAlbumCoversLabels.Add(labelPictureBoxCoverAlbum4);
             m_ControlData = ControlData.GetInstance();
             m_LogicApp = m_ControlData.AppLogic;
             m_FormLogin = new FormLogin();
             m_FormLogin.ShowDialog();
             m_ControlData = ControlData.GetInstance();
-            if(!m_ControlData.Isconnected)
+            if (!m_ControlData.Isconnected)
             {
                 this.Dispose();
             }
 
             var entityData = m_LogicApp.GetEntityData();
+            this.Show();
             pictureBoxProfilePic.LoadAsync(entityData.ProfilePictureUrl);
             pictureBoxCoverPhoto.LoadAsync(entityData.ThemePictureUrl);
             updatePageView();
             ProfileNameLable.Text = entityData.FullName;
+        }
+
+        private void ClearCreateAlbumForm()
+        {
+            m_FormCreateAlbum = null;
         }
 
         private void updatePageView()
@@ -122,9 +128,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void buttonCreateAlbum_Click(object sender, EventArgs e)
         {
-            m_FormCreateAlbum = CreateAlbumForm;
             CreateAlbumForm.ShowDialog();
             updatePageView();
+            ClearCreateAlbumForm();
         }
 
         private void AppForm_Load(object sender, EventArgs e)

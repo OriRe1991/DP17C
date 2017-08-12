@@ -33,7 +33,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void buttonDone_Click(object sender, EventArgs e)
         {
             List<string> selectedFriends = new List<string>();
-            foreach (var item in CheckedListBoxTaggedFriends.SelectedItems)
+            foreach (var item in CheckedListBoxTaggedFriends.CheckedItems)
             {
                 selectedFriends.Add((item as EntityData).UserId);
             }
