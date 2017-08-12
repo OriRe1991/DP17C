@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Json;
-using System.Text;
 using FacebookWrapper.ObjectModel;
-using C17_Ex01_Tal_301349361_Ori_2033199900.FilelSystem;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
 {
-    public class UserData : IDataUsable
+    public class UserData
     {
         public string UserAccessToken { get; set; }
 

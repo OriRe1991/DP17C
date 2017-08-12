@@ -85,8 +85,6 @@
     <Compile Include="AppLogic\ILogicInterface.cs" />
     <Compile Include="SocialNet\SocialPhotoData.cs" />
     <Compile Include="SocialNet\EntityData.cs" />
-    <Compile Include="Controller.cs" />
-    <Compile Include="DataSystem\IDataUsable.cs" />
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>

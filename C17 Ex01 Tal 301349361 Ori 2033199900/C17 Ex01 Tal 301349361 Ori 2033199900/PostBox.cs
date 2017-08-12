@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
@@ -20,12 +13,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             get
             {
-                return this.labelPostDate.Text;
+                return labelPostDate.Text;
             }
 
             set
             {
-                this.labelPostDate.Text = value;
+                labelPostDate.Text = value;
             }
         }
 
@@ -33,12 +26,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             get
             {
-                return this.labelPostText.Text;
+                return labelPostText.Text;
             }
 
             set
             {
-                this.labelPostText.Text = value;
+                labelPostText.Text = value;
             }
         }
 
@@ -46,7 +39,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             get
             {
-                return this.pictureBoxPostPicture.ImageLocation;
+                return pictureBoxPostPicture.ImageLocation;
             }
 
             set
@@ -56,14 +49,14 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                     return;
                 }
 
-                this.pictureBoxPostPicture.ImageLocation = value;
-                this.pictureBoxPostPicture.Height = 300;
+                pictureBoxPostPicture.ImageLocation = value;
+                pictureBoxPostPicture.Height = 300;
             }
         }
 
         public void PostLikes(int numberOfLikes)
         {
-            this.labelPostLikes.Text = string.Format("{0} liked it", numberOfLikes);
+            labelPostLikes.Text = string.Format("{0} liked it", numberOfLikes);
         }
     }
 }
