@@ -62,6 +62,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             pictureBoxCoverPhoto.LoadAsync(entityData.ThemePictureUrl);
             updatePageView();
             ProfileNameLable.Text = entityData.FullName;
+            Text = entityData.FullName;
         }
 
         private void ClearCreateAlbumForm()

@@ -105,7 +105,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.34367F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 355F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 338F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 345F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
             this.tableLayoutPanel2.Controls.Add(this.buttonLogout, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonCreateAlbum, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonWhosMyBFF, 2, 0);
@@ -123,7 +123,7 @@
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogout.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonLogout.Location = new System.Drawing.Point(1234, 7);
+            this.buttonLogout.Location = new System.Drawing.Point(1233, 7);
             this.buttonLogout.Margin = new System.Windows.Forms.Padding(7);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(324, 86);
@@ -138,7 +138,7 @@
             this.buttonCreateAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateAlbum.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateAlbum.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonCreateAlbum.Location = new System.Drawing.Point(519, 7);
+            this.buttonCreateAlbum.Location = new System.Drawing.Point(518, 7);
             this.buttonCreateAlbum.Margin = new System.Windows.Forms.Padding(7);
             this.buttonCreateAlbum.Name = "buttonCreateAlbum";
             this.buttonCreateAlbum.Size = new System.Drawing.Size(346, 86);
@@ -153,7 +153,7 @@
             this.buttonWhosMyBFF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWhosMyBFF.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhosMyBFF.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.buttonWhosMyBFF.Location = new System.Drawing.Point(879, 7);
+            this.buttonWhosMyBFF.Location = new System.Drawing.Point(878, 7);
             this.buttonWhosMyBFF.Margin = new System.Windows.Forms.Padding(7);
             this.buttonWhosMyBFF.Name = "buttonWhosMyBFF";
             this.buttonWhosMyBFF.Size = new System.Drawing.Size(341, 86);
@@ -318,7 +318,7 @@
             this.Controls.Add(this.pictureBoxCoverPhoto);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AppForm";
-            this.Text = "Form1";
+            this.Text = "MainWindow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppForm_FormClosing);
             this.Load += new System.EventHandler(this.AppForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).EndInit();
