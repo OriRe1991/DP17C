@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Collections.Generic;
 using System.Linq;
@@ -184,8 +185,22 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public string CreateAlbum(string i_AlbumName, string i_AlbumDescription, List<string> i_PhotosUrl)
         {
-            var newAlbum = m_LoggedInUser.CreateAlbum(i_AlbumName, i_AlbumDescription);
             string tempPicLocation = Environment.CurrentDirectory + @"\temp.jpg";
+            Album newAlbum = null;
+            if (i_PhotosUrl == null && i_PhotosUrl.Count <= 0)
+            {
+                throw new Exception("Try to create album with frind without ant photos");
+            }
+
+            try
+            {
+                newAlbum = m_LoggedInUser.CreateAlbum(i_AlbumName, i_AlbumDescription);
+            }
+            catch
+            {
+                throw new Exception("Unable to create an album at this time ,can be no premitions");
+            }
+
             foreach (var photo in i_PhotosUrl)
             {
                 using (WebClient client = new WebClient())
@@ -194,9 +209,16 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                 }
 
                 string photoTitle = string.Format("Look at {0}, Such Fun!", i_AlbumDescription);
-                newAlbum.UploadPhoto(tempPicLocation, photoTitle);
+                try
+                {
+                    newAlbum.UploadPhoto(tempPicLocation, photoTitle);
+                }
+                catch
+                {
+                }
             }
 
+            File.Delete(tempPicLocation);
             return newAlbum.Id;
         }
 

@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Json;
-using System.Text;
 using FacebookWrapper.ObjectModel;
-using C17_Ex01_Tal_301349361_Ori_2033199900.FilelSystem;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
 {
-    public class UserData : IDataUsable
+    public class UserData
     {
         public string UserAccessToken { get; set; }
 
@@ -43,7 +39,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
             return s_UserDataFilePath;
         }
 
-        public void saveUserDataToJson()
+        public void SaveUserDataToJson()
         {
             FileMode fileMode;
 
@@ -56,10 +52,28 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem
                 fileMode = FileMode.OpenOrCreate;
             }
 
-            using (FileStream fileStream = new FileStream(s_UserDataFilePath, fileMode))
+            try
             {
-                DataContractJsonSerializer serilizer = new DataContractJsonSerializer(typeof(UserData));
-                serilizer.WriteObject(fileStream, this);
+                using (FileStream fileStream = new FileStream(s_UserDataFilePath, fileMode))
+                {
+                    DataContractJsonSerializer serilizer = new DataContractJsonSerializer(typeof(UserData));
+                    serilizer.WriteObject(fileStream, this);
+                }
+            }
+            catch
+            {
+                throw new Exception("Hoo no, Unable to Save your preferance for next time...");
+            }
+        }
+
+        public void DeleteUserDataFile()
+        {
+            try
+            {
+                File.Delete(s_UserDataFilePath);
+            }
+            catch
+            {
             }
         }
     }
