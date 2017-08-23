@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
 using C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem;
 using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
+using System.Threading;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
@@ -56,13 +57,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                 Dispose();
             }
 
-            var entityData = m_LogicApp.GetEntityData();
-            Show();
-            pictureBoxProfilePic.LoadAsync(entityData.ProfilePictureUrl);
-            pictureBoxCoverPhoto.LoadAsync(entityData.ThemePictureUrl);
             updatePageView();
-            ProfileNameLable.Text = entityData.FullName;
-            Text = entityData.FullName;
+            Show();
         }
 
         private void ClearCreateAlbumForm()
@@ -72,9 +68,29 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void updatePageView()
         {
-            updateRecentAlbumView();
-            updateWall();
+            new Thread(updateRecentAlbumView).Start();
+            new Thread(updateWall).Start();
+            new Thread(getUserData).Start();
+            //updateRecentAlbumView();
+            //updateWall();
+            //getUserData();
         }
+
+        private void getUserData()
+        {
+            try {
+                var entityData = m_LogicApp.GetEntityData();
+                pictureBoxProfilePic.LoadAsync(entityData.ProfilePictureUrl);
+                pictureBoxCoverPhoto.LoadAsync(entityData.ThemePictureUrl);
+                ProfileNameLable.Invoke(new Action(() => ProfileNameLable.Text = entityData.FullName));
+                this.Invoke(new Action(() => Text = entityData.FullName));
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrive User Data");
+            }
+        }
+
 
         private void updateWall()
         {
@@ -100,8 +116,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                     newPost.PostText = post.Message;
                     newPost.PostPictureUrl = post.PictureUrl;
                     newPost.PostLikes(post.EntityReactedToPost.Count);
-                    this.Controls.Add(newPost);
-                    flowLayoutPanelWall.Controls.Add(newPost);
+                    //this.Controls.Add(newPost);
+                    flowLayoutPanelWall.Invoke(new Action(() => flowLayoutPanelWall.Controls.Add(newPost)));
+                    //flowLayoutPanelWall.Controls.Add(newPost);
                     idx++;
                 }
             }
@@ -124,8 +141,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                 int albumIdx = 0;
                 foreach (var viewedAlbumData in viewedAlbumsData)
                 {
-                    m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl);
-                    m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName;
+                    m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl)));
+                    m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName));
+                    //m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl);
+                    //m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName;
                     albumIdx++;
                 }
             }

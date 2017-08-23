@@ -11,7 +11,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 {
     public class FacebookSocialData : IDataSociable
     {
-        private static int s_ConnectionlimitationDefault = 25;
+        private static int s_ConnectionlimitationDefault = 50;
 
         private User m_LoggedInUser;
 
@@ -127,8 +127,14 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
-                m_LoggedInUser = result.LoggedInUser;
-                m_AccessToken = result.AccessToken;
+                try {
+                    m_LoggedInUser = result.LoggedInUser;
+                    m_AccessToken = result.AccessToken;
+                }
+                catch
+                {
+                    throw new Exception("Unable to get the User basic data");
+                }
             }
             else
             {
@@ -143,6 +149,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public string GetThemePhotoUrl()
         {
+            if (m_LoggedInUser == null || m_LoggedInUser.Cover == null)
+            {
+                throw new Exception("Unable to get user cover photo");
+            }
             return m_LoggedInUser.Cover.SourceURL;
         }
 
