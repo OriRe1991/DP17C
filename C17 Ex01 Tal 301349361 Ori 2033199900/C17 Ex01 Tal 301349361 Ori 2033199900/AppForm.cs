@@ -22,6 +22,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private List<Label> m_ViewdAlbumsLabels;
 
+        private List<SocialPost> m_PostList;
+
         private ControlData m_ControlData;
 
         private FormLogin m_FormLogin;
@@ -50,6 +52,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             m_LogicApp = m_ControlData.AppLogic;
             m_richTextBoxNewPostDefaultTest = richTextBoxNewPost.Text;
 
+            /// Data Binding
+            //flowLayoutPanelWall.DataBindings.Add(new Binding("", m_PostList.,)
+
             m_FormLogin = new FormLogin();
             m_FormLogin.ShowDialog();
             if (!m_ControlData.IsConnected)
@@ -71,9 +76,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             new Thread(updateRecentAlbumView).Start();
             new Thread(updateWall).Start();
             new Thread(getUserData).Start();
-            //updateRecentAlbumView();
-            //updateWall();
-            //getUserData();
         }
 
         private void getUserData()
@@ -95,20 +97,23 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         private void updateWall()
         {
             flowLayoutPanelWall.Controls.Clear();
-            List<SocialPost> postList = null;
             try
             {
-                postList = m_ControlData.AppLogic.GetLastPostFromWall(k_NumberOfPostFromWall);
+                m_PostList = m_ControlData.AppLogic.GetLastPostFromWall(k_NumberOfPostFromWall);
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            updatePostsUI();
+        }
 
+        private void updatePostsUI()
+        {
             int idx = 0;
-            if (postList != null)
+            if (m_PostList != null)
             {
-                foreach (var post in postList)
+                foreach (var post in m_PostList)
                 {
                     PostBox newPost = new PostBox();
                     newPost.Name = string.Format("PostBox{0}", idx);
@@ -116,9 +121,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                     newPost.PostText = post.Message;
                     newPost.PostPictureUrl = post.PictureUrl;
                     newPost.PostLikes(post.EntityReactedToPost.Count);
-                    //this.Controls.Add(newPost);
                     flowLayoutPanelWall.Invoke(new Action(() => flowLayoutPanelWall.Controls.Add(newPost)));
-                    //flowLayoutPanelWall.Controls.Add(newPost);
                     idx++;
                 }
             }
@@ -143,8 +146,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
                 {
                     m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl)));
                     m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName));
-                    //m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl);
-                    //m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName;
                     albumIdx++;
                 }
             }
