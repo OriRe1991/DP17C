@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
 using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features;
+using static C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet.SocialDataFactory;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 {
@@ -135,7 +136,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         public void LogInToSocialNetwork(string i_SocialToken = null)
         {
-            m_UserSocialData = SocialDataFactory.GetSocialNetwork();
+            m_UserSocialData = SocialDataFactory.GetSocialNetwork(SocialNetwork.Facebook);
             UserSocialData.LogIn(i_SocialToken);
         }
 
