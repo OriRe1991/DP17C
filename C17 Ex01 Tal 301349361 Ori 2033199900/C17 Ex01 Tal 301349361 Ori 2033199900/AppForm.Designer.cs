@@ -201,7 +201,7 @@
             this.labelPictureBoxCoverAlbum2.Name = "labelPictureBoxCoverAlbum2";
             this.labelPictureBoxCoverAlbum2.Size = new System.Drawing.Size(327, 29);
             this.labelPictureBoxCoverAlbum2.TabIndex = 14;
-            this.labelPictureBoxCoverAlbum2.Text = "labelPictureBoxCoverAlbum2";
+            this.labelPictureBoxCoverAlbum2.Text = "Loading Album...";
             // 
             // labelPictureBoxCoverAlbum1
             // 
@@ -212,7 +212,7 @@
             this.labelPictureBoxCoverAlbum1.Name = "labelPictureBoxCoverAlbum1";
             this.labelPictureBoxCoverAlbum1.Size = new System.Drawing.Size(327, 29);
             this.labelPictureBoxCoverAlbum1.TabIndex = 15;
-            this.labelPictureBoxCoverAlbum1.Text = "labelPictureBoxCoverAlbum1";
+            this.labelPictureBoxCoverAlbum1.Text = "Loading Album...";
             // 
             // labelPictureBoxCoverAlbum4
             // 
@@ -223,7 +223,7 @@
             this.labelPictureBoxCoverAlbum4.Name = "labelPictureBoxCoverAlbum4";
             this.labelPictureBoxCoverAlbum4.Size = new System.Drawing.Size(327, 29);
             this.labelPictureBoxCoverAlbum4.TabIndex = 16;
-            this.labelPictureBoxCoverAlbum4.Text = "labelPictureBoxCoverAlbum4";
+            this.labelPictureBoxCoverAlbum4.Text = "Loading Album...";
             // 
             // labelPictureBoxCoverAlbum3
             // 
@@ -235,7 +235,7 @@
             this.labelPictureBoxCoverAlbum3.Name = "labelPictureBoxCoverAlbum3";
             this.labelPictureBoxCoverAlbum3.Size = new System.Drawing.Size(327, 29);
             this.labelPictureBoxCoverAlbum3.TabIndex = 17;
-            this.labelPictureBoxCoverAlbum3.Text = "labelPictureBoxCoverAlbum3";
+            this.labelPictureBoxCoverAlbum3.Text = "Loading Album...";
             // 
             // groupBoxAlbumCovers
             // 

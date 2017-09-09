@@ -24,6 +24,20 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private List<SocialPost> m_PostList;
 
+        private List<AlbumData> m_ViewedAlbumsData;
+        private List<AlbumData> ViewedAlbumsData
+        {
+            get
+            {
+                return m_ViewedAlbumsData;
+            }
+            set
+            {
+                m_ViewedAlbumsData = value;
+                viewDataBinds();
+            }
+        }
+
         private ControlData m_ControlData;
 
         private FormLogin m_FormLogin;
@@ -52,9 +66,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             m_LogicApp = m_ControlData.AppLogic;
             m_richTextBoxNewPostDefaultTest = richTextBoxNewPost.Text;
 
-            /// Data Binding
-            //flowLayoutPanelWall.DataBindings.Add(new Binding("", m_PostList.,)
-
             m_FormLogin = new FormLogin();
             m_FormLogin.ShowDialog();
             if (!m_ControlData.IsConnected)
@@ -78,6 +89,22 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             new Thread(getUserData).Start();
         }
 
+        private void viewDataBinds()
+        {
+            if (ViewedAlbumsData != null && ViewedAlbumsData.Count > 0)
+            {
+                int albumIdx = 0;
+                foreach (var viewedAlbumData in ViewedAlbumsData)
+                {
+                    m_ViewedAlbumCovers[albumIdx].DataBindings.Add(new Binding("ImageLocation", viewedAlbumData, "FirstPicUrl", true));
+                    m_ViewdAlbumsLabels[albumIdx].Invoke(new Action(() => 
+                                        m_ViewdAlbumsLabels[albumIdx].DataBindings.Add(new Binding("Text", viewedAlbumData, "AlbomName", true))));
+
+                    albumIdx++;
+                }
+            }
+        }
+
         private void getUserData()
         {
             try {
@@ -96,7 +123,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void updateWall()
         {
-            flowLayoutPanelWall.Controls.Clear();
             try
             {
                 m_PostList = m_ControlData.AppLogic.GetLastPostFromWall(k_NumberOfPostFromWall);
@@ -110,6 +136,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void updatePostsUI()
         {
+            flowLayoutPanelWall.Invoke(new Action(() => flowLayoutPanelWall.Controls.Clear()));
             int idx = 0;
             if (m_PostList != null)
             {
@@ -129,27 +156,29 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void updateRecentAlbumView()
         {
-            List<AlbumData> viewedAlbumsData = null;
             try
             {
-                viewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
+                ViewedAlbumsData = m_LogicApp.GetFirstAlbumsData(m_ViewedAlbumCovers.Count);
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-            if (viewedAlbumsData != null && viewedAlbumsData.Count > 0)
-            {
-                int albumIdx = 0;
-                foreach (var viewedAlbumData in viewedAlbumsData)
-                {
-                    m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl)));
-                    m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName));
-                    albumIdx++;
-                }
-            }
         }
+
+        //private void updateRecentAlbumUI()
+        //{
+        //    if (ViewedAlbumsData != null && ViewedAlbumsData.Count > 0)
+        //    {
+        //        int albumIdx = 0;
+        //        foreach (var viewedAlbumData in ViewedAlbumsData)
+        //        {
+        //            m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl)));
+        //            m_ViewdAlbumsLabels[albumIdx].Invoke(new Action(() => m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName));
+        //            albumIdx++;
+        //        }
+        //    }
+        //}
 
         private void AppForm_FormClosing(object sender, FormClosingEventArgs e)
         {
