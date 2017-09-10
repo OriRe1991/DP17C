@@ -117,6 +117,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                             "read_page_mailboxes",
                             "manage_pages",
                             "publish_pages",
+                            "pages_show_list",
                             "publish_actions");
                 }
                 catch (Exception e)
@@ -127,7 +128,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
-                try {
+                try
+                {
                     m_LoggedInUser = result.LoggedInUser;
                     m_AccessToken = result.AccessToken;
                 }
@@ -153,6 +155,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             {
                 throw new Exception("Unable to get user cover photo");
             }
+
             return m_LoggedInUser.Cover.SourceURL;
         }
 
@@ -345,6 +348,29 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                         CreatedTime = post.CreatedTime.GetValueOrDefault(DateTime.MinValue),
                         EntityReactedToPost = reactedEntitys,
                         Comments = commentsEntitys
+                    });
+                }
+            }
+
+            return retVal;
+        }
+
+        public List<SocialLikedPage> GetLikedPages()
+        {
+            List<SocialLikedPage> retVal = null;
+            var pagesLiked = m_LoggedInUser.LikedPages;
+
+            if (pagesLiked != null && pagesLiked.Count > 0)
+            {
+                retVal = new List<SocialLikedPage>();
+                foreach (var page in pagesLiked)
+                {
+                    retVal.Add(new SocialLikedPage
+                    {
+                        PageId = page.Id,
+                        Name = page.Name,
+                        PictureUrl = page.PictureNormalURL,
+                        Description = page.Description
                     });
                 }
             }

@@ -194,5 +194,21 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
             return FriendsData[myBestFriendId];
         }
+
+        public List<SocialLikedPage> GetLikedPages()
+        {
+            List<SocialLikedPage> retVal = null;
+
+            try
+            {
+                retVal = m_UserSocialData.GetLikedPages();
+            }
+            catch
+            {
+                throw new Exception("Unable to retrive Liked Pages");
+            }
+
+            return retVal;
+        }
     }
 }

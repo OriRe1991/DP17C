@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Threading;
 using C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem;
 using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
 

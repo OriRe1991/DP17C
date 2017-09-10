@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Threading;
 using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic;
 using C17_Ex01_Tal_301349361_Ori_2033199900.DataSystem;
 using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
-using System.Threading;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
@@ -20,21 +20,24 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private List<PictureBox> m_ViewedAlbumCovers;
 
+        private List<SocialLikedPage> m_ViewedLikedPage;
+
         private List<Label> m_ViewdAlbumsLabels;
 
         private List<SocialPost> m_PostList;
 
         private List<AlbumData> m_ViewedAlbumsData;
+
         private List<AlbumData> ViewedAlbumsData
         {
             get
             {
                 return m_ViewedAlbumsData;
             }
+
             set
             {
                 m_ViewedAlbumsData = value;
-                viewDataBinds();
             }
         }
 
@@ -87,27 +90,19 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             new Thread(updateRecentAlbumView).Start();
             new Thread(updateWall).Start();
             new Thread(getUserData).Start();
+            new Thread(getLikedPages).Start();
         }
 
-        private void viewDataBinds()
+        private void getLikedPages()
         {
-            if (ViewedAlbumsData != null && ViewedAlbumsData.Count > 0)
-            {
-                int albumIdx = 0;
-                foreach (var viewedAlbumData in ViewedAlbumsData)
-                {
-                    m_ViewedAlbumCovers[albumIdx].DataBindings.Add(new Binding("ImageLocation", viewedAlbumData, "FirstPicUrl", true));
-                    m_ViewdAlbumsLabels[albumIdx].Invoke(new Action(() => 
-                                        m_ViewdAlbumsLabels[albumIdx].DataBindings.Add(new Binding("Text", viewedAlbumData, "AlbomName", true))));
-
-                    albumIdx++;
-                }
-            }
+            m_ViewedLikedPage = m_ControlData.AppLogic.GetLikedPages();
+            this.Invoke(new Action(() => socialLikedPageBindingSource.DataSource = m_ViewedLikedPage));
         }
 
         private void getUserData()
         {
-            try {
+            try
+            {
                 var entityData = m_LogicApp.GetEntityData();
                 pictureBoxProfilePic.LoadAsync(entityData.ProfilePictureUrl);
                 pictureBoxCoverPhoto.LoadAsync(entityData.ThemePictureUrl);
@@ -120,7 +115,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             }
         }
 
-
         private void updateWall()
         {
             try
@@ -131,12 +125,12 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             {
                 MessageBox.Show(ex.Message);
             }
+
             updatePostsUI();
         }
 
         private void updatePostsUI()
         {
-            flowLayoutPanelWall.Invoke(new Action(() => flowLayoutPanelWall.Controls.Clear()));
             int idx = 0;
             if (m_PostList != null)
             {
@@ -164,21 +158,23 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             {
                 MessageBox.Show(ex.Message);
             }
+
+            updateRecentAlbumUI();
         }
 
-        //private void updateRecentAlbumUI()
-        //{
-        //    if (ViewedAlbumsData != null && ViewedAlbumsData.Count > 0)
-        //    {
-        //        int albumIdx = 0;
-        //        foreach (var viewedAlbumData in ViewedAlbumsData)
-        //        {
-        //            m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl)));
-        //            m_ViewdAlbumsLabels[albumIdx].Invoke(new Action(() => m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName));
-        //            albumIdx++;
-        //        }
-        //    }
-        //}
+        private void updateRecentAlbumUI()
+        {
+            if (ViewedAlbumsData != null && ViewedAlbumsData.Count > 0)
+            {
+                int albumIdx = 0;
+                foreach (var viewedAlbumData in ViewedAlbumsData)
+                {
+                    m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl)));
+                    m_ViewdAlbumsLabels[albumIdx].Invoke(new Action(() => m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName));
+                    albumIdx++;
+                }
+            }
+        }
 
         private void AppForm_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -7,6 +7,7 @@
             Facebook = 0,
             twitter = 1
         }
+
         /// <summary>
         /// creates dynamic social network data object to enable future support in other social net. (facebook, google+, twitter, linkedIn, etc.)
         /// </summary>
@@ -22,7 +23,7 @@
                     break;
                 case SocialNetwork.twitter:
                     throw new System.Exception("No twitter implementation avilable");
-                    break;
+                    ///break;
                 default:
                     break;
             }

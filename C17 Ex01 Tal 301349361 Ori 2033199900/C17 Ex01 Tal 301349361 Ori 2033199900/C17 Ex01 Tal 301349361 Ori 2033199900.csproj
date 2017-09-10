@@ -96,6 +96,7 @@
     <Compile Include="SocialNet\FacebookSocialData.cs" />
     <Compile Include="SocialNet\IDataSociable.cs" />
     <Compile Include="SocialNet\SocialDataFactory.cs" />
+    <Compile Include="SocialNet\SocialLikedPage.cs" />
     <Compile Include="SocialNet\SocialPost.cs" />
     <EmbeddedResource Include="AppForm.resx">
       <DependentUpon>AppForm.cs</DependentUpon>
@@ -122,7 +123,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Properties\DataSources\C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet.AlbumData.datasource" />
+    <None Include="Properties\DataSources\C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet.SocialLikedPage.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
