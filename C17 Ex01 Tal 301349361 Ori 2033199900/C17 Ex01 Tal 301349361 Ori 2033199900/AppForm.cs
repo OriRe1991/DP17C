@@ -134,6 +134,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             int idx = 0;
             if (m_PostList != null)
             {
+                flowLayoutPanelWall.Invoke(new Action(() => flowLayoutPanelWall.Controls.Clear()));
                 foreach (var post in m_PostList)
                 {
                     PostBox newPost = new PostBox();
