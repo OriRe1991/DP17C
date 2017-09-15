@@ -16,7 +16,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         EntityData GetEntityData();
 
-        List<AlbumData> GetFirstAlbumsData(int i_NumberOfAlbums);
+        AlbumsData GetFirstAlbumsData(int i_NumberOfAlbums);
 
         Dictionary<string, EntityData> GetTaggedFriends();
 

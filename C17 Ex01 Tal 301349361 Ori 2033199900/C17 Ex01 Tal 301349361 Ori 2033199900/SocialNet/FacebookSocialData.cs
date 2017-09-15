@@ -159,10 +159,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             return m_LoggedInUser.Cover.SourceURL;
         }
 
-        public List<AlbumData> GetLastAlbums(int i_Number)
+        public AlbumsData GetLastAlbums(int i_Number)
         {
             List<Album> firstAlbums = null;
-            List<AlbumData> retVal = new List<AlbumData>();
+            AlbumsData retVal = new AlbumsData();
             try
             {
                 var albumsOrdered = m_LoggedInUser.Albums.Where(ua => ua.Photos.Count > 0).OrderByDescending(ua => ua.CreatedTime).ToList();
@@ -185,7 +185,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                         picUrl = picThumb.ThumbURL;
                     }
 
-                    retVal.Add(new AlbumData
+                    retVal.AddNewAlbum(new SingleAlbumData
                     {
                         AlbomName = albom.Name,
                         FirstPicUrl = picUrl

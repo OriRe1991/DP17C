@@ -26,9 +26,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private List<SocialPost> m_PostList;
 
-        private List<AlbumData> m_ViewedAlbumsData;
+        private AlbumsData m_ViewedAlbumsData;
 
-        private List<AlbumData> ViewedAlbumsData
+        private AlbumsData ViewedAlbumsData
         {
             get
             {
@@ -165,13 +165,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
         private void updateRecentAlbumUI()
         {
-            if (ViewedAlbumsData != null && ViewedAlbumsData.Count > 0)
+            if (ViewedAlbumsData != null && ViewedAlbumsData.GetNumberOfElement() > 0)
             {
                 int albumIdx = 0;
-                foreach (var viewedAlbumData in ViewedAlbumsData)
+                foreach (ReadOnlySingleAlbumData viewedAlbumData in ViewedAlbumsData)
                 {
                     m_ViewedAlbumCovers[albumIdx].Invoke(new Action(() => m_ViewedAlbumCovers[albumIdx].LoadAsync(viewedAlbumData.FirstPicUrl)));
-                    m_ViewdAlbumsLabels[albumIdx].Invoke(new Action(() => m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbomName));
+                    m_ViewdAlbumsLabels[albumIdx].Invoke(new Action(() => m_ViewdAlbumsLabels[albumIdx].Text = viewedAlbumData.AlbumName));
                     albumIdx++;
                 }
             }

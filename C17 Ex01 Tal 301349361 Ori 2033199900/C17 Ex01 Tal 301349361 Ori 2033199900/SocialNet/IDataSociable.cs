@@ -26,7 +26,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         string GetThemePhotoUrl();
 
-        List<AlbumData> GetLastAlbums(int i_Number);
+        AlbumsData GetLastAlbums(int i_Number);
 
         List<SocialPhotoData> GetPhotos(int i_NumberOfPhotos);
 

@@ -79,7 +79,7 @@
     <Compile Include="PostBox.Designer.cs">
       <DependentUpon>PostBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="SocialNet\AlbumData.cs" />
+    <Compile Include="SocialNet\AlbumsData.cs" />
     <Compile Include="AppLogic\ApplicationLogic.cs" />
     <Compile Include="AppLogic\Features\AlbumDataManager.cs" />
     <Compile Include="AppLogic\ILogicInterface.cs" />

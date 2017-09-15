@@ -151,7 +151,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             return retVal;
         }
 
-        public List<AlbumData> GetFirstAlbumsData(int i_NumberOfAlbums)
+        public AlbumsData GetFirstAlbumsData(int i_NumberOfAlbums)
         {
             return AlbomDataManager.GetAlbumsData(i_NumberOfAlbums);
         }

@@ -20,9 +20,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             m_SocialData = i_SocialData;
         }
 
-        public List<AlbumData> GetAlbumsData(int i_NumberOfAlbums)
+        public AlbumsData GetAlbumsData(int i_NumberOfAlbums)
         {
-            List<AlbumData> retVal = null;
+            AlbumsData retVal = null;
 
             retVal = m_SocialData.GetLastAlbums(i_NumberOfAlbums);
 
