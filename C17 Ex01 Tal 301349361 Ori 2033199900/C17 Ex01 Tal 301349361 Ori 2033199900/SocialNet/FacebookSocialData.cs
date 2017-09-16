@@ -339,12 +339,19 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                         });
                     }
 
+                    EntityData postCreatodData = new EntityData()
+                    {
+                        FullName = post.From.Name,
+                        UserId = post.From.Id,
+                        ProfilePictureUrl = post.From.PictureLargeURL
+                    };
+
                     //// wrapping the object with poco data
                     retVal.Add(new SocialPost
                     {
                         GeneratedFriendUserId = post.From.Id,
                         Message = post.Message,
-                        NameFrom = post.From.Name,
+                        PostWritter = postCreatodData,
                         PictureUrl = post.PictureURL,
                         CreatedTime = post.CreatedTime.GetValueOrDefault(DateTime.MinValue),
                         EntityReactedToPost = reactedEntitys,

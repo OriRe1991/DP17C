@@ -11,7 +11,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
 
         public string PictureUrl { get; set; }
 
-        public string NameFrom { get; set; }
+        public EntityData PostWritter { get; set; }
 
         public List<EntityData> Comments { get; set; }
 
