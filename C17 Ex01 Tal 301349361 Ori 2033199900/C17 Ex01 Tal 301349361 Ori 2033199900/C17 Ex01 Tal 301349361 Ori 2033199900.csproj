@@ -83,6 +83,8 @@
     <Compile Include="AppLogic\ApplicationLogic.cs" />
     <Compile Include="AppLogic\Features\AlbumDataManager.cs" />
     <Compile Include="AppLogic\ILogicInterface.cs" />
+    <Compile Include="SocialNet\ReadOnlySingleAlbumData.cs" />
+    <Compile Include="SocialNet\SingleAlbumData.cs" />
     <Compile Include="SocialNet\SocialPhotoData.cs" />
     <Compile Include="SocialNet\EntityData.cs" />
     <Compile Include="FormLogin.cs">
