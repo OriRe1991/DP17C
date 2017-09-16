@@ -121,6 +121,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         private MyBestFriendManager m_MyBestFriendDataManager = null;
 
+        public event AlbumViewRefreshed m_AlbumViewRefreshed;
+
         private MyBestFriendManager MyBestFriendDataManager
         {
             get
@@ -173,7 +175,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         public void CreateAlbumWithFriend(params string[] i_UserIds)
         {
-            AlbomDataManager.CreateNewAlbum(FriendsData, FriendsPhotos, i_UserIds); 
+            AlbomDataManager.CreateNewAlbum(FriendsData, FriendsPhotos, i_UserIds);
+            OnPhotoUpdate();
         }
 
         public bool CreateNewPost(string i_PostData)
@@ -214,6 +217,14 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
         public void SetFriendListSorting(Action i_MostLikedLogic, Action i_MostCommenstLogic, Action i_MostTaggedLogic)
         {
             MyBestFriendDataManager.SetFriendsSortingLogic(i_MostLikedLogic, i_MostCommenstLogic, i_MostTaggedLogic);
+        }
+
+        public void OnPhotoUpdate()
+        {
+            if (m_AlbumViewRefreshed != null)
+            {
+                m_AlbumViewRefreshed.Invoke();
+            }
         }
     }
 }

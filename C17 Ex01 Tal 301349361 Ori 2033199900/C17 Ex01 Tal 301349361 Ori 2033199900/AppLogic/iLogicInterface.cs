@@ -4,6 +4,9 @@ using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 {
+
+    public delegate void AlbumViewRefreshed();
+
     public interface ILogicInterface
     {
         bool RememberMe { get; set; }
@@ -13,6 +16,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
         void LogOutUser(Action i_PostLogOutAction);
 
         bool IsConnected();
+
+        event AlbumViewRefreshed m_AlbumViewRefreshed;
 
         EntityData GetEntityData();
 
@@ -31,5 +36,8 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
         List<SocialLikedPage> GetLikedPages();
 
         void SetFriendListSorting(Action i_MostLikedLogic, Action i_MostCommenstLogic, Action i_MostTaggedLogic);
+
+        void OnPhotoUpdate();
+
     }
 }
