@@ -32,5 +32,20 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
         {
             this.Dispose();
         }
+
+        private int mostMostTaggedFriends()
+        {
+            throw new NotImplementedException();
+        }
+
+        private int mostLikedFirends()
+        {
+            throw new NotImplementedException();
+        }
+
+        private int mostCommenstFriend()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

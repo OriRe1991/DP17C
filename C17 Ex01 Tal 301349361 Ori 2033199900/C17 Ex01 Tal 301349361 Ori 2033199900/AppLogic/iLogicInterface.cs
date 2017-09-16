@@ -30,6 +30,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         List<SocialLikedPage> GetLikedPages();
 
-        void SetFriendListSorting(Action i_SortingLogic);
+        void SetFriendListSorting(Action i_MostLikedLogic, Action i_MostCommenstLogic, Action i_MostTaggedLogic);
     }
 }

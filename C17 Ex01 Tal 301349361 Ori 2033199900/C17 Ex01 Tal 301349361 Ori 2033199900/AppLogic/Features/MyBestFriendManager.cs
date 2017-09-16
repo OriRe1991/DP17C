@@ -13,6 +13,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
 
         private const int k_LikesWight = 1;
 
+        private Action m_MostLikedLogic;
+        private Action m_MostCommenstLogic;
+        private Action m_MostTaggedLogic;
+
         private Dictionary<string, int> m_FriendShipMap = new Dictionary<string, int>();
 
         private Dictionary<string, int> FriendShipMap
@@ -79,6 +83,13 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             var myVeryBestFriends = FriendShipMap.OrderByDescending(fsm => fsm.Value).ToList();
             string bestOfFriendsId = myVeryBestFriends.First().Key;
             return bestOfFriendsId;
+        }
+
+        public void SetFriendsSortingLogic(Action i_MostLikedLogic, Action i_MostCommenstLogic, Action i_MostTaggedLogic)
+        {
+            m_MostLikedLogic = i_MostLikedLogic;
+            m_MostCommenstLogic = i_MostCommenstLogic;
+            m_MostTaggedLogic = i_MostTaggedLogic;
         }
     }
 }

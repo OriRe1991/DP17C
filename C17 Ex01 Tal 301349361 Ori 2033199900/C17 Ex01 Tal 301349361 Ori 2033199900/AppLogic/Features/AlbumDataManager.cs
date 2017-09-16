@@ -41,11 +41,6 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             return retVal;
         }
 
-        public void SetFriendsSortingLogic(Action i_SortingLogic)
-        {
-
-        }
-
         public Dictionary<string, EntityData> GetTaggedFriendsNameList(List<SocialPhotoData> i_TaggedFriends)
         {
             Dictionary<string, EntityData> retVal = new Dictionary<string, EntityData>();

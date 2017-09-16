@@ -211,9 +211,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             return retVal;
         }
 
-        public void SetFriendListSorting(Action i_SortingLogic)
+        public void SetFriendListSorting(Action i_MostLikedLogic, Action i_MostCommenstLogic, Action i_MostTaggedLogic)
         {
-            AlbomDataManager.SetFriendsSortingLogic(i_SortingLogic);
+            MyBestFriendDataManager.SetFriendsSortingLogic(i_MostLikedLogic, i_MostCommenstLogic, i_MostTaggedLogic);
         }
     }
 }

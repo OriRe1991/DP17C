@@ -45,15 +45,5 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
 
             Dispose();
         }
-
-        private bool getMostTaggedFriends()
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool getLikedFirends()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
