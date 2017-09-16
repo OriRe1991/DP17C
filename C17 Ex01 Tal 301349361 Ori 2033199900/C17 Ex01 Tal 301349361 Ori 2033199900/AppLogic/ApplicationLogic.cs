@@ -190,7 +190,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
         {
             string myBestFriendId = string.Empty;
 
-            myBestFriendId = MyBestFriendDataManager.GetMyBestFriendId(FriendsPhotos);
+            myBestFriendId = MyBestFriendDataManager.GetMyBestFriendId(FriendsPhotos, FriendsData);
 
             return FriendsData[myBestFriendId];
         }
@@ -211,9 +211,9 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             return retVal;
         }
 
-        public void SetFriendListSorting(Action i_MostLikedLogic, Action i_MostCommenstLogic, Action i_MostTaggedLogic)
+        public void SetFriendListSorting(Func<int> i_LikedWightLogic, Func<int> i_CommenstWightLogic, Func<int> i_TaggedWightLogic)
         {
-            MyBestFriendDataManager.SetFriendsSortingLogic(i_MostLikedLogic, i_MostCommenstLogic, i_MostTaggedLogic);
+            MyBestFriendDataManager.SetFriendsSortingLogic(i_LikedWightLogic, i_CommenstWightLogic, i_TaggedWightLogic);
         }
     }
 }

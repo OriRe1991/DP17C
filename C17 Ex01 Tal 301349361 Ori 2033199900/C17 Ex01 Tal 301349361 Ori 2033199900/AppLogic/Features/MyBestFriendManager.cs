@@ -7,15 +7,17 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
 {
     public class MyBestFriendManager
     {
-        private const int k_TaggedPhotosWight = 4;
+        //private const int k_TaggedPhotosWight = 4;
 
-        private const int k_CommenstWight = 2;
+        //private const int k_CommenstWight = 2;
 
-        private const int k_LikesWight = 1;
+        //private const int k_LikesWight = 1;
 
-        private Action m_MostLikedLogic;
-        private Action m_MostCommenstLogic;
-        private Action m_MostTaggedLogic;
+        private Func<int> m_LikedWightLogic;
+        private Func<int> m_CommenstWightLogic;
+        private Func<int> m_TaggedWightLogic;
+
+        private Dictionary<string, EntityData> m_FriendsData;
 
         private Dictionary<string, int> m_FriendShipMap = new Dictionary<string, int>();
 
@@ -63,33 +65,44 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
             var posts = m_SocialData.GetLastPost(-1);
             foreach (var post in posts)
             {
-                UpdateFriendCounter(post.GeneratedFriendUserId, k_CommenstWight);
+                UpdateFriendCounter(post.GeneratedFriendUserId, m_CommenstWightLogic.Invoke());
+                validateFrindInList(post.PostWritter);
                 foreach (var entity in post.EntityReactedToPost)
                 {
-                    UpdateFriendCounter(entity.UserId, k_LikesWight);
+                    UpdateFriendCounter(entity.UserId, m_LikedWightLogic.Invoke());
+                    validateFrindInList(entity);
                 }
             }
 
             foreach (var friend in i_FriendsPhotos)
             {
-                int calculatedTotalPhotosWight = friend.Value.Count * k_TaggedPhotosWight;
+                int calculatedTotalPhotosWight = friend.Value.Count * m_TaggedWightLogic.Invoke();
                 UpdateFriendCounter(friend.Key, calculatedTotalPhotosWight);
             }
         }
 
-        public string GetMyBestFriendId(Dictionary<string, List<SocialPhotoData>> i_FriendsPhotos)
+        private void validateFrindInList(EntityData i_FriendEntityData)
         {
+            if (!m_FriendsData.ContainsKey(i_FriendEntityData.UserId))
+            {
+                m_FriendsData[i_FriendEntityData.UserId] = i_FriendEntityData;
+            }
+        }
+
+        public string GetMyBestFriendId(Dictionary<string, List<SocialPhotoData>> i_FriendsPhotos, Dictionary<string, EntityData> i_FriendsData)
+        {
+            m_FriendsData = i_FriendsData;
             GenerateBestFriendsData(i_FriendsPhotos);
             var myVeryBestFriends = FriendShipMap.OrderByDescending(fsm => fsm.Value).ToList();
             string bestOfFriendsId = myVeryBestFriends.First().Key;
             return bestOfFriendsId;
         }
 
-        public void SetFriendsSortingLogic(Action i_MostLikedLogic, Action i_MostCommenstLogic, Action i_MostTaggedLogic)
+        public void SetFriendsSortingLogic(Func<int> i_LikedWightLogic, Func<int> i_CommenstWightLogic, Func<int> i_TaggedWightLogic)
         {
-            m_MostLikedLogic = i_MostLikedLogic;
-            m_MostCommenstLogic = i_MostCommenstLogic;
-            m_MostTaggedLogic = i_MostTaggedLogic;
+            m_LikedWightLogic = i_LikedWightLogic;
+            m_CommenstWightLogic = i_CommenstWightLogic;
+            m_TaggedWightLogic = i_TaggedWightLogic;
         }
     }
 }
