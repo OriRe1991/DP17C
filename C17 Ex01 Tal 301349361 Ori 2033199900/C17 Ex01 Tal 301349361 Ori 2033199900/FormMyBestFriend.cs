@@ -47,7 +47,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             this.Dispose();
         }
 
-        private int mostMostTaggedFriends()
+        private int mostTaggedFriends()
         {
             int retVal = 0;
             switch (m_WightPlaneOption)
