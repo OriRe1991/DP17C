@@ -27,7 +27,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900
             m_ControlData = ControlData.GetInstance();
 
             /// sending the methods to the function to implement the strategy
-            m_ControlData.AppLogic.SetFriendListSorting(mostLikedFirends, mostCommenstFriend, mostMostTaggedFriends);
+            m_ControlData.AppLogic.SetFriendListSorting(mostLikedFirends, mostCommenstFriend, mostTaggedFriends);
         }
 
         private void FormMyBestFriend_Load(object sender, EventArgs e)
