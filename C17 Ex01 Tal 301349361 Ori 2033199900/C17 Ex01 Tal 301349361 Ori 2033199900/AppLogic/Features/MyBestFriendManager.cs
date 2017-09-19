@@ -7,14 +7,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features
 {
     public class MyBestFriendManager
     {
-        //private const int k_TaggedPhotosWight = 4;
-
-        //private const int k_CommenstWight = 2;
-
-        //private const int k_LikesWight = 1;
-
         private Func<int> m_LikedWightLogic;
+
         private Func<int> m_CommenstWightLogic;
+
         private Func<int> m_TaggedWightLogic;
 
         private Dictionary<string, EntityData> m_FriendsData;

@@ -3,6 +3,7 @@
     public class ReadOnlySingleAlbumData
     {
         private string m_AlbumName;
+
         public string AlbumName
         {
             get
@@ -12,6 +13,7 @@
         }
 
         private string m_FirstPicUrl;
+
         public string FirstPicUrl
         {
             get

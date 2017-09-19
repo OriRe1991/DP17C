@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
 using C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic.Features;
 using static C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet.SocialDataFactory;
-using System.Windows.Forms;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 {
@@ -15,7 +15,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
 
         private IDataSociable m_UserSocialData;
 
-        private System.Windows.Forms.Timer m_Timer;
+        private Timer m_Timer;
 
         private IDataSociable UserSocialData
         {
@@ -144,11 +144,10 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.AppLogic
             timerInit();
         }
 
-        private void TimerEventProcessor(Object myObject,
-                                            EventArgs myEventArgs)
+        private void TimerEventProcessor(object myObject, EventArgs myEventArgs)
         {
             m_Timer.Stop();
-            System.Threading.Thread threadPhotoRefresh = new System.Threading.Thread (() => UserSocialData.GetPhotos(k_NumberOfPhotosToRetrive));
+            System.Threading.Thread threadPhotoRefresh = new System.Threading.Thread(() => UserSocialData.GetPhotos(k_NumberOfPhotosToRetrive));
             m_Timer.Enabled = true;
             System.Threading.Thread threadUIRefresh = new System.Threading.Thread(OnPhotoUpdate);
         }

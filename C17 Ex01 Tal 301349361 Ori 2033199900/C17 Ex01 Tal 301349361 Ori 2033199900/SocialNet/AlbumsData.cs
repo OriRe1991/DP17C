@@ -14,6 +14,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
             {
                 m_AlbumDataList = new List<SingleAlbumData>();
             }
+
             m_AlbumDataList.Add(i_AlbumToAdd);
         }
 
@@ -65,6 +66,7 @@ namespace C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet
                 {
                     m_CurrentIndex++;
                 }
+
                 return m_Collection.m_AlbumDataList.Count > m_CurrentIndex;
             }
 

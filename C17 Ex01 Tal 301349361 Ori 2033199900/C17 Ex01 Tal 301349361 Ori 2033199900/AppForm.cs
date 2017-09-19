@@ -10,7 +10,6 @@ using C17_Ex01_Tal_301349361_Ori_2033199900.SocialNet;
 
 namespace C17_Ex01_Tal_301349361_Ori_2033199900
 {
-
     public partial class AppForm : Form
     {
         private const int k_NumberOfPostFromWall = 3;
